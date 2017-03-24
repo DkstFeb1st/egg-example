@@ -1,8 +1,12 @@
 'use strict';
+/*
+* 本地环境配置
+* */
 const path = require('path');
 /*默认的配置文件,所有环境都会加载这个配置文件，一般也会作为开发环境的默认配置文件。*/
 module.exports = appInfo => {
     const config = {};
+
 
     //数据库配置
     config.mysql = {
