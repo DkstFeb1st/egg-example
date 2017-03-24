@@ -1,0 +1,905 @@
+2017-03-24 10:53:16,487 INFO 11080 [94m[master][39m =================== egg start =====================
+2017-03-24 10:53:16,490 INFO 11080 [94m[master][39m egg version 1.0.0-rc.3
+2017-03-24 10:53:16,490 INFO 11080 [94m[master][39m start with options: {"framework":"D:\\work\\egg-example\\node_modules\\egg","baseDir":"D:\\work\\egg-example","port":7002,"workers":4,"plugins":null,"https":false,"key":"","cert":""}
+2017-03-24 10:53:16,490 INFO 11080 [94m[master][39m start with env: isProduction: true, isDebug: false, EGG_SERVER_ENV: undefined, NODE_ENV: production
+2017-03-24 10:53:16,511 INFO 11080 [94m[master][39m Agent Worker:2320 start with ["{\"framework\":\"D:\\\\work\\\\egg-example\\\\node_modules\\\\egg\",\"baseDir\":\"D:\\\\work\\\\egg-example\",\"port\":7002,\"workers\":4,\"plugins\":null,\"https\":false,\"key\":\"\",\"cert\":\"\",\"clusterPort\":63719}"]
+2017-03-24 10:53:17,237 INFO 2320 [94m[egg:core][39m App root: D:\work\egg-example
+2017-03-24 10:53:17,239 INFO 2320 [94m[egg:core][39m All *.log files save on "C:\\Users\\1\\logs\\example-egg"
+2017-03-24 10:53:17,239 INFO 2320 [94m[egg:core][39m Loaded enabled plugin [{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-onerror","version":"1.3.0"},{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-session","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-i18n","version":"1.1.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-watcher","version":"2.1.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-multipart","version":"1.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-security","version":"1.8.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-schedule","version":"2.3.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-logrotator","version":"2.2.2"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-static","version":"1.2.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-jsonp","version":"1.0.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-view","version":"1.0.1"},{"enable":true,"package":"egg-mysql","name":"mysql","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-mysql","version":"2.0.0"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-validate","version":"1.0.0"}]
+2017-03-24 10:53:17,265 INFO 2320 [94m[egg:logger][39m init all loggers with options: {"dir":"C:\\Users\\1\\logs\\example-egg","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","outputJSON":false,"buffer":true,"appLogName":"example-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"type":"agent"}
+2017-03-24 10:53:17,335 INFO 2320 [ClusterClient#Watcher] has seized port 63719, and serves as leader client.
+2017-03-24 10:53:17,335 INFO 2320 [94m[egg-watcher:agent][39m watcher start success
+[33m2017-03-24 10:53:17,336 WARN 2320 [egg-watcher] defaultEventSource watcher will NOT take effect[39m
+2017-03-24 10:53:17,337 INFO 2320 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-watcher\agent.js:15:9, remain []
+2017-03-24 10:53:17,343 INFO 11080 [94m[master][39m Agent Worker started ([32m848ms[39m)
+2017-03-24 10:53:17,490 INFO 11080 [94m[master][39m App Worker#1:3516 start, state: none, current workers: ["1","2","3","4"]
+2017-03-24 10:53:17,490 INFO 11080 [94m[master][39m App Worker#2:10852 start, state: none, current workers: ["1","2","3","4"]
+2017-03-24 10:53:17,491 INFO 11080 [94m[master][39m App Worker#3:11540 start, state: none, current workers: ["1","2","3","4"]
+2017-03-24 10:53:17,491 INFO 11080 [94m[master][39m App Worker#4:12000 start, state: none, current workers: ["1","2","3","4"]
+2017-03-24 10:53:18,822 INFO 10852 [94m[egg:core][39m App root: D:\work\egg-example
+2017-03-24 10:53:18,826 INFO 10852 [94m[egg:core][39m All *.log files save on "C:\\Users\\1\\logs\\example-egg"
+2017-03-24 10:53:18,827 INFO 10852 [94m[egg:core][39m Loaded enabled plugin [{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-onerror","version":"1.3.0"},{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-session","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-i18n","version":"1.1.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-watcher","version":"2.1.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-multipart","version":"1.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-security","version":"1.8.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-schedule","version":"2.3.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-logrotator","version":"2.2.2"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-static","version":"1.2.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-jsonp","version":"1.0.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-view","version":"1.0.1"},{"enable":true,"package":"egg-mysql","name":"mysql","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-mysql","version":"2.0.0"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-validate","version":"1.0.0"}]
+2017-03-24 10:53:18,870 INFO 12000 [94m[egg:core][39m App root: D:\work\egg-example
+2017-03-24 10:53:18,873 INFO 12000 [94m[egg:core][39m All *.log files save on "C:\\Users\\1\\logs\\example-egg"
+2017-03-24 10:53:18,874 INFO 12000 [94m[egg:core][39m Loaded enabled plugin [{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-onerror","version":"1.3.0"},{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-session","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-i18n","version":"1.1.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-watcher","version":"2.1.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-multipart","version":"1.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-security","version":"1.8.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-schedule","version":"2.3.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-logrotator","version":"2.2.2"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-static","version":"1.2.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-jsonp","version":"1.0.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-view","version":"1.0.1"},{"enable":true,"package":"egg-mysql","name":"mysql","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-mysql","version":"2.0.0"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-validate","version":"1.0.0"}]
+2017-03-24 10:53:18,876 INFO 11540 [94m[egg:core][39m App root: D:\work\egg-example
+2017-03-24 10:53:18,880 INFO 11540 [94m[egg:core][39m All *.log files save on "C:\\Users\\1\\logs\\example-egg"
+2017-03-24 10:53:18,880 INFO 11540 [94m[egg:core][39m Loaded enabled plugin [{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-onerror","version":"1.3.0"},{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-session","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-i18n","version":"1.1.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-watcher","version":"2.1.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-multipart","version":"1.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-security","version":"1.8.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-schedule","version":"2.3.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-logrotator","version":"2.2.2"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-static","version":"1.2.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-jsonp","version":"1.0.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-view","version":"1.0.1"},{"enable":true,"package":"egg-mysql","name":"mysql","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-mysql","version":"2.0.0"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-validate","version":"1.0.0"}]
+2017-03-24 10:53:19,013 INFO 3516 [94m[egg:core][39m App root: D:\work\egg-example
+2017-03-24 10:53:19,017 INFO 3516 [94m[egg:core][39m All *.log files save on "C:\\Users\\1\\logs\\example-egg"
+2017-03-24 10:53:19,018 INFO 3516 [94m[egg:core][39m Loaded enabled plugin [{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-onerror","version":"1.3.0"},{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-session","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-i18n","version":"1.1.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-watcher","version":"2.1.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-multipart","version":"1.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-security","version":"1.8.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-schedule","version":"2.3.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-logrotator","version":"2.2.2"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-static","version":"1.2.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-jsonp","version":"1.0.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-view","version":"1.0.1"},{"enable":true,"package":"egg-mysql","name":"mysql","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-mysql","version":"2.0.0"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-validate","version":"1.0.0"}]
+2017-03-24 10:53:19,042 INFO 10852 [94m[egg:logger][39m init all loggers with options: {"dir":"C:\\Users\\1\\logs\\example-egg","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","outputJSON":false,"buffer":true,"appLogName":"example-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"type":"application"}
+2017-03-24 10:53:19,100 INFO 12000 [94m[egg:logger][39m init all loggers with options: {"dir":"C:\\Users\\1\\logs\\example-egg","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","outputJSON":false,"buffer":true,"appLogName":"example-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"type":"application"}
+2017-03-24 10:53:19,103 INFO 11540 [94m[egg:logger][39m init all loggers with options: {"dir":"C:\\Users\\1\\logs\\example-egg","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","outputJSON":false,"buffer":true,"appLogName":"example-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"type":"application"}
+2017-03-24 10:53:19,115 INFO 10852 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2017-03-24 10:53:19,115 INFO 10852 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2017-03-24 10:53:19,132 INFO 10852 [94m[egg-mysql][39m connecting qdm105632177@qdm105632177.my3w.com:3306/qdm105632177_db
+2017-03-24 10:53:19,166 INFO 12000 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2017-03-24 10:53:19,166 INFO 12000 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2017-03-24 10:53:19,169 INFO 11540 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2017-03-24 10:53:19,169 INFO 11540 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2017-03-24 10:53:19,183 INFO 12000 [94m[egg-mysql][39m connecting qdm105632177@qdm105632177.my3w.com:3306/qdm105632177_db
+2017-03-24 10:53:19,184 INFO 11540 [94m[egg-mysql][39m connecting qdm105632177@qdm105632177.my3w.com:3306/qdm105632177_db
+2017-03-24 10:53:19,262 INFO 3516 [94m[egg:logger][39m init all loggers with options: {"dir":"C:\\Users\\1\\logs\\example-egg","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","outputJSON":false,"buffer":true,"appLogName":"example-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"type":"application"}
+2017-03-24 10:53:19,293 INFO 10852 Use coreMiddleware order: ["meta","siteFile","notfound","static","bodyParser","session","i18n","securities"]
+2017-03-24 10:53:19,294 INFO 10852 Use appMiddleware order: []
+2017-03-24 10:53:19,296 INFO 10852 [94m[egg:loader][39m Use middleware: meta
+2017-03-24 10:53:19,296 INFO 10852 [94m[egg:loader][39m Use middleware: siteFile
+2017-03-24 10:53:19,297 INFO 10852 [94m[egg:loader][39m Use middleware: notfound
+2017-03-24 10:53:19,298 INFO 10852 [94m[egg-static][39m starting static serve /public/ -> D:\work\egg-example\app\public
+2017-03-24 10:53:19,299 INFO 10852 [94m[egg:loader][39m Use middleware: static
+2017-03-24 10:53:19,300 INFO 10852 [94m[egg:loader][39m Use middleware: bodyParser
+2017-03-24 10:53:19,301 INFO 10852 [94m[egg:loader][39m Use middleware: session
+2017-03-24 10:53:19,301 INFO 10852 [94m[egg:loader][39m Use middleware: i18n
+2017-03-24 10:53:19,303 INFO 10852 [94m[egg-security][39m use csrf middleware
+2017-03-24 10:53:19,304 INFO 10852 [94m[egg-security][39m use methodnoallow middleware
+2017-03-24 10:53:19,305 INFO 10852 [94m[egg-security][39m use noopen middleware
+2017-03-24 10:53:19,306 INFO 10852 [94m[egg-security][39m use nosniff middleware
+2017-03-24 10:53:19,307 INFO 10852 [94m[egg-security][39m use xssProtection middleware
+2017-03-24 10:53:19,309 INFO 10852 [94m[egg-security][39m use xframe middleware
+2017-03-24 10:53:19,309 INFO 10852 [94m[egg-security][39m compose 6 middlewares into one security middleware
+2017-03-24 10:53:19,310 INFO 10852 [94m[egg:loader][39m Use middleware: securities
+2017-03-24 10:53:19,310 INFO 10852 [94m[egg:loader][39m Loaded middleware from ["D:\\work\\egg-example\\node_modules\\egg-onerror\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-session\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-i18n\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-watcher\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-multipart\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-security\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-schedule\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-logrotator\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-static\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-jsonp\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-view\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-mysql\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-validate\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg\\app\\middleware","D:\\work\\egg-example\\app\\middleware"]
+2017-03-24 10:53:19,317 INFO 10852 [94m[egg:loader][39m Controller loaded: D:\work\egg-example\app\controller
+2017-03-24 10:53:19,347 INFO 10852 [ClusterClient#Watcher] gives up seizing port 63719, and serves as follower client.
+2017-03-24 10:53:19,358 INFO 10852 [Follower#Watcher] register to channel: Watcher success
+2017-03-24 10:53:19,359 INFO 10852 [94m[egg-watcher:app][39m watcher start success
+2017-03-24 10:53:19,360 INFO 10852 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-watcher\app.js:15:7, remain ["D:\\work\\egg-example\\node_modules\\egg-mysql\\lib\\mysql.js:20:7"]
+2017-03-24 10:53:19,375 INFO 12000 Use coreMiddleware order: ["meta","siteFile","notfound","static","bodyParser","session","i18n","securities"]
+2017-03-24 10:53:19,375 INFO 12000 Use appMiddleware order: []
+2017-03-24 10:53:19,377 INFO 12000 [94m[egg:loader][39m Use middleware: meta
+2017-03-24 10:53:19,377 INFO 12000 [94m[egg:loader][39m Use middleware: siteFile
+2017-03-24 10:53:19,377 INFO 12000 [94m[egg:loader][39m Use middleware: notfound
+2017-03-24 10:53:19,378 INFO 12000 [94m[egg-static][39m starting static serve /public/ -> D:\work\egg-example\app\public
+2017-03-24 10:53:19,379 INFO 12000 [94m[egg:loader][39m Use middleware: static
+2017-03-24 10:53:19,380 INFO 12000 [94m[egg:loader][39m Use middleware: bodyParser
+2017-03-24 10:53:19,381 INFO 12000 [94m[egg:loader][39m Use middleware: session
+2017-03-24 10:53:19,381 INFO 11540 Use coreMiddleware order: ["meta","siteFile","notfound","static","bodyParser","session","i18n","securities"]
+2017-03-24 10:53:19,381 INFO 12000 [94m[egg:loader][39m Use middleware: i18n
+2017-03-24 10:53:19,381 INFO 11540 Use appMiddleware order: []
+2017-03-24 10:53:19,383 INFO 12000 [94m[egg-security][39m use csrf middleware
+2017-03-24 10:53:19,383 INFO 11540 [94m[egg:loader][39m Use middleware: meta
+2017-03-24 10:53:19,384 INFO 11540 [94m[egg:loader][39m Use middleware: siteFile
+2017-03-24 10:53:19,384 INFO 11540 [94m[egg:loader][39m Use middleware: notfound
+2017-03-24 10:53:19,384 INFO 12000 [94m[egg-security][39m use methodnoallow middleware
+2017-03-24 10:53:19,385 INFO 11540 [94m[egg-static][39m starting static serve /public/ -> D:\work\egg-example\app\public
+2017-03-24 10:53:19,385 INFO 12000 [94m[egg-security][39m use noopen middleware
+2017-03-24 10:53:19,386 INFO 11540 [94m[egg:loader][39m Use middleware: static
+2017-03-24 10:53:19,386 INFO 12000 [94m[egg-security][39m use nosniff middleware
+2017-03-24 10:53:19,386 INFO 11540 [94m[egg:loader][39m Use middleware: bodyParser
+2017-03-24 10:53:19,387 INFO 12000 [94m[egg-security][39m use xssProtection middleware
+2017-03-24 10:53:19,387 INFO 11540 [94m[egg:loader][39m Use middleware: session
+2017-03-24 10:53:19,387 INFO 11540 [94m[egg:loader][39m Use middleware: i18n
+2017-03-24 10:53:19,388 INFO 12000 [94m[egg-security][39m use xframe middleware
+2017-03-24 10:53:19,389 INFO 12000 [94m[egg-security][39m compose 6 middlewares into one security middleware
+2017-03-24 10:53:19,389 INFO 11540 [94m[egg-security][39m use csrf middleware
+2017-03-24 10:53:19,389 INFO 12000 [94m[egg:loader][39m Use middleware: securities
+2017-03-24 10:53:19,389 INFO 12000 [94m[egg:loader][39m Loaded middleware from ["D:\\work\\egg-example\\node_modules\\egg-onerror\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-session\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-i18n\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-watcher\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-multipart\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-security\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-schedule\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-logrotator\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-static\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-jsonp\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-view\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-mysql\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-validate\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg\\app\\middleware","D:\\work\\egg-example\\app\\middleware"]
+2017-03-24 10:53:19,390 INFO 11540 [94m[egg-security][39m use methodnoallow middleware
+2017-03-24 10:53:19,391 INFO 11540 [94m[egg-security][39m use noopen middleware
+2017-03-24 10:53:19,392 INFO 11540 [94m[egg-security][39m use nosniff middleware
+2017-03-24 10:53:19,393 INFO 11540 [94m[egg-security][39m use xssProtection middleware
+2017-03-24 10:53:19,395 INFO 11540 [94m[egg-security][39m use xframe middleware
+2017-03-24 10:53:19,395 INFO 11540 [94m[egg-security][39m compose 6 middlewares into one security middleware
+2017-03-24 10:53:19,395 INFO 11540 [94m[egg:loader][39m Use middleware: securities
+2017-03-24 10:53:19,395 INFO 11540 [94m[egg:loader][39m Loaded middleware from ["D:\\work\\egg-example\\node_modules\\egg-onerror\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-session\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-i18n\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-watcher\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-multipart\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-security\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-schedule\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-logrotator\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-static\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-jsonp\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-view\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-mysql\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-validate\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg\\app\\middleware","D:\\work\\egg-example\\app\\middleware"]
+2017-03-24 10:53:19,397 INFO 12000 [94m[egg:loader][39m Controller loaded: D:\work\egg-example\app\controller
+2017-03-24 10:53:19,404 INFO 11540 [94m[egg:loader][39m Controller loaded: D:\work\egg-example\app\controller
+2017-03-24 10:53:19,426 INFO 3516 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2017-03-24 10:53:19,427 INFO 3516 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2017-03-24 10:53:19,435 INFO 12000 [ClusterClient#Watcher] gives up seizing port 63719, and serves as follower client.
+2017-03-24 10:53:19,435 INFO 11540 [ClusterClient#Watcher] gives up seizing port 63719, and serves as follower client.
+2017-03-24 10:53:19,441 INFO 12000 [Follower#Watcher] register to channel: Watcher success
+2017-03-24 10:53:19,442 INFO 12000 [94m[egg-watcher:app][39m watcher start success
+2017-03-24 10:53:19,442 INFO 12000 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-watcher\app.js:15:7, remain ["D:\\work\\egg-example\\node_modules\\egg-mysql\\lib\\mysql.js:20:7"]
+2017-03-24 10:53:19,446 INFO 3516 [94m[egg-mysql][39m connecting qdm105632177@qdm105632177.my3w.com:3306/qdm105632177_db
+2017-03-24 10:53:19,449 INFO 11540 [Follower#Watcher] register to channel: Watcher success
+2017-03-24 10:53:19,450 INFO 11540 [94m[egg-watcher:app][39m watcher start success
+2017-03-24 10:53:19,451 INFO 11540 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-watcher\app.js:15:7, remain ["D:\\work\\egg-example\\node_modules\\egg-mysql\\lib\\mysql.js:20:7"]
+2017-03-24 10:53:19,562 INFO 10852 [94m[egg-mysql][39m instance[94m[0][39m status OK, rds currentTime: Fri Mar 24 2017 10:55:25 GMT+0800 (中国标准时间)
+2017-03-24 10:53:19,563 INFO 10852 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-mysql\lib\mysql.js:20:7, remain []
+2017-03-24 10:53:19,572 INFO 3516 Use coreMiddleware order: ["meta","siteFile","notfound","static","bodyParser","session","i18n","securities"]
+2017-03-24 10:53:19,573 INFO 3516 Use appMiddleware order: []
+2017-03-24 10:53:19,574 INFO 3516 [94m[egg:loader][39m Use middleware: meta
+2017-03-24 10:53:19,575 INFO 3516 [94m[egg:loader][39m Use middleware: siteFile
+2017-03-24 10:53:19,575 INFO 3516 [94m[egg:loader][39m Use middleware: notfound
+2017-03-24 10:53:19,576 INFO 3516 [94m[egg-static][39m starting static serve /public/ -> D:\work\egg-example\app\public
+2017-03-24 10:53:19,576 INFO 3516 [94m[egg:loader][39m Use middleware: static
+2017-03-24 10:53:19,577 INFO 3516 [94m[egg:loader][39m Use middleware: bodyParser
+2017-03-24 10:53:19,577 INFO 3516 [94m[egg:loader][39m Use middleware: session
+2017-03-24 10:53:19,578 INFO 3516 [94m[egg:loader][39m Use middleware: i18n
+[33m2017-03-24 10:53:19,579 WARN 11080 [master] App Worker#2:10852 started at 7002, remain 3 (2236ms)[39m
+2017-03-24 10:53:19,579 INFO 3516 [94m[egg-security][39m use csrf middleware
+2017-03-24 10:53:19,580 INFO 3516 [94m[egg-security][39m use methodnoallow middleware
+2017-03-24 10:53:19,581 INFO 3516 [94m[egg-security][39m use noopen middleware
+2017-03-24 10:53:19,582 INFO 3516 [94m[egg-security][39m use nosniff middleware
+2017-03-24 10:53:19,582 INFO 3516 [94m[egg-security][39m use xssProtection middleware
+2017-03-24 10:53:19,584 INFO 3516 [94m[egg-security][39m use xframe middleware
+2017-03-24 10:53:19,584 INFO 3516 [94m[egg-security][39m compose 6 middlewares into one security middleware
+2017-03-24 10:53:19,585 INFO 3516 [94m[egg:loader][39m Use middleware: securities
+2017-03-24 10:53:19,585 INFO 3516 [94m[egg:loader][39m Loaded middleware from ["D:\\work\\egg-example\\node_modules\\egg-onerror\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-session\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-i18n\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-watcher\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-multipart\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-security\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-schedule\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-logrotator\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-static\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-jsonp\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-view\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-mysql\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-validate\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg\\app\\middleware","D:\\work\\egg-example\\app\\middleware"]
+2017-03-24 10:53:19,589 INFO 12000 [94m[egg-mysql][39m instance[94m[0][39m status OK, rds currentTime: Fri Mar 24 2017 10:55:25 GMT+0800 (中国标准时间)
+2017-03-24 10:53:19,590 INFO 12000 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-mysql\lib\mysql.js:20:7, remain []
+2017-03-24 10:53:19,590 INFO 11540 [94m[egg-mysql][39m instance[94m[0][39m status OK, rds currentTime: Fri Mar 24 2017 10:55:25 GMT+0800 (中国标准时间)
+2017-03-24 10:53:19,591 INFO 11540 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-mysql\lib\mysql.js:20:7, remain []
+2017-03-24 10:53:19,592 INFO 3516 [94m[egg:loader][39m Controller loaded: D:\work\egg-example\app\controller
+[33m2017-03-24 10:53:19,605 WARN 11080 [master] App Worker#4:12000 started at 7002, remain 2 (2262ms)[39m
+[33m2017-03-24 10:53:19,608 WARN 11080 [master] App Worker#3:11540 started at 7002, remain 1 (2265ms)[39m
+2017-03-24 10:53:19,625 INFO 3516 [ClusterClient#Watcher] gives up seizing port 63719, and serves as follower client.
+2017-03-24 10:53:19,629 INFO 3516 [Follower#Watcher] register to channel: Watcher success
+2017-03-24 10:53:19,630 INFO 3516 [94m[egg-watcher:app][39m watcher start success
+2017-03-24 10:53:19,630 INFO 3516 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-watcher\app.js:15:7, remain ["D:\\work\\egg-example\\node_modules\\egg-mysql\\lib\\mysql.js:20:7"]
+2017-03-24 10:53:19,755 INFO 3516 [94m[egg-mysql][39m instance[94m[0][39m status OK, rds currentTime: Fri Mar 24 2017 10:55:25 GMT+0800 (中国标准时间)
+2017-03-24 10:53:19,755 INFO 3516 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-mysql\lib\mysql.js:20:7, remain []
+[33m2017-03-24 10:53:19,766 WARN 11080 [master] App Worker#1:3516 started at 7002, remain 0 (2423ms)[39m
+2017-03-24 10:53:19,767 INFO 11080 [94m[master][39m egg started on http://127.0.0.1:7002 ([32m3276ms[39m)
+2017-03-24 10:55:26,813 INFO 9596 [94m[master][39m =================== egg start =====================
+2017-03-24 10:55:26,815 INFO 9596 [94m[master][39m egg version 1.0.0-rc.3
+2017-03-24 10:55:26,816 INFO 9596 [94m[master][39m start with options: {"framework":"D:\\work\\egg-example\\node_modules\\egg","baseDir":"D:\\work\\egg-example","port":7002,"workers":4,"plugins":null,"https":false,"key":"","cert":""}
+2017-03-24 10:55:26,816 INFO 9596 [94m[master][39m start with env: isProduction: true, isDebug: false, EGG_SERVER_ENV: undefined, NODE_ENV: production
+2017-03-24 10:55:26,830 INFO 9596 [94m[master][39m Agent Worker:9316 start with ["{\"framework\":\"D:\\\\work\\\\egg-example\\\\node_modules\\\\egg\",\"baseDir\":\"D:\\\\work\\\\egg-example\",\"port\":7002,\"workers\":4,\"plugins\":null,\"https\":false,\"key\":\"\",\"cert\":\"\",\"clusterPort\":63804}"]
+2017-03-24 10:55:27,542 INFO 9316 [94m[egg:core][39m App root: D:\work\egg-example
+2017-03-24 10:55:27,545 INFO 9316 [94m[egg:core][39m All *.log files save on "C:\\Users\\1\\logs\\example-egg"
+2017-03-24 10:55:27,545 INFO 9316 [94m[egg:core][39m Loaded enabled plugin [{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-onerror","version":"1.3.0"},{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-session","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-i18n","version":"1.1.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-watcher","version":"2.1.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-multipart","version":"1.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-security","version":"1.8.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-schedule","version":"2.3.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-logrotator","version":"2.2.2"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-static","version":"1.2.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-jsonp","version":"1.0.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-view","version":"1.0.1"},{"enable":true,"package":"egg-mysql","name":"mysql","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-mysql","version":"2.0.0"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-validate","version":"1.0.0"}]
+2017-03-24 10:55:27,552 INFO 9316 [94m[egg:logger][39m init all loggers with options: {"dir":"C:\\Users\\1\\logs\\example-egg","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","outputJSON":false,"buffer":true,"appLogName":"example-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"type":"agent"}
+2017-03-24 10:55:27,622 INFO 9316 [ClusterClient#Watcher] has seized port 63804, and serves as leader client.
+2017-03-24 10:55:27,622 INFO 9316 [94m[egg-watcher:agent][39m watcher start success
+[33m2017-03-24 10:55:27,623 WARN 9316 [egg-watcher] defaultEventSource watcher will NOT take effect[39m
+2017-03-24 10:55:27,623 INFO 9316 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-watcher\agent.js:15:9, remain []
+2017-03-24 10:55:27,632 INFO 9596 [94m[master][39m Agent Worker started ([32m812ms[39m)
+2017-03-24 10:55:27,693 INFO 9596 [94m[master][39m App Worker#1:12028 start, state: none, current workers: ["1","2","3","4"]
+2017-03-24 10:55:27,694 INFO 9596 [94m[master][39m App Worker#2:10492 start, state: none, current workers: ["1","2","3","4"]
+2017-03-24 10:55:27,694 INFO 9596 [94m[master][39m App Worker#3:10656 start, state: none, current workers: ["1","2","3","4"]
+2017-03-24 10:55:27,694 INFO 9596 [94m[master][39m App Worker#4:11608 start, state: none, current workers: ["1","2","3","4"]
+2017-03-24 10:55:28,881 INFO 10656 [94m[egg:core][39m App root: D:\work\egg-example
+2017-03-24 10:55:28,885 INFO 10656 [94m[egg:core][39m All *.log files save on "C:\\Users\\1\\logs\\example-egg"
+2017-03-24 10:55:28,886 INFO 10656 [94m[egg:core][39m Loaded enabled plugin [{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-onerror","version":"1.3.0"},{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-session","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-i18n","version":"1.1.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-watcher","version":"2.1.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-multipart","version":"1.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-security","version":"1.8.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-schedule","version":"2.3.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-logrotator","version":"2.2.2"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-static","version":"1.2.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-jsonp","version":"1.0.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-view","version":"1.0.1"},{"enable":true,"package":"egg-mysql","name":"mysql","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-mysql","version":"2.0.0"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-validate","version":"1.0.0"}]
+2017-03-24 10:55:28,889 INFO 12028 [94m[egg:core][39m App root: D:\work\egg-example
+2017-03-24 10:55:28,892 INFO 12028 [94m[egg:core][39m All *.log files save on "C:\\Users\\1\\logs\\example-egg"
+2017-03-24 10:55:28,894 INFO 12028 [94m[egg:core][39m Loaded enabled plugin [{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-onerror","version":"1.3.0"},{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-session","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-i18n","version":"1.1.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-watcher","version":"2.1.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-multipart","version":"1.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-security","version":"1.8.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-schedule","version":"2.3.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-logrotator","version":"2.2.2"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-static","version":"1.2.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-jsonp","version":"1.0.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-view","version":"1.0.1"},{"enable":true,"package":"egg-mysql","name":"mysql","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-mysql","version":"2.0.0"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-validate","version":"1.0.0"}]
+2017-03-24 10:55:29,131 INFO 10656 [94m[egg:logger][39m init all loggers with options: {"dir":"C:\\Users\\1\\logs\\example-egg","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","outputJSON":false,"buffer":true,"appLogName":"example-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"type":"application"}
+2017-03-24 10:55:29,152 INFO 12028 [94m[egg:logger][39m init all loggers with options: {"dir":"C:\\Users\\1\\logs\\example-egg","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","outputJSON":false,"buffer":true,"appLogName":"example-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"type":"application"}
+2017-03-24 10:55:29,203 INFO 10656 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2017-03-24 10:55:29,203 INFO 10656 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2017-03-24 10:55:29,221 INFO 10656 [94m[egg-mysql][39m connecting qdm105632177@qdm105632177.my3w.com:3306/qdm105632177_db
+2017-03-24 10:55:29,252 INFO 12028 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2017-03-24 10:55:29,252 INFO 12028 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2017-03-24 10:55:29,272 INFO 12028 [94m[egg-mysql][39m connecting qdm105632177@qdm105632177.my3w.com:3306/qdm105632177_db
+2017-03-24 10:55:29,376 INFO 10492 [94m[egg:core][39m App root: D:\work\egg-example
+2017-03-24 10:55:29,380 INFO 10492 [94m[egg:core][39m All *.log files save on "C:\\Users\\1\\logs\\example-egg"
+2017-03-24 10:55:29,381 INFO 10492 [94m[egg:core][39m Loaded enabled plugin [{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-onerror","version":"1.3.0"},{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-session","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-i18n","version":"1.1.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-watcher","version":"2.1.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-multipart","version":"1.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-security","version":"1.8.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-schedule","version":"2.3.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-logrotator","version":"2.2.2"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-static","version":"1.2.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-jsonp","version":"1.0.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-view","version":"1.0.1"},{"enable":true,"package":"egg-mysql","name":"mysql","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-mysql","version":"2.0.0"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-validate","version":"1.0.0"}]
+2017-03-24 10:55:29,393 INFO 10656 Use coreMiddleware order: ["meta","siteFile","notfound","static","bodyParser","session","i18n","securities"]
+2017-03-24 10:55:29,394 INFO 10656 Use appMiddleware order: []
+2017-03-24 10:55:29,395 INFO 10656 [94m[egg:loader][39m Use middleware: meta
+2017-03-24 10:55:29,396 INFO 10656 [94m[egg:loader][39m Use middleware: siteFile
+2017-03-24 10:55:29,396 INFO 10656 [94m[egg:loader][39m Use middleware: notfound
+2017-03-24 10:55:29,397 INFO 10656 [94m[egg-static][39m starting static serve /public/ -> D:\work\egg-example\app\public
+2017-03-24 10:55:29,398 INFO 10656 [94m[egg:loader][39m Use middleware: static
+2017-03-24 10:55:29,398 INFO 10656 [94m[egg:loader][39m Use middleware: bodyParser
+2017-03-24 10:55:29,403 INFO 10656 [94m[egg:loader][39m Use middleware: session
+2017-03-24 10:55:29,404 INFO 10656 [94m[egg:loader][39m Use middleware: i18n
+2017-03-24 10:55:29,405 INFO 10656 [94m[egg-security][39m use csrf middleware
+2017-03-24 10:55:29,407 INFO 10656 [94m[egg-security][39m use methodnoallow middleware
+2017-03-24 10:55:29,408 INFO 10656 [94m[egg-security][39m use noopen middleware
+2017-03-24 10:55:29,408 INFO 10656 [94m[egg-security][39m use nosniff middleware
+2017-03-24 10:55:29,410 INFO 10656 [94m[egg-security][39m use xssProtection middleware
+2017-03-24 10:55:29,413 INFO 10656 [94m[egg-security][39m use xframe middleware
+2017-03-24 10:55:29,413 INFO 10656 [94m[egg-security][39m compose 6 middlewares into one security middleware
+2017-03-24 10:55:29,413 INFO 10656 [94m[egg:loader][39m Use middleware: securities
+2017-03-24 10:55:29,413 INFO 10656 [94m[egg:loader][39m Loaded middleware from ["D:\\work\\egg-example\\node_modules\\egg-onerror\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-session\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-i18n\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-watcher\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-multipart\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-security\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-schedule\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-logrotator\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-static\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-jsonp\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-view\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-mysql\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-validate\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg\\app\\middleware","D:\\work\\egg-example\\app\\middleware"]
+2017-03-24 10:55:29,422 INFO 10656 [94m[egg:loader][39m Controller loaded: D:\work\egg-example\app\controller
+2017-03-24 10:55:29,453 INFO 10656 [ClusterClient#Watcher] gives up seizing port 63804, and serves as follower client.
+2017-03-24 10:55:29,463 INFO 10656 [Follower#Watcher] register to channel: Watcher success
+2017-03-24 10:55:29,463 INFO 10656 [94m[egg-watcher:app][39m watcher start success
+2017-03-24 10:55:29,464 INFO 10656 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-watcher\app.js:15:7, remain ["D:\\work\\egg-example\\node_modules\\egg-mysql\\lib\\mysql.js:20:7"]
+2017-03-24 10:55:29,470 INFO 12028 Use coreMiddleware order: ["meta","siteFile","notfound","static","bodyParser","session","i18n","securities"]
+2017-03-24 10:55:29,470 INFO 12028 Use appMiddleware order: []
+2017-03-24 10:55:29,472 INFO 12028 [94m[egg:loader][39m Use middleware: meta
+2017-03-24 10:55:29,472 INFO 12028 [94m[egg:loader][39m Use middleware: siteFile
+2017-03-24 10:55:29,473 INFO 12028 [94m[egg:loader][39m Use middleware: notfound
+2017-03-24 10:55:29,473 INFO 12028 [94m[egg-static][39m starting static serve /public/ -> D:\work\egg-example\app\public
+2017-03-24 10:55:29,474 INFO 12028 [94m[egg:loader][39m Use middleware: static
+2017-03-24 10:55:29,475 INFO 12028 [94m[egg:loader][39m Use middleware: bodyParser
+2017-03-24 10:55:29,475 INFO 12028 [94m[egg:loader][39m Use middleware: session
+2017-03-24 10:55:29,476 INFO 12028 [94m[egg:loader][39m Use middleware: i18n
+2017-03-24 10:55:29,477 INFO 12028 [94m[egg-security][39m use csrf middleware
+2017-03-24 10:55:29,478 INFO 12028 [94m[egg-security][39m use methodnoallow middleware
+2017-03-24 10:55:29,479 INFO 12028 [94m[egg-security][39m use noopen middleware
+2017-03-24 10:55:29,480 INFO 12028 [94m[egg-security][39m use nosniff middleware
+2017-03-24 10:55:29,481 INFO 12028 [94m[egg-security][39m use xssProtection middleware
+2017-03-24 10:55:29,483 INFO 12028 [94m[egg-security][39m use xframe middleware
+2017-03-24 10:55:29,483 INFO 12028 [94m[egg-security][39m compose 6 middlewares into one security middleware
+2017-03-24 10:55:29,483 INFO 12028 [94m[egg:loader][39m Use middleware: securities
+2017-03-24 10:55:29,483 INFO 12028 [94m[egg:loader][39m Loaded middleware from ["D:\\work\\egg-example\\node_modules\\egg-onerror\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-session\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-i18n\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-watcher\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-multipart\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-security\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-schedule\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-logrotator\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-static\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-jsonp\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-view\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-mysql\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-validate\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg\\app\\middleware","D:\\work\\egg-example\\app\\middleware"]
+2017-03-24 10:55:29,491 INFO 12028 [94m[egg:loader][39m Controller loaded: D:\work\egg-example\app\controller
+2017-03-24 10:55:29,526 INFO 12028 [ClusterClient#Watcher] gives up seizing port 63804, and serves as follower client.
+2017-03-24 10:55:29,532 INFO 12028 [Follower#Watcher] register to channel: Watcher success
+2017-03-24 10:55:29,532 INFO 12028 [94m[egg-watcher:app][39m watcher start success
+2017-03-24 10:55:29,534 INFO 12028 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-watcher\app.js:15:7, remain ["D:\\work\\egg-example\\node_modules\\egg-mysql\\lib\\mysql.js:20:7"]
+2017-03-24 10:55:29,639 INFO 10492 [94m[egg:logger][39m init all loggers with options: {"dir":"C:\\Users\\1\\logs\\example-egg","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","outputJSON":false,"buffer":true,"appLogName":"example-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"type":"application"}
+2017-03-24 10:55:29,658 INFO 12028 [94m[egg-mysql][39m instance[94m[0][39m status OK, rds currentTime: Fri Mar 24 2017 10:57:35 GMT+0800 (中国标准时间)
+2017-03-24 10:55:29,658 INFO 12028 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-mysql\lib\mysql.js:20:7, remain []
+[33m2017-03-24 10:55:29,673 WARN 9596 [master] App Worker#1:12028 started at 7002, remain 3 (2041ms)[39m
+2017-03-24 10:55:29,681 INFO 10656 [94m[egg-mysql][39m instance[94m[0][39m status OK, rds currentTime: Fri Mar 24 2017 10:57:35 GMT+0800 (中国标准时间)
+2017-03-24 10:55:29,681 INFO 10656 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-mysql\lib\mysql.js:20:7, remain []
+[33m2017-03-24 10:55:29,692 WARN 9596 [master] App Worker#3:10656 started at 7002, remain 2 (2060ms)[39m
+2017-03-24 10:55:29,705 INFO 10492 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2017-03-24 10:55:29,706 INFO 10492 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2017-03-24 10:55:29,722 INFO 10492 [94m[egg-mysql][39m connecting qdm105632177@qdm105632177.my3w.com:3306/qdm105632177_db
+2017-03-24 10:55:29,724 INFO 11608 [94m[egg:core][39m App root: D:\work\egg-example
+2017-03-24 10:55:29,728 INFO 11608 [94m[egg:core][39m All *.log files save on "C:\\Users\\1\\logs\\example-egg"
+2017-03-24 10:55:29,729 INFO 11608 [94m[egg:core][39m Loaded enabled plugin [{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-onerror","version":"1.3.0"},{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-session","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-i18n","version":"1.1.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-watcher","version":"2.1.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-multipart","version":"1.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-security","version":"1.8.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-schedule","version":"2.3.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-logrotator","version":"2.2.2"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-static","version":"1.2.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-jsonp","version":"1.0.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-view","version":"1.0.1"},{"enable":true,"package":"egg-mysql","name":"mysql","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-mysql","version":"2.0.0"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-validate","version":"1.0.0"}]
+2017-03-24 10:55:29,853 INFO 10492 Use coreMiddleware order: ["meta","siteFile","notfound","static","bodyParser","session","i18n","securities"]
+2017-03-24 10:55:29,853 INFO 10492 Use appMiddleware order: []
+2017-03-24 10:55:29,855 INFO 10492 [94m[egg:loader][39m Use middleware: meta
+2017-03-24 10:55:29,855 INFO 10492 [94m[egg:loader][39m Use middleware: siteFile
+2017-03-24 10:55:29,855 INFO 10492 [94m[egg:loader][39m Use middleware: notfound
+2017-03-24 10:55:29,856 INFO 10492 [94m[egg-static][39m starting static serve /public/ -> D:\work\egg-example\app\public
+2017-03-24 10:55:29,857 INFO 10492 [94m[egg:loader][39m Use middleware: static
+2017-03-24 10:55:29,858 INFO 10492 [94m[egg:loader][39m Use middleware: bodyParser
+2017-03-24 10:55:29,858 INFO 10492 [94m[egg:loader][39m Use middleware: session
+2017-03-24 10:55:29,858 INFO 10492 [94m[egg:loader][39m Use middleware: i18n
+2017-03-24 10:55:29,860 INFO 10492 [94m[egg-security][39m use csrf middleware
+2017-03-24 10:55:29,861 INFO 10492 [94m[egg-security][39m use methodnoallow middleware
+2017-03-24 10:55:29,861 INFO 10492 [94m[egg-security][39m use noopen middleware
+2017-03-24 10:55:29,862 INFO 10492 [94m[egg-security][39m use nosniff middleware
+2017-03-24 10:55:29,863 INFO 10492 [94m[egg-security][39m use xssProtection middleware
+2017-03-24 10:55:29,865 INFO 10492 [94m[egg-security][39m use xframe middleware
+2017-03-24 10:55:29,865 INFO 10492 [94m[egg-security][39m compose 6 middlewares into one security middleware
+2017-03-24 10:55:29,866 INFO 10492 [94m[egg:loader][39m Use middleware: securities
+2017-03-24 10:55:29,866 INFO 10492 [94m[egg:loader][39m Loaded middleware from ["D:\\work\\egg-example\\node_modules\\egg-onerror\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-session\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-i18n\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-watcher\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-multipart\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-security\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-schedule\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-logrotator\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-static\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-jsonp\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-view\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-mysql\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-validate\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg\\app\\middleware","D:\\work\\egg-example\\app\\middleware"]
+2017-03-24 10:55:29,872 INFO 10492 [94m[egg:loader][39m Controller loaded: D:\work\egg-example\app\controller
+2017-03-24 10:55:29,902 INFO 10492 [ClusterClient#Watcher] gives up seizing port 63804, and serves as follower client.
+2017-03-24 10:55:29,909 INFO 10492 [Follower#Watcher] register to channel: Watcher success
+2017-03-24 10:55:29,909 INFO 10492 [94m[egg-watcher:app][39m watcher start success
+2017-03-24 10:55:29,910 INFO 10492 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-watcher\app.js:15:7, remain ["D:\\work\\egg-example\\node_modules\\egg-mysql\\lib\\mysql.js:20:7"]
+2017-03-24 10:55:29,912 INFO 11608 [94m[egg:logger][39m init all loggers with options: {"dir":"C:\\Users\\1\\logs\\example-egg","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","outputJSON":false,"buffer":true,"appLogName":"example-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"type":"application"}
+2017-03-24 10:55:29,955 INFO 11608 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2017-03-24 10:55:29,955 INFO 11608 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2017-03-24 10:55:29,967 INFO 11608 [94m[egg-mysql][39m connecting qdm105632177@qdm105632177.my3w.com:3306/qdm105632177_db
+2017-03-24 10:55:30,041 INFO 10492 [94m[egg-mysql][39m instance[94m[0][39m status OK, rds currentTime: Fri Mar 24 2017 10:57:36 GMT+0800 (中国标准时间)
+2017-03-24 10:55:30,042 INFO 10492 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-mysql\lib\mysql.js:20:7, remain []
+[33m2017-03-24 10:55:30,054 WARN 9596 [master] App Worker#2:10492 started at 7002, remain 1 (2422ms)[39m
+2017-03-24 10:55:30,079 INFO 11608 Use coreMiddleware order: ["meta","siteFile","notfound","static","bodyParser","session","i18n","securities"]
+2017-03-24 10:55:30,079 INFO 11608 Use appMiddleware order: []
+2017-03-24 10:55:30,081 INFO 11608 [94m[egg:loader][39m Use middleware: meta
+2017-03-24 10:55:30,081 INFO 11608 [94m[egg:loader][39m Use middleware: siteFile
+2017-03-24 10:55:30,081 INFO 11608 [94m[egg:loader][39m Use middleware: notfound
+2017-03-24 10:55:30,082 INFO 11608 [94m[egg-static][39m starting static serve /public/ -> D:\work\egg-example\app\public
+2017-03-24 10:55:30,082 INFO 11608 [94m[egg:loader][39m Use middleware: static
+2017-03-24 10:55:30,083 INFO 11608 [94m[egg:loader][39m Use middleware: bodyParser
+2017-03-24 10:55:30,083 INFO 11608 [94m[egg:loader][39m Use middleware: session
+2017-03-24 10:55:30,083 INFO 11608 [94m[egg:loader][39m Use middleware: i18n
+2017-03-24 10:55:30,084 INFO 11608 [94m[egg-security][39m use csrf middleware
+2017-03-24 10:55:30,085 INFO 11608 [94m[egg-security][39m use methodnoallow middleware
+2017-03-24 10:55:30,085 INFO 11608 [94m[egg-security][39m use noopen middleware
+2017-03-24 10:55:30,086 INFO 11608 [94m[egg-security][39m use nosniff middleware
+2017-03-24 10:55:30,086 INFO 11608 [94m[egg-security][39m use xssProtection middleware
+2017-03-24 10:55:30,088 INFO 11608 [94m[egg-security][39m use xframe middleware
+2017-03-24 10:55:30,088 INFO 11608 [94m[egg-security][39m compose 6 middlewares into one security middleware
+2017-03-24 10:55:30,088 INFO 11608 [94m[egg:loader][39m Use middleware: securities
+2017-03-24 10:55:30,088 INFO 11608 [94m[egg:loader][39m Loaded middleware from ["D:\\work\\egg-example\\node_modules\\egg-onerror\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-session\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-i18n\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-watcher\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-multipart\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-security\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-schedule\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-logrotator\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-static\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-jsonp\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-view\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-mysql\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-validate\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg\\app\\middleware","D:\\work\\egg-example\\app\\middleware"]
+2017-03-24 10:55:30,093 INFO 11608 [94m[egg:loader][39m Controller loaded: D:\work\egg-example\app\controller
+2017-03-24 10:55:30,115 INFO 11608 [ClusterClient#Watcher] gives up seizing port 63804, and serves as follower client.
+2017-03-24 10:55:30,119 INFO 11608 [Follower#Watcher] register to channel: Watcher success
+2017-03-24 10:55:30,120 INFO 11608 [94m[egg-watcher:app][39m watcher start success
+2017-03-24 10:55:30,120 INFO 11608 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-watcher\app.js:15:7, remain ["D:\\work\\egg-example\\node_modules\\egg-mysql\\lib\\mysql.js:20:7"]
+2017-03-24 10:55:30,256 INFO 11608 [94m[egg-mysql][39m instance[94m[0][39m status OK, rds currentTime: Fri Mar 24 2017 10:57:36 GMT+0800 (中国标准时间)
+2017-03-24 10:55:30,256 INFO 11608 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-mysql\lib\mysql.js:20:7, remain []
+[33m2017-03-24 10:55:30,264 WARN 9596 [master] App Worker#4:11608 started at 7002, remain 0 (2632ms)[39m
+2017-03-24 10:55:30,264 INFO 9596 [94m[master][39m egg started on http://127.0.0.1:7002 ([32m3448ms[39m)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+2017-03-24 11:09:27,245 INFO 13152 [94m[master][39m =================== egg start =====================
+2017-03-24 11:09:27,248 INFO 13152 [94m[master][39m egg version 1.0.0-rc.3
+2017-03-24 11:09:27,249 INFO 13152 [94m[master][39m start with options: {"framework":"D:\\work\\egg-example\\node_modules\\egg","baseDir":"D:\\work\\egg-example","port":7001,"workers":4,"plugins":null,"https":false,"key":"","cert":""}
+2017-03-24 11:09:27,249 INFO 13152 [94m[master][39m start with env: isProduction: true, isDebug: false, EGG_SERVER_ENV: undefined, NODE_ENV: production
+2017-03-24 11:09:27,267 INFO 13152 [94m[master][39m Agent Worker:12352 start with ["{\"framework\":\"D:\\\\work\\\\egg-example\\\\node_modules\\\\egg\",\"baseDir\":\"D:\\\\work\\\\egg-example\",\"port\":7001,\"workers\":4,\"plugins\":null,\"https\":false,\"key\":\"\",\"cert\":\"\",\"clusterPort\":56645}"]
+2017-03-24 11:09:28,093 INFO 12352 [94m[egg:core][39m App root: D:\work\egg-example
+2017-03-24 11:09:28,095 INFO 12352 [94m[egg:core][39m All *.log files save on "C:\\Users\\1\\logs\\example-egg"
+2017-03-24 11:09:28,095 INFO 12352 [94m[egg:core][39m Loaded enabled plugin [{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-onerror","version":"1.3.0"},{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-session","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-i18n","version":"1.1.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-watcher","version":"2.1.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-multipart","version":"1.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-security","version":"1.8.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-schedule","version":"2.3.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-logrotator","version":"2.2.2"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-static","version":"1.2.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-jsonp","version":"1.0.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-view","version":"1.0.1"},{"enable":true,"package":"egg-mysql","name":"mysql","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-mysql","version":"2.0.0"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-validate","version":"1.0.0"}]
+2017-03-24 11:09:28,102 INFO 12352 [94m[egg:logger][39m init all loggers with options: {"dir":"C:\\Users\\1\\logs\\example-egg","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","outputJSON":false,"buffer":true,"appLogName":"example-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"type":"agent"}
+2017-03-24 11:09:28,171 INFO 12352 [ClusterClient#Watcher] has seized port 56645, and serves as leader client.
+2017-03-24 11:09:28,171 INFO 12352 [94m[egg-watcher:agent][39m watcher start success
+[33m2017-03-24 11:09:28,172 WARN 12352 [egg-watcher] defaultEventSource watcher will NOT take effect[39m
+2017-03-24 11:09:28,172 INFO 12352 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-watcher\agent.js:15:9, remain []
+2017-03-24 11:09:28,180 INFO 13152 [94m[master][39m Agent Worker started ([32m927ms[39m)
+2017-03-24 11:09:28,239 INFO 13152 [94m[master][39m App Worker#1:8688 start, state: none, current workers: ["1","2","3","4"]
+2017-03-24 11:09:28,239 INFO 13152 [94m[master][39m App Worker#2:11872 start, state: none, current workers: ["1","2","3","4"]
+2017-03-24 11:09:28,239 INFO 13152 [94m[master][39m App Worker#3:12312 start, state: none, current workers: ["1","2","3","4"]
+2017-03-24 11:09:28,239 INFO 13152 [94m[master][39m App Worker#4:12264 start, state: none, current workers: ["1","2","3","4"]
+2017-03-24 11:09:29,580 INFO 11872 [94m[egg:core][39m App root: D:\work\egg-example
+2017-03-24 11:09:29,585 INFO 11872 [94m[egg:core][39m All *.log files save on "C:\\Users\\1\\logs\\example-egg"
+2017-03-24 11:09:29,586 INFO 11872 [94m[egg:core][39m Loaded enabled plugin [{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-onerror","version":"1.3.0"},{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-session","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-i18n","version":"1.1.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-watcher","version":"2.1.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-multipart","version":"1.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-security","version":"1.8.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-schedule","version":"2.3.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-logrotator","version":"2.2.2"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-static","version":"1.2.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-jsonp","version":"1.0.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-view","version":"1.0.1"},{"enable":true,"package":"egg-mysql","name":"mysql","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-mysql","version":"2.0.0"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-validate","version":"1.0.0"}]
+2017-03-24 11:09:29,582 INFO 12264 [94m[egg:core][39m App root: D:\work\egg-example
+2017-03-24 11:09:29,587 INFO 12264 [94m[egg:core][39m All *.log files save on "C:\\Users\\1\\logs\\example-egg"
+2017-03-24 11:09:29,588 INFO 12264 [94m[egg:core][39m Loaded enabled plugin [{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-onerror","version":"1.3.0"},{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-session","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-i18n","version":"1.1.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-watcher","version":"2.1.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-multipart","version":"1.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-security","version":"1.8.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-schedule","version":"2.3.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-logrotator","version":"2.2.2"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-static","version":"1.2.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-jsonp","version":"1.0.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-view","version":"1.0.1"},{"enable":true,"package":"egg-mysql","name":"mysql","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-mysql","version":"2.0.0"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-validate","version":"1.0.0"}]
+2017-03-24 11:09:29,668 INFO 12312 [94m[egg:core][39m App root: D:\work\egg-example
+2017-03-24 11:09:29,672 INFO 12312 [94m[egg:core][39m All *.log files save on "C:\\Users\\1\\logs\\example-egg"
+2017-03-24 11:09:29,672 INFO 12312 [94m[egg:core][39m Loaded enabled plugin [{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-onerror","version":"1.3.0"},{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-session","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-i18n","version":"1.1.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-watcher","version":"2.1.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-multipart","version":"1.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-security","version":"1.8.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-schedule","version":"2.3.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-logrotator","version":"2.2.2"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-static","version":"1.2.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-jsonp","version":"1.0.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-view","version":"1.0.1"},{"enable":true,"package":"egg-mysql","name":"mysql","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-mysql","version":"2.0.0"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-validate","version":"1.0.0"}]
+2017-03-24 11:09:29,821 INFO 12264 [94m[egg:logger][39m init all loggers with options: {"dir":"C:\\Users\\1\\logs\\example-egg","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","outputJSON":false,"buffer":true,"appLogName":"example-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"type":"application"}
+2017-03-24 11:09:29,825 INFO 11872 [94m[egg:logger][39m init all loggers with options: {"dir":"C:\\Users\\1\\logs\\example-egg","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","outputJSON":false,"buffer":true,"appLogName":"example-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"type":"application"}
+2017-03-24 11:09:29,890 INFO 11872 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2017-03-24 11:09:29,890 INFO 12264 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2017-03-24 11:09:29,890 INFO 11872 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2017-03-24 11:09:29,890 INFO 12264 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2017-03-24 11:09:29,906 INFO 11872 [94m[egg-mysql][39m connecting qdm105632177@qdm105632177.my3w.com:3306/qdm105632177_db
+2017-03-24 11:09:29,911 INFO 12264 [94m[egg-mysql][39m connecting qdm105632177@qdm105632177.my3w.com:3306/qdm105632177_db
+2017-03-24 11:09:29,965 INFO 12312 [94m[egg:logger][39m init all loggers with options: {"dir":"C:\\Users\\1\\logs\\example-egg","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","outputJSON":false,"buffer":true,"appLogName":"example-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"type":"application"}
+2017-03-24 11:09:30,062 INFO 12312 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2017-03-24 11:09:30,063 INFO 12312 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2017-03-24 11:09:30,079 INFO 12312 [94m[egg-mysql][39m connecting qdm105632177@qdm105632177.my3w.com:3306/qdm105632177_db
+2017-03-24 11:09:30,081 INFO 11872 Use coreMiddleware order: ["meta","siteFile","notfound","static","bodyParser","session","i18n","securities"]
+2017-03-24 11:09:30,081 INFO 11872 Use appMiddleware order: []
+2017-03-24 11:09:30,083 INFO 11872 [94m[egg:loader][39m Use middleware: meta
+2017-03-24 11:09:30,083 INFO 11872 [94m[egg:loader][39m Use middleware: siteFile
+2017-03-24 11:09:30,084 INFO 11872 [94m[egg:loader][39m Use middleware: notfound
+2017-03-24 11:09:30,084 INFO 12264 Use coreMiddleware order: ["meta","siteFile","notfound","static","bodyParser","session","i18n","securities"]
+2017-03-24 11:09:30,084 INFO 12264 Use appMiddleware order: []
+2017-03-24 11:09:30,084 INFO 11872 [94m[egg-static][39m starting static serve /public/ -> D:\work\egg-example\app\public
+2017-03-24 11:09:30,085 INFO 11872 [94m[egg:loader][39m Use middleware: static
+2017-03-24 11:09:30,086 INFO 11872 [94m[egg:loader][39m Use middleware: bodyParser
+2017-03-24 11:09:30,086 INFO 11872 [94m[egg:loader][39m Use middleware: session
+2017-03-24 11:09:30,087 INFO 11872 [94m[egg:loader][39m Use middleware: i18n
+2017-03-24 11:09:30,087 INFO 12264 [94m[egg:loader][39m Use middleware: meta
+2017-03-24 11:09:30,087 INFO 12264 [94m[egg:loader][39m Use middleware: siteFile
+2017-03-24 11:09:30,087 INFO 12264 [94m[egg:loader][39m Use middleware: notfound
+2017-03-24 11:09:30,088 INFO 12264 [94m[egg-static][39m starting static serve /public/ -> D:\work\egg-example\app\public
+2017-03-24 11:09:30,088 INFO 11872 [94m[egg-security][39m use csrf middleware
+2017-03-24 11:09:30,089 INFO 12264 [94m[egg:loader][39m Use middleware: static
+2017-03-24 11:09:30,089 INFO 11872 [94m[egg-security][39m use methodnoallow middleware
+2017-03-24 11:09:30,090 INFO 12264 [94m[egg:loader][39m Use middleware: bodyParser
+2017-03-24 11:09:30,090 INFO 11872 [94m[egg-security][39m use noopen middleware
+2017-03-24 11:09:30,090 INFO 12264 [94m[egg:loader][39m Use middleware: session
+2017-03-24 11:09:30,090 INFO 12264 [94m[egg:loader][39m Use middleware: i18n
+2017-03-24 11:09:30,091 INFO 11872 [94m[egg-security][39m use nosniff middleware
+2017-03-24 11:09:30,092 INFO 11872 [94m[egg-security][39m use xssProtection middleware
+2017-03-24 11:09:30,092 INFO 12264 [94m[egg-security][39m use csrf middleware
+2017-03-24 11:09:30,093 INFO 11872 [94m[egg-security][39m use xframe middleware
+2017-03-24 11:09:30,093 INFO 12264 [94m[egg-security][39m use methodnoallow middleware
+2017-03-24 11:09:30,093 INFO 11872 [94m[egg-security][39m compose 6 middlewares into one security middleware
+2017-03-24 11:09:30,094 INFO 11872 [94m[egg:loader][39m Use middleware: securities
+2017-03-24 11:09:30,094 INFO 11872 [94m[egg:loader][39m Loaded middleware from ["D:\\work\\egg-example\\node_modules\\egg-onerror\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-session\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-i18n\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-watcher\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-multipart\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-security\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-schedule\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-logrotator\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-static\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-jsonp\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-view\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-mysql\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-validate\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg\\app\\middleware","D:\\work\\egg-example\\app\\middleware"]
+2017-03-24 11:09:30,094 INFO 12264 [94m[egg-security][39m use noopen middleware
+2017-03-24 11:09:30,095 INFO 12264 [94m[egg-security][39m use nosniff middleware
+2017-03-24 11:09:30,096 INFO 12264 [94m[egg-security][39m use xssProtection middleware
+2017-03-24 11:09:30,100 INFO 12264 [94m[egg-security][39m use xframe middleware
+2017-03-24 11:09:30,100 INFO 12264 [94m[egg-security][39m compose 6 middlewares into one security middleware
+2017-03-24 11:09:30,100 INFO 12264 [94m[egg:loader][39m Use middleware: securities
+2017-03-24 11:09:30,100 INFO 12264 [94m[egg:loader][39m Loaded middleware from ["D:\\work\\egg-example\\node_modules\\egg-onerror\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-session\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-i18n\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-watcher\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-multipart\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-security\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-schedule\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-logrotator\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-static\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-jsonp\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-view\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-mysql\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-validate\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg\\app\\middleware","D:\\work\\egg-example\\app\\middleware"]
+2017-03-24 11:09:30,102 INFO 11872 [94m[egg:loader][39m Controller loaded: D:\work\egg-example\app\controller
+2017-03-24 11:09:30,108 INFO 12264 [94m[egg:loader][39m Controller loaded: D:\work\egg-example\app\controller
+2017-03-24 11:09:30,135 INFO 11872 [ClusterClient#Watcher] gives up seizing port 56645, and serves as follower client.
+2017-03-24 11:09:30,145 INFO 12264 [ClusterClient#Watcher] gives up seizing port 56645, and serves as follower client.
+2017-03-24 11:09:30,151 INFO 12264 [Follower#Watcher] register to channel: Watcher success
+2017-03-24 11:09:30,152 INFO 12264 [94m[egg-watcher:app][39m watcher start success
+2017-03-24 11:09:30,153 INFO 12264 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-watcher\app.js:15:7, remain ["D:\\work\\egg-example\\node_modules\\egg-mysql\\lib\\mysql.js:20:7"]
+2017-03-24 11:09:30,154 INFO 11872 [Follower#Watcher] register to channel: Watcher success
+2017-03-24 11:09:30,154 INFO 11872 [94m[egg-watcher:app][39m watcher start success
+2017-03-24 11:09:30,155 INFO 11872 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-watcher\app.js:15:7, remain ["D:\\work\\egg-example\\node_modules\\egg-mysql\\lib\\mysql.js:20:7"]
+2017-03-24 11:09:30,204 INFO 8688 [94m[egg:core][39m App root: D:\work\egg-example
+2017-03-24 11:09:30,208 INFO 8688 [94m[egg:core][39m All *.log files save on "C:\\Users\\1\\logs\\example-egg"
+2017-03-24 11:09:30,208 INFO 8688 [94m[egg:core][39m Loaded enabled plugin [{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-onerror","version":"1.3.0"},{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-session","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-i18n","version":"1.1.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-watcher","version":"2.1.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-multipart","version":"1.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-security","version":"1.8.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-schedule","version":"2.3.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-logrotator","version":"2.2.2"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-static","version":"1.2.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-jsonp","version":"1.0.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\node_modules\\egg\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-view","version":"1.0.1"},{"enable":true,"package":"egg-mysql","name":"mysql","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-mysql","version":"2.0.0"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"D:\\work\\egg-example\\config\\plugin.js","path":"D:\\work\\egg-example\\node_modules\\egg-validate","version":"1.0.0"}]
+2017-03-24 11:09:30,229 INFO 12312 Use coreMiddleware order: ["meta","siteFile","notfound","static","bodyParser","session","i18n","securities"]
+2017-03-24 11:09:30,230 INFO 12312 Use appMiddleware order: []
+2017-03-24 11:09:30,231 INFO 12312 [94m[egg:loader][39m Use middleware: meta
+2017-03-24 11:09:30,231 INFO 12312 [94m[egg:loader][39m Use middleware: siteFile
+2017-03-24 11:09:30,232 INFO 12312 [94m[egg:loader][39m Use middleware: notfound
+2017-03-24 11:09:30,232 INFO 12312 [94m[egg-static][39m starting static serve /public/ -> D:\work\egg-example\app\public
+2017-03-24 11:09:30,233 INFO 12312 [94m[egg:loader][39m Use middleware: static
+2017-03-24 11:09:30,234 INFO 12312 [94m[egg:loader][39m Use middleware: bodyParser
+2017-03-24 11:09:30,234 INFO 12312 [94m[egg:loader][39m Use middleware: session
+2017-03-24 11:09:30,234 INFO 12312 [94m[egg:loader][39m Use middleware: i18n
+2017-03-24 11:09:30,236 INFO 12312 [94m[egg-security][39m use csrf middleware
+2017-03-24 11:09:30,237 INFO 12312 [94m[egg-security][39m use methodnoallow middleware
+2017-03-24 11:09:30,238 INFO 12312 [94m[egg-security][39m use noopen middleware
+2017-03-24 11:09:30,239 INFO 12312 [94m[egg-security][39m use nosniff middleware
+2017-03-24 11:09:30,239 INFO 12312 [94m[egg-security][39m use xssProtection middleware
+2017-03-24 11:09:30,241 INFO 12312 [94m[egg-security][39m use xframe middleware
+2017-03-24 11:09:30,241 INFO 12312 [94m[egg-security][39m compose 6 middlewares into one security middleware
+2017-03-24 11:09:30,242 INFO 12312 [94m[egg:loader][39m Use middleware: securities
+2017-03-24 11:09:30,242 INFO 12312 [94m[egg:loader][39m Loaded middleware from ["D:\\work\\egg-example\\node_modules\\egg-onerror\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-session\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-i18n\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-watcher\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-multipart\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-security\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-schedule\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-logrotator\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-static\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-jsonp\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-view\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-mysql\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-validate\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg\\app\\middleware","D:\\work\\egg-example\\app\\middleware"]
+2017-03-24 11:09:30,247 INFO 12312 [94m[egg:loader][39m Controller loaded: D:\work\egg-example\app\controller
+2017-03-24 11:09:30,275 INFO 12312 [ClusterClient#Watcher] gives up seizing port 56645, and serves as follower client.
+2017-03-24 11:09:30,282 INFO 12312 [Follower#Watcher] register to channel: Watcher success
+2017-03-24 11:09:30,282 INFO 12312 [94m[egg-watcher:app][39m watcher start success
+2017-03-24 11:09:30,283 INFO 12312 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-watcher\app.js:15:7, remain ["D:\\work\\egg-example\\node_modules\\egg-mysql\\lib\\mysql.js:20:7"]
+2017-03-24 11:09:30,326 INFO 12264 [94m[egg-mysql][39m instance[94m[0][39m status OK, rds currentTime: Fri Mar 24 2017 11:11:36 GMT+0800 (中国标准时间)
+2017-03-24 11:09:30,326 INFO 12264 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-mysql\lib\mysql.js:20:7, remain []
+[33m2017-03-24 11:09:30,344 WARN 13152 [master] App Worker#4:12264 started at 7001, remain 3 (2164ms)[39m
+2017-03-24 11:09:30,350 INFO 11872 [94m[egg-mysql][39m instance[94m[0][39m status OK, rds currentTime: Fri Mar 24 2017 11:11:36 GMT+0800 (中国标准时间)
+2017-03-24 11:09:30,350 INFO 11872 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-mysql\lib\mysql.js:20:7, remain []
+[33m2017-03-24 11:09:30,365 WARN 13152 [master] App Worker#2:11872 started at 7001, remain 2 (2185ms)[39m
+2017-03-24 11:09:30,387 INFO 8688 [94m[egg:logger][39m init all loggers with options: {"dir":"C:\\Users\\1\\logs\\example-egg","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","outputJSON":false,"buffer":true,"appLogName":"example-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"type":"application"}
+2017-03-24 11:09:30,392 INFO 12312 [94m[egg-mysql][39m instance[94m[0][39m status OK, rds currentTime: Fri Mar 24 2017 11:11:36 GMT+0800 (中国标准时间)
+2017-03-24 11:09:30,392 INFO 12312 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-mysql\lib\mysql.js:20:7, remain []
+[33m2017-03-24 11:09:30,405 WARN 13152 [master] App Worker#3:12312 started at 7001, remain 1 (2225ms)[39m
+2017-03-24 11:09:30,437 INFO 8688 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2017-03-24 11:09:30,438 INFO 8688 [94m[egg-schedule][39m: register schedule egg-schedule:D:\work\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2017-03-24 11:09:30,449 INFO 8688 [94m[egg-mysql][39m connecting qdm105632177@qdm105632177.my3w.com:3306/qdm105632177_db
+2017-03-24 11:09:30,553 INFO 8688 Use coreMiddleware order: ["meta","siteFile","notfound","static","bodyParser","session","i18n","securities"]
+2017-03-24 11:09:30,553 INFO 8688 Use appMiddleware order: []
+2017-03-24 11:09:30,555 INFO 8688 [94m[egg:loader][39m Use middleware: meta
+2017-03-24 11:09:30,555 INFO 8688 [94m[egg:loader][39m Use middleware: siteFile
+2017-03-24 11:09:30,555 INFO 8688 [94m[egg:loader][39m Use middleware: notfound
+2017-03-24 11:09:30,556 INFO 8688 [94m[egg-static][39m starting static serve /public/ -> D:\work\egg-example\app\public
+2017-03-24 11:09:30,556 INFO 8688 [94m[egg:loader][39m Use middleware: static
+2017-03-24 11:09:30,557 INFO 8688 [94m[egg:loader][39m Use middleware: bodyParser
+2017-03-24 11:09:30,558 INFO 8688 [94m[egg:loader][39m Use middleware: session
+2017-03-24 11:09:30,558 INFO 8688 [94m[egg:loader][39m Use middleware: i18n
+2017-03-24 11:09:30,559 INFO 8688 [94m[egg-security][39m use csrf middleware
+2017-03-24 11:09:30,560 INFO 8688 [94m[egg-security][39m use methodnoallow middleware
+2017-03-24 11:09:30,561 INFO 8688 [94m[egg-security][39m use noopen middleware
+2017-03-24 11:09:30,561 INFO 8688 [94m[egg-security][39m use nosniff middleware
+2017-03-24 11:09:30,562 INFO 8688 [94m[egg-security][39m use xssProtection middleware
+2017-03-24 11:09:30,563 INFO 8688 [94m[egg-security][39m use xframe middleware
+2017-03-24 11:09:30,563 INFO 8688 [94m[egg-security][39m compose 6 middlewares into one security middleware
+2017-03-24 11:09:30,563 INFO 8688 [94m[egg:loader][39m Use middleware: securities
+2017-03-24 11:09:30,563 INFO 8688 [94m[egg:loader][39m Loaded middleware from ["D:\\work\\egg-example\\node_modules\\egg-onerror\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-session\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-i18n\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-watcher\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-multipart\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-security\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-schedule\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-logrotator\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-static\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-jsonp\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-view\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-mysql\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg-validate\\app\\middleware","D:\\work\\egg-example\\node_modules\\egg\\app\\middleware","D:\\work\\egg-example\\app\\middleware"]
+2017-03-24 11:09:30,569 INFO 8688 [94m[egg:loader][39m Controller loaded: D:\work\egg-example\app\controller
+2017-03-24 11:09:30,597 INFO 8688 [ClusterClient#Watcher] gives up seizing port 56645, and serves as follower client.
+2017-03-24 11:09:30,602 INFO 8688 [Follower#Watcher] register to channel: Watcher success
+2017-03-24 11:09:30,602 INFO 8688 [94m[egg-watcher:app][39m watcher start success
+2017-03-24 11:09:30,603 INFO 8688 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-watcher\app.js:15:7, remain ["D:\\work\\egg-example\\node_modules\\egg-mysql\\lib\\mysql.js:20:7"]
+2017-03-24 11:09:30,721 INFO 8688 [94m[egg-mysql][39m instance[94m[0][39m status OK, rds currentTime: Fri Mar 24 2017 11:11:36 GMT+0800 (中国标准时间)
+2017-03-24 11:09:30,722 INFO 8688 [94m[egg:core:ready_stat][39m end ready task D:\work\egg-example\node_modules\egg-mysql\lib\mysql.js:20:7, remain []
+[33m2017-03-24 11:09:30,730 WARN 13152 [master] App Worker#1:8688 started at 7001, remain 0 (2550ms)[39m
+2017-03-24 11:09:30,731 INFO 13152 [94m[master][39m egg started on http://127.0.0.1:7001 ([32m3482ms[39m)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue HN 2.0</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+    <meta name="theme-color" content="#f60">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js" as="script">
+    
+    <link rel="preload" href="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js" as="script">
+    
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  <script type="text/javascript" src="public/rlstudy/vendor.d36854b11ddcc9b0a03e.js"></script>
+    <script type="text/javascript" src="public/rlstudy/rlstudy.41c59c5857a42ca3af9e.js"></script></body>
+</html>
+
