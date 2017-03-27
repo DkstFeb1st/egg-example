@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = app => {
-  app.get('/', 'home.index');
+  app.get('/', 'user.index');
+  app.get('/getUserInfo','user.getUserInfo')
 };
