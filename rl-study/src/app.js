@@ -1,3 +1,4 @@
+
 import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
@@ -18,6 +19,7 @@ sync(store, router)
 // here we inject the router and store to all child components,
 // making them available everywhere as `this.$router` and `this.$store`.
 const app = new Vue({
+  el:'#app',
   //import router
   router,
   //import store

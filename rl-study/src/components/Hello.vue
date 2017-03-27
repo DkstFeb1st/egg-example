@@ -21,8 +21,12 @@
 </template>
 
 <script>
+
 export default {
   name: 'hello',
+  created: function () {
+    this.$store.dispatch('getUserListAction')
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
