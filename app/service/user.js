@@ -5,7 +5,7 @@
 module.exports = app => {
     class User extends app.Service {
         * find() {
-            const user = yield app.mysql.query(`select * from admin`);
+            const user = yield app.mysql.query(`select * from rc_zx_user`);
             return user;
         }
     }
