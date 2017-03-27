@@ -13,7 +13,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname,"../../app/public/rlstudy"),
-    publicPath: "/public/rlstudy",
+    publicPath: "public/rlstudy",
     filename: '[name].[chunkhash].js'
   },
   resolve: {
