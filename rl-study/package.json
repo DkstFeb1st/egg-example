@@ -10,8 +10,10 @@
     "server": "cross-env NODE_ENV=production webpack --config build/webpack.server.config.js --progress --hide-modules"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "es6-promise": "^4.1.0",
     "vue": "^2.2.2",
+    "vue-resource": "^1.2.1",
     "vue-router": "^2.2.0",
     "vue-ssr-webpack-plugin": "^1.0.2",
     "vuex": "^2.2.1",
