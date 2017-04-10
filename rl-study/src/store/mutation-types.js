@@ -2,4 +2,7 @@
  * Created by 1 on 2016/1/1.
  */
 
-export const GET_USERLIST = "GET_USERLIST"
+export const INITIAL = "INITIAL"
+export const OBLIGATORY = 'OBLIGATORY'
+export const ELECTIVE = 'ELECTIVE'
+export const INTEREST = 'INTEREST'

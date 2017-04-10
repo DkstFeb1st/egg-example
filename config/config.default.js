@@ -6,32 +6,40 @@ module.exports = appInfo => {
 
   config.keys = 'jcx,xcj';
 
-  //视图模板
-  // config.view = {
-  //   extname: 'js',
-  //   dir: path.join(appInfo.baseDir, 'app/view'),
-  // };
+    config.middleware = ['errorHandler']
 
   //404 page
   config.notfound = {
     pageUrl: '/public/404.html',
   },
 
-  //error page
-  config.onerror = {
-    errorPageUrl: '/public/500.html',
+      config.errorHandler = {
+          // 非 `/api/` 路径不在这里做错误处理，留给默认的 onerror 插件统一处理
+          match: '/api',
   }
 
   config.logger = {
     level : 'DEBUG',
   }
 
-  config.bodyParser = {
-    jsonLimit: '1m',
-    formLimit: '1m',
-  }
+    // config.bodyParser = {
+    //   jsonLimit: '1m',
+    //   formLimit: '1m',
+    // }
 
-
+    //模板配置
+    config.view = {
+        defaultExt: '.html',
+        mapping: {
+            '.ejs': 'ejs',
+            '.html': 'ejs',
+        }
+    }
+    config.security = {
+        csrf: {
+            ignoreJSON: true// 默认为 false，当设置为 true 时，将会放过所有 content-type 为 `application/json` 的请求
+        }
+    }
 
   return config;
 };
