@@ -19,7 +19,15 @@ module.exports = app => {
             //     console.log("html"+html)
             //     that.ctx.body = html
             // })
-            yield  this.ctx.render('index')
+            if (this.ctx.query.code) {
+                const token = yield this.ctx.service.user.getToken()
+                const userinfo = yield this.ctx.service.user.getUserInfo(token, this.ctx.query.code)
+            } else {
+                const callback_url = 'https://app.rarcbank.com/study/';
+                const url = encodeURIComponent(callback_url)
+                this.ctx.redirect(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx365326b3672b185c&redirect_uri=${url}&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect`)
+                header('Location:');
+            }
         }
     }
     return MainController;
