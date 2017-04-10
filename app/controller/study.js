@@ -7,7 +7,6 @@ module.exports = app => {
     class StudyController extends app.Controller {
         * getObligatoryList() {
             //获取必修课
-            console.log(this.ctx.session.userinfo.position)
             const _job = this.ctx.session.userinfo.position
             const obligatoryList = yield this.ctx.service.study.getObligatoryList(_job)
             this.ctx.body = {obligatoryList: obligatoryList}
@@ -39,10 +38,14 @@ module.exports = app => {
             let {id, custno} = this.ctx.request.body
             let spdetail = yield this.ctx.service.study.getStudyDetail(id)
             let score = 0;
-            spdetail.comments.map((obj, index) => {
-                score = score + obj.rate
-            })
-            spdetail.rate = (score / spdetail.comments.length).toFixed(1)
+            if (spdetail.comments.length === 0) {
+                spdetail.rate = score
+            } else {
+                spdetail.comments.map((obj, index) => {
+                    score = score + obj.rate
+                })
+                spdetail.rate = (score / spdetail.comments.length).toFixed(1)
+            }
             this.ctx.body = {spdetail: spdetail}
             //增加浏览次数
             let that = this

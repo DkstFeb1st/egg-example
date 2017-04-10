@@ -6,7 +6,7 @@ module.exports = appInfo => {
 
   config.keys = 'jcx,xcj';
 
-    config.middleware = ['errorHandler', 'loginHandler']
+    config.middleware = ['errorHandler']
 
   //404 page
   config.notfound = {

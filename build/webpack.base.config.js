@@ -47,11 +47,11 @@ const webpackConfig = {
       },
       {
           test: /\.css$/,
-          loader: "css-loader"
+          loader: "style-loader!css-loader"
       },
         {
             test: /\.less$/,
-            loader: 'css-loader!less-loader'
+            loader: 'style-loader!css-loader!less-loader'
         },
         {
         test: /\.(png|jpg|gif|svg)$/,
