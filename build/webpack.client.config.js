@@ -20,7 +20,7 @@ const config = merge(base, {
     new HTMLPlugin({
         title: '农商学习微平台',
         template: 'rl-study/src/index.template.html',
-        filename: '../app/views/index.html'
+        filename: '../view/index.html'
     })
   ]
 })
