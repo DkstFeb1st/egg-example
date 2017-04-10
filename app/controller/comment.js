@@ -31,7 +31,8 @@ module.exports = app => {
                 if (comment) {
                     that.ctx.status = 200
                 } else {
-
+                    that.ctx.body = '插入异常'
+                    that.ctx.status = 202
                 }
             })
         }

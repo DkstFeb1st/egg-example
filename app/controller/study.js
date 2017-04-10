@@ -7,7 +7,7 @@ module.exports = app => {
     class StudyController extends app.Controller {
         * getObligatoryList() {
             //获取必修课
-            const _job = '1'
+            const _job = this.ctx.session.userinfo.position
             const obligatoryList = yield this.ctx.service.study.getObligatoryList(_job)
             this.ctx.body = {obligatoryList: obligatoryList}
             this.ctx.status = 200;
@@ -15,7 +15,7 @@ module.exports = app => {
 
         * getElectiveList() {
             //获取选修课
-            const _job = '1'
+            const _job = this.ctx.session.userinfo.position
             const electiveList = yield this.ctx.service.study.getElectiveList(_job)
             this.ctx.body = {electiveList: electiveList}
             this.ctx.status = 200;

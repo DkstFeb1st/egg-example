@@ -28,7 +28,7 @@ module.exports = app => {
                 } else {
                     userinfo.position = '4'
                 }
-                this.ctx.session.userinfo = userinfo
+                this.ctx.session.userinfo = userinfo//用户信息存入session
             } else {
                 const callback_url = 'https://app.rarcbank.com/study/';
                 const url = encodeURIComponent(callback_url)
