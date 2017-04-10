@@ -14,7 +14,7 @@ const config = merge(base, {
     }),
     // extract vendor chunks for better caching
     new webpack.optimize.CommonsChunkPlugin({
-        name: ['vendor', 'manifest']
+        name: ['vendor']
     }),
     // generate output HTML
     new HTMLPlugin({

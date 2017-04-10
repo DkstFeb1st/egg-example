@@ -39,7 +39,7 @@ const webpackConfig = {
       },
       {
         test: /\.js$/,
-          loader: 'babel-loader',
+          loader: 'buble-loader',
         exclude: /node_modules/,
         options: {
           objectAssign: 'Object.assign'
