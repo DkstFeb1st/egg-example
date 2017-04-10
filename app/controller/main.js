@@ -32,7 +32,7 @@ module.exports = app => {
             } else {
                 const callback_url = 'https://app.rarcbank.com/study/';
                 const url = encodeURIComponent(callback_url)
-                yield this.ctx.redirect(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx365326b3672b185c&redirect_uri=${url}&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect`)
+                this.redirect(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx365326b3672b185c&redirect_uri=${url}&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect`)
             }
             yield  this.ctx.render('index')
         }
