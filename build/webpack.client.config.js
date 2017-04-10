@@ -18,7 +18,9 @@ const config = merge(base, {
     }),
     // generate output HTML
     new HTMLPlugin({
-        template: 'rl-study/src/index.template.html'
+        title: '农商学习微平台',
+        template: 'rl-study/src/index.template.html',
+        filename: '../app/views/index.html'
     })
   ]
 })
