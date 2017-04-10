@@ -1,6 +1,6 @@
 [{
   "name"        : "study",
-  "script"      : "egg-bin dev",
+  "script"      : "index.js",
   "error_file" : "app-err.log",
   "out_file"   : "app-out.log",
   "pid_file"   : "app.pid",
