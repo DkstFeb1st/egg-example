@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = app => {
-    const login_handler = app.middlewares.login_handler
+    const login_handler = app.middlewares.loginHandler()
     app.get('/', 'main.index')//page入口
     app.get('/api/sp/getObligatoryList', login_handler, 'study.getObligatoryList')//get
     app.get('/api/sp/getElectiveList', login_handler, 'study.getElectiveList')//get

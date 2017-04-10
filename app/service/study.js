@@ -28,7 +28,7 @@ module.exports = app => {
          * _job 1 用户岗位值
          * */
         * getElectiveList(_job) {
-            if (_job === '4') {//非客户经理、科员、柜面，可查看除兴趣课之外的全部课程
+            if (_job === '4,') {//非客户经理、科员、柜面，可查看除兴趣课之外的全部课程
                 const electiveList = yield this.ctx.model.Study.findAll({
                     include: [
                         {model: this.ctx.model.Comment, as: 'comments', required: false, where: {rate: {$not: 0}}},

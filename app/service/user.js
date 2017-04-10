@@ -33,7 +33,7 @@ module.exports = app => {
          * 根据字典表获取职位对应的key
          * */
         * getPositionFromDict(_position) {
-            const position_dict = yield this.ctx.model.Dict.findAll({
+            const position_dict = yield this.ctx.model.Dict.findOne({
                 where: {
                     label: {
                         $like: `%${_position}%`

@@ -22,11 +22,11 @@ module.exports = app => {
             if (this.ctx.query.code) {
                 const token = yield this.ctx.service.user.getToken()
                 const userinfo = yield this.ctx.service.user.getUserInfo(token, this.ctx.query.code)
-                const position_dict = yield this.ctx.service.user.getPositionFromDict(userinfo.position)
+                let position_dict = yield this.ctx.service.user.getPositionFromDict(userinfo.position)
                 if (position_dict) {
-                    userinfo.position = position_dict.value
+                    userinfo.position = `${position_dict.value},`
                 } else {
-                    userinfo.position = '4'
+                    userinfo.position = '4,'
                 }
                 this.ctx.session.userinfo = userinfo//用户信息存入session
             } else {
