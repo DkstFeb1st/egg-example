@@ -2,9 +2,9 @@
  * Created by 1 on 2017/3/27.
  */
 
-const fs = require('fs')
-const bundle = require('../public/vue-ssr-bundle.json')
-const template = fs.readFileSync('app/public/index.html', 'utf-8')
+//const fs = require('fs')
+//const bundle = require('../public/vue-ssr-bundle.json')
+//const template = fs.readFileSync('app/public/index.html', 'utf-8')
 
 module.exports = app => {
     class MainController extends app.Controller {//页面渲染
