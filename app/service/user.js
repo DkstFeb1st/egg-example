@@ -36,7 +36,7 @@ module.exports = app => {
             const position_dict = yield this.ctx.model.Dict.findAll({
                 where: {
                     label: {
-                        $like: `%_position%`
+                        $like: `%${_position}%`
                     },
                     type: 'job'
                 }
