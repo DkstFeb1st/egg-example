@@ -15,7 +15,10 @@ module.exports = app => {
             type: STRING(8),
             primaryKey: true,
         },
-        state: STRING(8)
+        state: {
+            type: STRING(8),
+            defaultValue: '1'
+        }
     }, {
         tableName: 'rl_sp_dict'
     })
