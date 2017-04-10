@@ -63,9 +63,6 @@
       },
       _handlerSubmit: function () {
         const data = {
-          custno: '8581234',
-          name: '金吵醒',
-          avator: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1490859211&di=00acc596e260316879dd68ac0b9fac7c&src=http://img3.duitang.com/uploads/item/201508/16/20150816231615_SwvhH.thumb.700_0.jpeg',
           sp_id: this.$route.query.root === 'true' ? this.$route.params.id : this.$route.query.id,
           content: this.content,
           rate: this.rate,
@@ -77,13 +74,13 @@
         addCommentApi(data)
           .then(response => {
             this.$vux.loading.hide()
-            if (response.status === 200) {
+            if (response.status === 200 && response.data.status == 200) {
               this.$router.go(-1)
             } else {
               //提示
               this.$vux.alert.show({
                 title: '提示',
-                content: response.data
+                content: response.data.msg
               })
             }
           })

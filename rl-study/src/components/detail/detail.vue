@@ -73,14 +73,16 @@
         .then(response => {
           console.log(response)
           this.$vux.loading.hide()
-          if (response.status === 200) {
+          if (response.status === 200 && response.data.status === 200) {
             console.log(response.data.spdetail)
             for (let _i = 0; _i < response.data.spdetail.comments.length; _i++) {
               response.data.spdetail.comments[_i].content = filters.emoji(response.data.spdetail.comments[_i].content)
             }
             this.study = response.data.spdetail
           } else {
-            //alert(rep)
+            this.$vux.alert.show({
+              text: response.data.msg
+            })
           }
         })
         .catch(error => {

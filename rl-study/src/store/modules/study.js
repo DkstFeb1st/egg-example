@@ -22,7 +22,10 @@ const actions = {
     return getObligatoryListApi()
       .then(response => {
         const data = response.data
-        commit(types.OBLIGATORY, {data})
+        if (response.status === 200 && response.data.status === 200) {
+          commit(types.OBLIGATORY, {data})
+        }
+
       })
       .catch(error => {
         //发布错误 提示用户
@@ -33,7 +36,10 @@ const actions = {
     return getElectiveListApi()
       .then(response => {
         const data = response.data
-        commit(types.ELECTIVE, {data})
+        if (response.status === 200 && response.data.status === 200) {
+          commit(types.ELECTIVE, {data})
+        }
+
       })
       .catch(error => {
 
@@ -44,7 +50,10 @@ const actions = {
     return getInterestListApi()
       .then(response => {
         const data = response.data
-        commit(types.INTEREST, {data})
+        if (response.status === 200 && response.data.status === 200) {
+          commit(types.INTEREST, {data})
+        }
+
       })
       .catch(error => {
 

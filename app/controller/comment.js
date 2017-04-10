@@ -10,7 +10,7 @@ module.exports = app => {
         * getCommentList() {
             const {id} = this.ctx.query
             const commentList = yield this.ctx.service.comment.getCommentList(id)
-            this.ctx.body = {commentList: commentList}
+            this.ctx.body = {status: 200, commentList: commentList}
             this.ctx.status = 200
         }
 
@@ -19,20 +19,29 @@ module.exports = app => {
          * */
         * create() {
             let that = this
-            const _param = this.ctx.request.body
+            let _param = this.ctx.request.body
+            let {name, userid, avator} = this.ctx.session.userinfo
             if (_param.content === '') {
-                this.ctx.body = '请填写评论内容'
-                this.ctx.status = 201
+                this.ctx.body = {status: 201, msg: '请填写评论内容'}
+                this.ctx.status = 200
                 return
             }
+            console.log(name)
+            _param = Object.assign({}, _param, {
+                name: name,
+                avator: avator,
+                custno: userid,
+            })
+            console.log(_param)
             yield this.ctx.model.Comment.create(_param, {
                 isNewRecord: true
             }).then(function (comment) {
                 if (comment) {
+                    that.ctx.body = {status: 200}
                     that.ctx.status = 200
                 } else {
-                    that.ctx.body = '插入异常'
-                    that.ctx.status = 202
+                    that.ctx.body = {status: 202, msg: '插入异常'}
+                    that.ctx.status = 200
                 }
             })
         }

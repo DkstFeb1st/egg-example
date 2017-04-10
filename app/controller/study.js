@@ -9,7 +9,7 @@ module.exports = app => {
             //获取必修课
             const _job = this.ctx.session.userinfo.position
             const obligatoryList = yield this.ctx.service.study.getObligatoryList(_job)
-            this.ctx.body = {obligatoryList: obligatoryList}
+            this.ctx.body = {status: 200, obligatoryList: obligatoryList}
             this.ctx.status = 200;
         }
 
@@ -17,7 +17,7 @@ module.exports = app => {
             //获取选修课
             const _job = this.ctx.session.userinfo.position
             const electiveList = yield this.ctx.service.study.getElectiveList(_job)
-            this.ctx.body = {electiveList: electiveList}
+            this.ctx.body = {status: 200, electiveList: electiveList}
             this.ctx.status = 200;
         }
 
@@ -25,7 +25,7 @@ module.exports = app => {
             //获取兴趣课
             const _job = '1'
             const interestList = yield this.ctx.service.study.getInterestList()
-            this.ctx.body = {interestList: interestList}
+            this.ctx.body = {status: 200, interestList: interestList}
             this.ctx.status = 200
         }
 
@@ -46,7 +46,7 @@ module.exports = app => {
                 })
                 spdetail.rate = (score / spdetail.comments.length).toFixed(1)
             }
-            this.ctx.body = {spdetail: spdetail}
+            this.ctx.body = {status: 200, spdetail: spdetail}
             //增加浏览次数
             let that = this
             let view_log = {

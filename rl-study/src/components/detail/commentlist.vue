@@ -61,7 +61,7 @@
       getCommentListApi(this.$route.params.id)
         .then(response => {
           this.$vux.loading.hide()
-          if (response.status === 200) {
+          if (response.status === 200 && response.data.status === 200) {
             console.log(response)
             response.data.commentList.content = filters.emoji(response.data.commentList.content)
             for (let _i = 0; _i < response.data.commentList.subcomment.length; _i++) {
@@ -69,6 +69,9 @@
             }
             this.commentList = response.data.commentList
           } else {
+            this.$vux.alert.show({
+              text: response.data.msg
+            })
             //alert(rep)
           }
         })
