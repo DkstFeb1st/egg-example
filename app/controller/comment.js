@@ -20,9 +20,13 @@ module.exports = app => {
         * create() {
             let that = this
             let _param = this.ctx.request.body
-            let {name, userid, avator} = this.ctx.session.userinfo
+            let {name, userid, avatar} = this.ctx.session.userinfo
             if (_param.content === '') {
                 this.ctx.body = {status: 201, msg: '请填写评论内容'}
+                this.ctx.status = 200
+                return
+            } else if (_param.parentid === '0' && _param.rate === 0) {
+                this.ctx.body = {status: 201, msg: '亲，请为我打分'}
                 this.ctx.status = 200
                 return
             }
@@ -31,7 +35,7 @@ module.exports = app => {
                 avator: avatar,
                 custno: userid,
             })
-            console.log(_param)
+            console.log(_param);
             yield this.ctx.model.Comment.create(_param, {
                 isNewRecord: true
             }).then(function (comment) {
