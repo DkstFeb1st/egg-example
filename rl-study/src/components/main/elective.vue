@@ -75,7 +75,7 @@
                         </span>
           </p>
           <div class="list-item-extra">
-            {{item.views.length}}人观看 | {{item.comments.length}}人评论
+            {{item.view_num}}人观看 | {{item.comment_num}}人评论
 
           </div>
         </div>

@@ -4,18 +4,13 @@
 module.exports = app => {
     const {STRING, INTEGER, DATE, TEXT} = app.Sequelize
     return app.model.define('Viewlog', {
-        sp_id: {
+        id: {
             type: INTEGER,
             primaryKey: true
         },
-        custno: {
-            type: STRING(7),
-            primaryKey: true
-        },
-        createdAt: {
-            type: DATE,
-            primaryKey: true
-        }
+        sp_id: INTEGER,
+        custno: STRING(7),
+        createdAt: DATE
     }, {
         tableName: 'rl_spv_list'
     })

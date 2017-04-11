@@ -37,7 +37,7 @@ const config = merge({}, {
     port:3001,//Port Number
       host: '0.0.0.0',//Change to '0.0.0.0' for external facing server
       proxy: {
-          'api/sp/*': {
+          '/api/sp/*': {
               target: 'http://127.0.0.1:7001',
               changeOrigin: true
           }

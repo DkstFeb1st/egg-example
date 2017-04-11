@@ -43,7 +43,7 @@
               </template>
             </p>
             <div class="detail-comment-callback" v-on:click="goCommentList(item.id)">
-              共{{item.subcomment.length}}条回复 >
+              共{{item.comment_num}}条回复 >
 
             </div>
           </div>

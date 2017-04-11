@@ -35,7 +35,7 @@ module.exports = app => {
          * */
         * getSpDetail() {
             const zhNow = moment().locale('zh-cn').utcOffset(8).format('YYYY-MM-DD HH:mm:ss');
-            let {id, custno} = this.ctx.request.body
+            let {id} = this.ctx.request.body
             let spdetail = yield this.ctx.service.study.getStudyDetail(id)
             let score = 0;
             if (spdetail.comments.length === 0) {
@@ -51,14 +51,13 @@ module.exports = app => {
             let that = this
             let view_log = {
                 sp_id: id,
-                custno: custno,
+                custno: this.ctx.session.userinfo.userid,
                 createdAt: zhNow
             }
             yield this.ctx.model.Viewlog.create(view_log, {
                 isNewRecord: true
             }).then(function (viewlog) {
                 if (viewlog) {
-                    //that.ctx.body = { msg : '浏览记录增加成功'}
                     that.ctx.status = 200
                 }
             })
