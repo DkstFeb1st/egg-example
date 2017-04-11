@@ -26,10 +26,9 @@ module.exports = app => {
                 this.ctx.status = 200
                 return
             }
-            console.log(name)
             _param = Object.assign({}, _param, {
                 name: name,
-                avator: avator,
+                avator: avatar,
                 custno: userid,
             })
             console.log(_param)
