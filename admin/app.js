@@ -2,10 +2,7 @@
 import React from "react";
 import ReactDom from "react-dom";
 import {Provider} from "react-redux";
-import {applyMiddleware, createStore} from "redux";
-import thunkMiddleware from "redux-thunk";
-import {createLogger} from "redux-logger";
-import {routerMiddleware, syncHistoryWithStore} from "react-router-redux";
+import {syncHistoryWithStore} from "react-router-redux";
 import {hashHistory, Route, Router} from "react-router";
 import AppContainer from "containers/AppContainer";
 import LoginContainer from "containers/LoginContainer";
@@ -14,20 +11,17 @@ import MyContainer from "containers/MyContainer";
 import EditContainer from "containers/EditContainer";
 import AuditContainer from "containers/AuditContainer";
 import ExamineContainer from "containers/ExamineContainer";
-import rootReducer from "reducers/index";
+import configureStore from "store/store";
 
 require('css/base.css');
 require('css/iconfont.css');
 require('css/app.less');
 require('css/admin.less')
 
-// Apply the middleware to the store
-const middleware = routerMiddleware(hashHistory);
+
 /*创建store*/
-const store = createStore(
-    rootReducer,
-    applyMiddleware(middleware, thunkMiddleware, createLogger())
-);
+const initialState = window.__INITIAL_STATE__;
+const store = configureStore(initialState);
 const history = syncHistoryWithStore(hashHistory, store);
 ReactDom.render(
     <Provider store={store}>
