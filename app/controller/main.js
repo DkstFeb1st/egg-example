@@ -4,8 +4,12 @@
 
 //const fs = require('fs')
 //const bundle = require('../public/vue-ssr-bundle.json')
-//const template = fs.readFileSync('app/public/index.html', 'utf-8')
+import React from 'react'
+import {renderToString} from 'react-dom/server'
+import {RoutingContext, match} from 'react-router'
+import {Provider} from 'react-redux'
 
+const template = fs.readFileSync('app/views/admin.html', 'utf-8')
 module.exports = app => {
     class MainController extends app.Controller {//页面渲染
         //字符串renderer模式
@@ -38,6 +42,11 @@ module.exports = app => {
         }
 
         * pc() {
+            if (this.ctx.query.auth_code) {//如果存在auth_code 则代表是扫码登陆
+                const token = yield this.ctx.service.user.getToken()
+                const userinfo = yield this.ctx.service.user.getUserInfo(token, this.ctx.query.auth_code)
+                console.log(userinfo)
+            }
             yield this.ctx.render('admin')
         }
     }

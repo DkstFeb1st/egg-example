@@ -37,7 +37,7 @@ class LoginContainer extends React.Component {
                     <header className="login-form-header">
                         <a className="login-tab is-selected">管理员登录</a>
                         <a className="login-tab"
-                           href="https://qy.weixin.qq.com/cgi-bin/loginpage?corp_id=wx365326b3672b185c&redirect_uri=http://localhost:3001&usertype=all">普通用户登录</a>
+                           href="https://qy.weixin.qq.com/cgi-bin/loginpage?corp_id=wx365326b3672b185c&redirect_uri=https://app.rarcbank.com/study/pc&usertype=all">普通用户登录</a>
                     </header>
                     <form className="login-form">
                         <div style={{marginBottom: '35px'}}></div>
