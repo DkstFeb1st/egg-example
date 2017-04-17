@@ -9,7 +9,9 @@ const config = merge({}, {
         admin: path.resolve(__dirname, '../admin/app.js'),
         adminvendor: [
             'react',
-            'react-dom'
+            'react-dom',
+            'redux',
+            'react-router'
         ]
     },
     output: {
@@ -34,8 +36,9 @@ const config = merge({}, {
         new webpack.HotModuleReplacementPlugin(),
         // strip dev-only code in Vue source
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-            'process.env.VUE_ENV': '"client"'
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
         }),
         // extract vendor chunks for better caching
         new webpack.optimize.CommonsChunkPlugin({

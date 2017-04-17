@@ -10,7 +10,7 @@ module.exports = app => {
     class MainController extends app.Controller {//页面渲染
         //字符串renderer模式
         //stream与cache还没有实现
-        * index() {
+        * weixin() {
             // const renderer = app.createRenderer(bundle, template)
             // var that = this
             // renderer.renderToString({url : this.ctx.url},(err,html) => {
@@ -30,11 +30,15 @@ module.exports = app => {
                 }
                 this.ctx.session.userinfo = userinfo//用户信息存入session
             } else {
-                const callback_url = 'https://app.rarcbank.com/study/';
+                const callback_url = 'https://app.rarcbank.com/study/weixin';
                 const url = encodeURIComponent(callback_url)
                 this.ctx.redirect(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx365326b3672b185c&redirect_uri=${url}&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect`)
             }
             yield  this.ctx.render('index')
+        }
+
+        * pc() {
+            yield this.ctx.render('admin')
         }
     }
     return MainController;
