@@ -107,6 +107,7 @@
     "ci": "npm run lint && npm run cov",
     "autod": "autod",
     "devadmin": "webpack-dev-server --config build/webpack.dev.admin.config.js --progress --inline --color",
+    "clientadmin": "cross-env NODE_ENV=production webpack --config build/webpack.client.admin.config.js --progress --hide-modules",
     "dev": "webpack-dev-server --config build/webpack.dev.config.js --progress --inline --color",
     "client": "cross-env NODE_ENV=production webpack --config build/webpack.client.config.js --progress --hide-modules",
     "server": "cross-env NODE_ENV=production webpack --config build/webpack.server.config.js --progress --hide-modules"
