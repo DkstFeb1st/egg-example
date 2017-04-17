@@ -7,12 +7,12 @@ const vuxLoader = require('vux-loader')
 const config = merge({}, {
   entry: {
       rlstudy: path.resolve(__dirname, '../rl-study/src/app.js'),
-    vendor: [
-      'vue',
-      'vue-router',
-      'vuex',
-        'vuex-router-sync',
-    ]
+      vendor: [
+          'vue',
+          'vue-router',
+          'vuex',
+          'vuex-router-sync',
+      ]
   },
   output: {
     filename: '[name].js'
@@ -20,7 +20,7 @@ const config = merge({}, {
   resolve: {
     alias: {
         'components': path.resolve(__dirname, '../rl-study/src/components'),
-        'apis': path.resolve(__dirname, '../rl-study/src/apis'),
+        'apis': path.resolve(__dirname, '../rl-study/src/api'),
         'assets': path.resolve(__dirname, '../rl-study/src/assets'),
         'public': path.resolve(__dirname, '../rl-study/public'),
         'assets': path.resolve(__dirname, '../rl-study/src/assets'),

@@ -46,7 +46,7 @@
   </div>
 </template>
 <script>
-  import {getCommentListApi} from 'apis/studyapi'
+  import {getCommentListApi} from 'api/studyapi'
   import * as filters  from 'filters'
   import {WechatEmotion as Emotion} from 'vux'
   export default {

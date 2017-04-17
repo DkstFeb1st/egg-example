@@ -1,7 +1,7 @@
 /**
  * Created by 1 on 2016/1/1.
  */
-import {initialApi} from "apis/mainapi";
+import {initialApi} from "api/mainapi";
 import * as types from "../mutation-types";
 
 //initial state

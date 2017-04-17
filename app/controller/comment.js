@@ -30,6 +30,7 @@ module.exports = app => {
                 this.ctx.status = 200
                 return
             }
+            //添加评论用户信息
             _param = Object.assign({}, _param, {
                 name: name,
                 avator: avatar,

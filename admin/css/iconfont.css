@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'anticon';  /* project id："157396" */
+    src: url('//at.alicdn.com/t/font_eiknizsy8hv6ajor.eot');
+    src: url('//at.alicdn.com/t/font_eiknizsy8hv6ajor.eot') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_eiknizsy8hv6ajor.woff') format('woff'),
+    url('//at.alicdn.com/t/font_eiknizsy8hv6ajor.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_eiknizsy8hv6ajor.svg#iconfont') format('svg');
+}
+
+.anticon-xitong:before {
+    content: "\e604";
+}
+
+.anticon-liebiao:before {
+    content: "\e606";
+}
+
+.anticon-shuaxin:before {
+    content: "\e602";
+}
+
+.anticon-xiangxiajiantou:before {
+    content: "\e607";
+}
+
+.anticon-texiaolingsheng:before {
+    content: "\e605";
+}
+
+.anticon-housunshouli:before {
+    content: "\e603";
+}
+
+.anticon-yonghu:before {
+    content: "\e600";
+}
+
+.anticon-guanli:before {
+    content: "\e62a";
+}
+
+.anticon-sousuo:before {
+    content: "\e60a";
+}
+
+.anticon-tuichu:before {
+    content: "\343b";
+}
+
+.anticon-logo:before {
+    content: "\e67c";
+}
+
+
+

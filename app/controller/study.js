@@ -62,6 +62,28 @@ module.exports = app => {
                 }
             })
         }
+
+        /*admin*/
+        /*根据条件筛选学习资料*/
+        * getSpList() {
+            app.logger.info('后台查询操作')
+            let spList = yield this.ctx.service.study.getSpList(this.ctx.query)
+            this.ctx.body = {status: 200, spList: spList}
+            this.ctx.status = 200
+        }
+
+        /*修改操作*/
+        * doUpdate() {
+            app.logger.info('后台修改操作')
+            const result = yield this.ctx.service.study.updateSp(this.ctx.request.body)
+            if (result) {
+                this.ctx.body = {status: 200, msg: '修改成功'}
+                this.ctx.status = 200
+            } else {
+                this.ctx.body = {status: 205, msg: '修改异常'}
+                this.ctx.status = 200
+            }
+        }
     }
     return StudyController;
 };
