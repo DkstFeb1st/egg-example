@@ -1,6 +1,8 @@
 /**
  * Created by Dministrator on 2017/4/17.
  */
+import React from "react";
+import {Route} from "react-router";
 import AppContainer from "containers/AppContainer";
 import LoginContainer from "containers/LoginContainer";
 import MainContainer from "containers/MainContainer";
