@@ -26,7 +26,7 @@
 <script>
   import {XTextarea, Rater, Group, Cell, XButton, Box} from 'vux'
   import swemoji from 'components/detail/swemoji.vue'
-  import {addCommentApi} from 'apis/studyapi'
+  import {addCommentApi} from 'api/studyapi'
   export default {
     name: 'CommentForm',
     components: {

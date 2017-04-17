@@ -1,5 +1,6 @@
+var CryptoJS = require("crypto-js");
 /*
- * 企业号用户相关接口
+ * 企业号用户相关接口及后台用户逻辑
  * */
 const corpid = 'wx365326b3672b185c'
 const corpsecret = '3hX0RBs2hm2UfLc7F8LugY5503oAIPCfulf089oVu8h6fOhHiyLpnQwIZlqpcR82'
@@ -29,6 +30,20 @@ module.exports = app => {
             }
         }
 
+        /*
+         * 检查是否有管理用户
+         * */
+        * checkCust(_param) {
+            console.log(CryptoJS.SHA1('admin123').toString())
+            const cust = yield this.ctx.model.Cust.findOne({
+                attributes: {exclude: ['pwd']},
+                where: {
+                    account: _param.account,
+                    pwd: CryptoJS.SHA1(_param.pwd).toString()
+                }
+            })
+            return cust
+        }
         /*
          * 根据字典表获取职位对应的key
          * */

@@ -3,6 +3,7 @@
 * */
 const {createBundleRenderer} = require('vue-server-renderer')
 module.exports = {
+    aesKey: 'jcx',
     //vue服务器bundle渲染
    createRenderer (bundle, template) {
     // https://github.com/vuejs/vue/blob/dev/packages/vue-server-renderer/README.md#why-use-bundlerenderer

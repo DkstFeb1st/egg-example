@@ -16,15 +16,52 @@ module.exports = app => {
         authorcustno: STRING(7),
         authorname: STRING(16),
         authoravator: STRING(255),
+        department: STRING(7),
         obligatory: STRING(32),
         elective: STRING(32),
         interest: STRING(8),
         state: STRING(8),
-        createdAt: DATE(6)
+        // createdAt: {
+        //     type : STRING,
+        //     get  : function()  {
+        //         let createdAt = this.getDataValue('createdAt')
+        //         console.log(createdAt)
+        //         return createdAt.replace('T', ' ').slice(0, 19)
+        //     },
+        // }
     }, {
-        // getterMethods   : {
-        //     rate : function()  { return ''}//平均分
-        // },
+        scopes: {
+            stateWhere: function (state) {
+                return {
+                    where: {
+                        state: state
+                    }
+                }
+            },
+            authorcustnoWhere: function (authorcustno) {
+                return {
+                    where: {
+                        authorcustno: authorcustno
+                    }
+                }
+            },
+            titleWhere: function (title) {
+                return {
+                    where: {
+                        title: {
+                            $like: `%${title}%`
+                        }
+                    }
+                }
+            },
+            departmentWhere: function (department) {
+                return {
+                    where: {
+                        department: department
+                    }
+                }
+            }
+        },
         setterMethods: {//自定义属性
             rate: function (value) {
                 this.setDataValue('rate', value);

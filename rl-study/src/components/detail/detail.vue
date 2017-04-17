@@ -57,7 +57,7 @@
 <script>
   /*实现阅读 评分 留言功能*/
   import lifeMonitor from 'mixins/lifeMonitor'
-  import {getSpDetailListApi} from 'apis/studyapi'
+  import {getSpDetailListApi} from 'api/studyapi'
   import * as filters  from 'filters'
   import {WechatEmotion as Emotion} from 'vux'
 
