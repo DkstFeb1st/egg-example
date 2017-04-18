@@ -2,50 +2,59 @@
  * Created by Dministrator on 2017/4/17.
  */
 
-import React from 'react'
-import {renderToString} from 'react-dom/server'
-import {RoutingContext, match} from 'react-router'
-import {Provider} from 'react-redux'
-import routes from './routes'
-import configureStore from './store/store'
+import React from "react";
+import {renderToString} from "react-dom/server";
+import {CreateMemoryHistory, match, RoutingContext} from "react-router";
+import {Provider} from "react-redux";
+import routes from "./routes";
+import configureStore from "./store/store";
 
-async function fetchAllData(dispatch, components, params) {
-    const needs = components
-        .filter(x => x.fetchData)
-        .reduce((prev, current) => {
-            return current.fetchData(params).concat(prev)
-        }, [])
-        .map(x => {
-            return dispatch(x)
-        })
-    return await Promise.all(needs)
+function* test(context) {
+    console.log("test")
+    yield context.render('admin')
+    //context.render('admin')
 }
 
-const render = function (req, res) {
+//require('babel-polyfill')
+export default function render(context) {
     const store = configureStore()
+    //console.log(context.url)
+    match({routes, location: context.url}, (error, redirectLocation, renderProps) => {
 
-    match({routes, location: req.url}, (error, redirectLocation, renderProps) => {
+        //console.log(error)
+        //console.log(redirectLocation)
+        //console.log(renderProps)
         if (error) {
+            console.log("error")
             //res.status(500).send(error.message)
         } else if (redirectLocation) {
+            console.log("redirectLocation")
             //res.redirect(302, redirectLocation.pathname + redirectLocation.search)
         } else if (renderProps) {
-            return fetchAllData(store.dispatch, renderProps.components, renderProps.params)
-                .then(html => {
-                    const InitialView = (
+            //console.log("renderProps")
+            const store = configureStore();
+            const state = store.getState();
+
+            return Promise.all([
+                //store.dispatch(fetchList()),
+                //store.dispatch(fetchItem(renderProps.params.id))
+            ])
+                .then(() => {
+                    const html = renderToString(
                         <Provider store={store}>
-                            <RouterContext {...renderProps} />
-                        </Provider>)
-                    const componentHTML = renderToString(InitialView)
-                    const initialState = store.getState()
-                    this.ctx.render('admin`', {__html__: componentHTML, __state__: JSON.stringify(initialState)})
-                }).catch(err => {
-                    this.ctx.render('admin', {__html__: '', __state__: {}})
-                })
+                            <RoutingContext {...renderProps} />
+                        </Provider>
+                    );
+                    console.log(html)
+
+                    return context.render('admin', {__html__: html, __state__: JSON.stringify(state)})
+                    //test(context)
+                    //context.render('admin')
+                });
         } else {
+            console.log("not found")
             //res.status(404).send('Not Found')
         }
     })
 }
 
-module.exports = render

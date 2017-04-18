@@ -1,11 +1,7 @@
 /**
  * Created by 1 on 2017/3/27.
  */
-
-//onst fs = require('fs')
-//const bundle = require('../public/vue-ssr-bundle.json')
-var serverRender = require('../public/server.js')
-//const serverRender = fs.readFileSync('app/public/server.js', 'utf-8')
+//var serverRender = require('../public/server.js')
 module.exports = app => {
     class MainController extends app.Controller {//页面渲染
         //字符串renderer模式
@@ -38,30 +34,22 @@ module.exports = app => {
         }
 
         * pc() {
-            // if (this.ctx.query.auth_code) {//如果存在auth_code 则代表是扫码登陆
-            //     const token = yield this.ctx.service.user.getToken()
-            //     const userinfo = yield this.ctx.service.user.getUserInfo(token, this.ctx.query.auth_code)
-            //     console.log(userinfo)
-            // }
-            // match({ routes, location : this.ctx.url },( err, redirectLocation, renderProps ) => {
-            //     if(err) {
-            //         this.ctx.body = { status : 500 }
-            //         this.ctx.status = 500
-            //     } else if (redirectLocation) {
-            //         console.log(redirectLocation)
-            //     } else if (renderProps){
-            //         const store = configureStore()
-            //         const state = store.getState()
-            //         const html = renderToString(
-            //             <Provider store = { store }>
-            //                 <RoutingContext {...renderProps } />
-            //             </Provider>
-            //         )
-            //     }
-            console.log(require('../public/server.js'))
-            yield serverRender.render();
+            if (this.ctx.query.auth_code) {//如果存在auth_code 则代表是扫码登陆
+                const token = yield this.ctx.service.user.getToken()
+                const userinfo = yield this.ctx.service.user.getUserInfo(token, this.ctx.query.auth_code)
+                console.log(userinfo)
+                let state = {
+                    isAuthenticated: true
+                }
+                yield this.ctx.render('admin', {__state__: JSON.stringify(state)})
+            } else {
+                let state = {
+                    isAuthenticated: true
+                }
+                yield this.ctx.render('admin', {__state__: JSON.stringify(state)})
+            }
 
         }
     }
     return MainController;
-};
+}

@@ -11,7 +11,8 @@ const config = merge({}, {
     output: {
         path: path.resolve(__dirname, "../app/public"),
         publicPath: "public",
-        filename: 'server.js'
+        filename: 'server.js',
+        libraryTarget: "commonjs2"
     },
     resolve: {
         alias: {
@@ -27,7 +28,7 @@ const config = merge({}, {
     },
     plugins: [
         //Enables Hot Modules Replacement
-        new webpack.HotModuleReplacementPlugin(),
+        //new webpack.HotModuleReplacementPlugin(),
         // strip dev-only code in Vue source
         new webpack.DefinePlugin({
             'process.env': {
@@ -59,9 +60,6 @@ const config = merge({}, {
                 exclude: /node_modules/,
                 query: {
                     "presets": ["es2015", "react"],
-                    "plugins": [
-                        ["import", [{"libraryName": "antd", "style": true}]]
-                    ]
                 }
             },
             {
