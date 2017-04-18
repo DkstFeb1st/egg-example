@@ -11,11 +11,11 @@ class AppContainer extends React.Component {
     componentDidMount() {
         //warning 可以写成middleware 插到根路由上
         if (this.props.isAuthenticated) {
-            this.props.history.push({
+            this.props.history.replace({
                 pathname: '/main'
             })
         } else {
-            this.props.history.push({
+            this.props.history.replace({
                 pathname: '/login'
             })
         }

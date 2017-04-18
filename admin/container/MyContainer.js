@@ -19,7 +19,7 @@ class MyContainer extends React.Component {
 
     componentDidMount() {
         let param = {
-            authorcustno: '8581234'
+            authorcustno: this.props.user.userid
         }
         this.props.dispatch(getSpListRequest(param))
     }
@@ -110,7 +110,8 @@ class MyContainer extends React.Component {
 function mapStateToProps(state) {
     return {
         stateList: state.UserReducer.stateList,
-        spList: state.StudyReducer.spList
+        spList: state.StudyReducer.spList,
+        user: state.UserReducer.user
     }
 }
 
