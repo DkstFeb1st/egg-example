@@ -45,6 +45,7 @@
     "babel-loader": "^6.2.10",
     "babel-plugin-import": "^1.1.1",
     "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.2.1",
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.22.0",
@@ -108,6 +109,7 @@
     "autod": "autod",
     "devadmin": "webpack-dev-server --config build/webpack.dev.admin.config.js --progress --inline --color",
     "clientadmin": "cross-env NODE_ENV=production webpack --config build/webpack.client.admin.config.js --progress --hide-modules",
+    "serveradmin": "cross-env NODE_ENV=production webpack --config build/webpack.server.admin.config.js --progress ",
     "dev": "webpack-dev-server --config build/webpack.dev.config.js --progress --inline --color",
     "client": "cross-env NODE_ENV=production webpack --config build/webpack.client.config.js --progress --hide-modules",
     "server": "cross-env NODE_ENV=production webpack --config build/webpack.server.config.js --progress --hide-modules"
