@@ -9,7 +9,7 @@ import routes from "./routes";
 require('babel-polyfill')
 require('es6-promise')
 require('css/base.css');
-require('css/iconfont.css');
+//require('css/iconfont.css');
 require('css/app.less');
 require('css/admin.less')
 
