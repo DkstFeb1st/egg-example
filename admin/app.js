@@ -7,7 +7,7 @@ import {hashHistory, Router} from "react-router";
 import configureStore from "store/store";
 import routes from "./routes";
 require('css/base.css');
-require('css/iconfont.css');
+//require('css/iconfont.css');
 require('css/app.less');
 require('css/admin.less')
 

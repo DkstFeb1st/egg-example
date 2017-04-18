@@ -24,7 +24,7 @@ const config = merge({}, {
             'store': path.resolve(__dirname, '../admin/store'),
             'containers': path.resolve(__dirname, '../admin/container'),
         },
-        extensions: ['web.js', '.js', '.json']
+        extensions: ['.js', '.json']
     },
     devServer: {
         contentBase: 'public/admin',  //Relative directory for base of server
