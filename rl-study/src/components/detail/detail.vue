@@ -125,6 +125,16 @@
         padding: 0 12px 12px 12px;
         margin-bottom: 12px;
         background-color: #fff;
+        overflow-x: hidden;
+        img {
+          max-width: 100%;
+        }
+        video {
+          max-width: 100%
+        }
+        span {
+          word-wrap: break-word !important;
+        }
       }
       .detail-author, .detail-comment-item {
         display: -webkit-box;
