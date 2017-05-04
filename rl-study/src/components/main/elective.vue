@@ -233,9 +233,16 @@
       justify-content: flex-start;
       align-items: flex-start;
       .list-item-img {
+        position: relative;
         width: 132px;
+        height: 90px;
+        padding-right: 12px;
+        overflow: hidden;
         img {
-          width: 120px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
           border-radius: 5px;
         }
       }

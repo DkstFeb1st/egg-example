@@ -12,16 +12,17 @@ const middleware = routerMiddleware(hashHistory);
 const isdebug = process.env.NODE_ENV !== "production";
 export default function configureStore(initialState) {
     if (initialState) {
+
         const store = createStore(
             rootReducer,
             initialState,
-            applyMiddleware(middleware, thunkMiddleware, isdebug ? createLogger() : null)
+            applyMiddleware(middleware, thunkMiddleware, createLogger())
         );
         return store;
     } else {
         const store = createStore(
             rootReducer,
-            applyMiddleware(middleware, thunkMiddleware, isdebug ? createLogger() : null)
+            applyMiddleware(middleware, thunkMiddleware, createLogger())
         );
         return store;
     }

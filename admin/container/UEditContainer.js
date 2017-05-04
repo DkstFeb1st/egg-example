@@ -254,7 +254,7 @@ class UEditContainer extends React.Component {
                         })(<Input />)}
                     </FormItem>
                     <div className="avator-wrapper">
-                        <label className="tip">封面 :<span>大图片建议尺寸 ：600*400</span></label>
+                        <label className="tip">封面 :<span>图片建议尺寸 ：360*270</span></label>
                         <div>
                             <Button
                                 onClick={this.handleGalleryModalVisible.bind(this, "single")}

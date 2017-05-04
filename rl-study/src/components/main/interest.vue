@@ -233,10 +233,14 @@
       justify-content: flex-start;
       align-items: flex-start;
       .list-item-img {
+        position: relative;
         width: 132px;
+        overflow: hidden;
         img {
-          width: 120px;
-          border-radius: 5px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
         }
       }
       .list-item-content {
