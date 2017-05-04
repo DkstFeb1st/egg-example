@@ -124,7 +124,7 @@ class UEditContainer extends React.Component {
     handleGalleryInsert(selected) {
         for (let gallery of selected) {
             this.ue.execCommand("insertimage", {
-                src: gallery.webpurl
+                src: gallery.jpgurl
             });
         }
         this.setState({

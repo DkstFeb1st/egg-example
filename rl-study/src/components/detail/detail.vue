@@ -7,7 +7,7 @@
       </header>
       <section class="detail-author">
         <div>
-          <img v-bind:src="study.avator" alt="" class="headerimg">
+          <img v-bind:src="study.authoravator" alt="" class="headerimg">
           <div class="detail-author-info">
             <p class="detail-authorname">{{study.authorname}}</p>
             <p class="detail-addtime">{{study.createdAt | datetimeNormal}}</p>

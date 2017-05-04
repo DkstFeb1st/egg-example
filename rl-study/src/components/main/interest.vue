@@ -235,12 +235,15 @@
       .list-item-img {
         position: relative;
         width: 132px;
+        height: 90px;
+        padding-right: 12px;
         overflow: hidden;
         img {
           position: absolute;
           top: 50%;
           left: 50%;
-          -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          border-radius: 5px;
         }
       }
       .list-item-content {
