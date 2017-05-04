@@ -290,7 +290,7 @@ class UEditContainer extends React.Component {
                         ueditorSrc={
                             process.env.NODE_ENV !== "production"
                                 ? "/ueditor.all.js"
-                                : "public/ueditor/ueditor.all.min.js"
+                                : "public/ueditor/ueditor.all.js"
                         }
                         afterInit={this.saveUE.bind(this)}
                     />

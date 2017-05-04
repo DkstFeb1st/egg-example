@@ -10,6 +10,7 @@ require("moment/locale/zh-cn");
 ffmpeg.setFfmpegPath(path.join(__dirname, "../ffmpeg/ffmpeg.exe"));
 ffmpeg.setFfprobePath(path.join(__dirname, "../ffmpeg/ffprobe.exe"));
 const {createBundleRenderer} = require("vue-server-renderer");
+const isdebug = process.env.NODE_ENV !== "production"
 module.exports = {
     aesKey: "jcx",
     //vue服务端bundle渲染
@@ -98,7 +99,6 @@ module.exports = {
                     filename_webp.length,
                     ".webp"
                 );
-                console.log(filename.indexOf(".gif"));
                 const webpurl = filename.indexOf(".gif") < 0
                     ? `${new_dir}${filename_webp.join("")}`
                     : `${new_dir}${filename}`;
@@ -111,13 +111,11 @@ module.exports = {
                     if (!err) url["hw"] = (size.width / size.height).toFixed(2);
                 });
                 gm(filepath).resize(420, 420).noProfile().write(webpurl, function (err) {
-                    // console.log(err)
                     if (!err) {
                         gm(filepath)
                             .resize(420, 420)
                             .noProfile()
                             .write(jpgurl, function (err) {
-                                // console.log(err)
                                 if (!err) resolve(url);
                                 else reject(false);
                             });
