@@ -52,7 +52,7 @@ class AuditContainer extends React.Component {
         _param = Object.assign({}, _param, {
             id: this.state.currentid,
             interest: _param.interest ? '1' : '0',
-            state: 2,
+            state: _param.interest ? '3' : '2',
             log: {
                 sp_id: this.state.currentid,
                 userid: this.props.user.account,
