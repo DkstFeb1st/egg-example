@@ -11,11 +11,19 @@ import {browerHistory, hashHistory} from "react-router";
 const middleware = routerMiddleware(hashHistory);
 
 export default function configureStore(initialState) {
-    console.log(initialState)
-    const store = createStore(
-        rootReducer,
-        initialState,
-        applyMiddleware(middleware, thunkMiddleware, createLogger())
-    );
-    return store;
+    if (initialState) {
+        const store = createStore(
+            rootReducer,
+            initialState,
+            applyMiddleware(middleware, thunkMiddleware, createLogger())
+        );
+        return store;
+    } else {
+        const store = createStore(
+            rootReducer,
+            applyMiddleware(middleware, thunkMiddleware, createLogger())
+        );
+        return store;
+    }
+
 }

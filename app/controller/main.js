@@ -39,14 +39,14 @@ module.exports = app => {
                 const userinfo = yield this.ctx.service.user.getUserInfo(token, this.ctx.query.auth_code)
                 console.log(userinfo)
                 let state = {
-                    isAuthenticated: true
+                    UserReducer: {
+                        isAuthenticated: true,
+                        user: userinfo
+                    }
                 }
                 yield this.ctx.render('admin', {__state__: JSON.stringify(state)})
             } else {
-                let state = {
-                    isAuthenticated: true
-                }
-                yield this.ctx.render('admin', {__state__: JSON.stringify(state)})
+                yield this.ctx.render('admin', {__state__: JSON.stringify("")})
             }
 
         }

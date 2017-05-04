@@ -102,7 +102,7 @@ class MainContainer extends React.Component {
                             />
                             <div className="header-user-info-wrapper">
                                 <label className="avator"><img
-                                    src="http://wx.qlogo.cn/mmopen/icxAcjCgIMRsj9JbW4bKhUXJ5T3ndjZ6ucS47ibZYUtueNW6UDCMX8JNmhV5OFPNnlfR9aicIv1HNBUuqfCPIlcrg/0"
+                                    src={this.props.user.avatar || "http://wx.qlogo.cn/mmopen/icxAcjCgIMRsj9JbW4bKhUXJ5T3ndjZ6ucS47ibZYUtueNW6UDCMX8JNmhV5OFPNnlfR9aicIv1HNBUuqfCPIlcrg/0"}
                                     alt=""/></label>
                                 <label className="name">{this.props.user.name}</label>
                                 <label className="logout">退出</label>
