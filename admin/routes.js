@@ -7,7 +7,7 @@ import AppContainer from "containers/AppContainer";
 import LoginContainer from "containers/LoginContainer";
 import MainContainer from "containers/MainContainer";
 import MyContainer from "containers/MyContainer";
-import EditContainer from "containers/EditContainer";
+import UEditContainer from "containers/UEditContainer";
 import AuditContainer from "containers/AuditContainer";
 import ExamineContainer from "containers/ExamineContainer";
 
@@ -16,7 +16,7 @@ const routes = (
         <Route path="/login" component={LoginContainer}></Route>
         <Route path="/main" component={MainContainer}>
             <Route path="my" component={MyContainer}></Route>
-            <Route path="edit" component={EditContainer}></Route>
+            <Route path="edit" component={UEditContainer}></Route>
             <Route path="audit" component={AuditContainer}></Route>
             <Route path="examine" component={ExamineContainer}></Route>
         </Route>

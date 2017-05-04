@@ -6,6 +6,7 @@
 module.exports = app => {
     class ViewlogController extends app.Controller {
         * create() {
+            const _param = this.ctx.rquest.body
             let view_log = {
                 sp_id: 1,
                 custno: '8581236'

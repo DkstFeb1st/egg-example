@@ -18,7 +18,7 @@ const config = merge({}, {
         alias: {
             'components': path.resolve(__dirname, '../admin/component'),
             css: path.resolve(__dirname, '../admin/css'),
-            img: "../admin/images",
+            'img': path.resolve(__dirname, '../admin/images'),
             'reducers': path.resolve(__dirname, '../admin/store/reducer'),
             'apis': path.resolve(__dirname, '../admin/store/api'),
             'store': path.resolve(__dirname, '../admin/store'),

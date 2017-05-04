@@ -1,7 +1,7 @@
 /**
  * Created by 1 on 2016/1/1.
  */
-import {getElectiveListApi, getInterestListApi, getObligatoryListApi} from "api/studyapi";
+import {getElectiveListApi, getInterestListApi, getObligatoryListApi} from "apis/studyapi";
 import * as types from "../mutation-types";
 
 //initial state

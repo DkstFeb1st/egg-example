@@ -20,7 +20,7 @@ const config = merge({}, {
   resolve: {
     alias: {
         'components': path.resolve(__dirname, '../rl-study/src/components'),
-        'apis': path.resolve(__dirname, '../rl-study/src/api'),
+        'apis': path.resolve(__dirname, '../rl-study/src/apis'),
         'assets': path.resolve(__dirname, '../rl-study/src/assets'),
         'public': path.resolve(__dirname, '../rl-study/public'),
         'assets': path.resolve(__dirname, '../rl-study/src/assets'),

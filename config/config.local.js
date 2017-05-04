@@ -16,6 +16,7 @@ module.exports = appInfo => {
         port: '3306',
         username: 'qdm105632177',
         password: 'jin123654789',
+        timezone: "+08:00"
     };
 
     return config;

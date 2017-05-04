@@ -143,6 +143,7 @@ hr {
 
 img {
     border: 0;
+    width: 100%;
 }
 
 mark {
@@ -309,15 +310,6 @@ blockquote {
     margin: 0 0 1rem;
 }
 
-/************
- *custom 
- ************/
-img {
-    vertical-align: middle;
-    page-break-inside: avoid;
-    width: 100%;
-}
-
 a {
     color: #2db7f5;
     text-decoration: none;
@@ -373,44 +365,8 @@ label {
     display: inline-block;
 }
 
-/* 超小屏幕（手机，小于 768px）*/
-/* 小屏幕（平板，大于等于 768px）*/
-/* 中等屏幕（桌面显示器，大于等于 992px）*/
-/* 大屏幕（大桌面显示器，大于等于 1200px） */
-/*
-	固定宽度
-*/
-.container {
-    padding-right: .9375rem;
-    padding-left: .9375rem;
-    padding-bottom: .9375rem;
-    margin-right: auto;
-    margin-left: auto;
-    background: #fff;
-}
-
-.container-nocolor {
-    padding-top: .9375rem;
-    padding-right: .9375rem;
-    padding-left: .9375rem;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.container:before,
-.container:after {
-    display: table;
-    content: " ";
-}
-
-.container:after {
-    clear: both;
-}
 
 @media (min-width: 34rem) {
-    .container {
-        max-width: 34rem;
-    }
 
     .sg-select-dialog, .sg-input-dialog {
         width: 84% !important;
@@ -423,9 +379,6 @@ label {
 }
 
 @media (min-width: 48rem) {
-    .container {
-        max-width: 45rem;
-    }
 
     .sg-select-dialog, .sg-input-dialog {
         width: 64% !important;
@@ -437,9 +390,6 @@ label {
 }
 
 @media (min-width: 62rem) {
-    .container {
-        max-width: 60rem;
-    }
 
     .sg-select-dialog, .sg-input-dialog {
         width: 44% !important;
@@ -451,9 +401,6 @@ label {
 }
 
 @media (min-width: 75rem) {
-    .container {
-        max-width: 72.25rem;
-    }
 
     .sg-select-dialog, .sg-input-dialog {
         width: 24% !important;

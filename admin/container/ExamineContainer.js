@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {Layout, Modal, Table} from "antd";
 import {getSpListRequest, putSpExamineRequest} from "reducers/StudyReducer";
 import ExamineModalComponent from "components/ExamineModalComponent";
+import PhoneViewModalComponent from "components/PhoneViewModalComponent";
 const {Content} = Layout;
 
 
@@ -14,7 +15,9 @@ class ExamineContainer extends React.Component {
         super(props)
         this.state = {
             examineModalkey: Math.random(),
-            examineModalVisible: false
+            examineModalVisible: false,
+            viewModalVisible: false,
+            current: ""
         }
     }
 
@@ -33,6 +36,18 @@ class ExamineContainer extends React.Component {
         })
     }
 
+    handleView(record) {
+        this.setState({
+            current: record.id,
+            viewModalVisible: !this.state.viewModalVisible
+        });
+    }
+
+    handleViewModalVisible() {
+        this.setState({
+            viewModalVisible: !this.state.viewModalVisible
+        });
+    }
     handlerExamineSubmit(_param) {
         let obligatory = _param.obligatory.join(',') + ","
         let elective = _param.elective.join(',') + ","
@@ -40,7 +55,12 @@ class ExamineContainer extends React.Component {
             id: this.state.currentid,
             obligatory: obligatory,
             elective: elective,
-            state: 3
+            state: 3,
+            log: {
+                sp_id: this.state.currentid,
+                userid: this.props.user.account,
+                content: "审批通过"
+            }
         }
         this.props.dispatch(putSpExamineRequest(_param, {
             state: '2',
@@ -61,7 +81,12 @@ class ExamineContainer extends React.Component {
             onOk: (e) => {
                 let _param = {
                     id: record.id,
-                    state: '4'
+                    state: '6',
+                    log: {
+                        sp_id: record.id,
+                        userid: this.props.user.account,
+                        content: "审批不通过"
+                    }
                 }
                 this.props.dispatch(putSpAuditRequest(_param, {
                     state: 2
@@ -72,13 +97,12 @@ class ExamineContainer extends React.Component {
     }
 
     render() {
-        let {examineModalkey, examineModalVisible} = this.state
+        let {examineModalkey, examineModalVisible, viewModalVisible, current} = this.state
         const columns = [{
             title: '标题',
             dataIndex: 'title',
             key: 'title',
-            width: 300,
-            render: text => <a href="#">{text}</a>,
+            width: 300
         }, {
             title: '作者',
             dataIndex: 'authorname',
@@ -99,6 +123,8 @@ class ExamineContainer extends React.Component {
             key: 'action',
             render: (text, record) => (
                 <a>
+                    <span onClick={this.handleView.bind(this, record)}>预览</span>
+                    <span className="ant-divider"/>
                     <span onClick={this.handlerExamineModal.bind(this, record)}>审批</span>
                     <span className="ant-divider"/>
                     <span onClick={this.handlerReject.bind(this, record)}>拒绝</span>
@@ -120,6 +146,11 @@ class ExamineContainer extends React.Component {
                     submit={this.handlerExamineSubmit.bind(this)}
                 >
                 </ExamineModalComponent>
+                <PhoneViewModalComponent
+                    id={current}
+                    visible={viewModalVisible}
+                    handleViewModalVisible={this.handleViewModalVisible.bind(this)}
+                />
             </Content>
         )
     }
@@ -128,7 +159,8 @@ function mapStateToProps(state) {
     return {
         stateList: state.UserReducer.stateList,
         jobList: state.UserReducer.jobList,
-        spList: state.StudyReducer.spList
+        spList: state.StudyReducer.spList,
+        user: state.UserReducer.user
     }
 }
 

@@ -1,7 +1,7 @@
 /*
  * 学习资料model
  * */
-
+const moment = require('moment')
 module.exports = app => {
     const {STRING, INTEGER, DATE, TEXT} = app.Sequelize
     return app.model.define('Study', {
@@ -21,14 +21,20 @@ module.exports = app => {
         elective: STRING(32),
         interest: STRING(8),
         state: STRING(8),
-        // createdAt: {
-        //     type : STRING,
-        //     get  : function()  {
-        //         let createdAt = this.getDataValue('createdAt')
-        //         console.log(createdAt)
-        //         return createdAt.replace('T', ' ').slice(0, 19)
-        //     },
-        // }
+        createdAt: {
+            type: DATE,
+            get: function () {
+                // 'this' allows you to access attributes of the instance
+                return moment(this.getDataValue('createdAt')).locale('zh-cn').utcOffset(8).format('YYYY-MM-DD HH:mm:ss');
+            },
+        },
+        updatedAt: {
+            type: DATE,
+            get: function () {
+                // 'this' allows you to access attributes of the instance
+                return moment(this.getDataValue('updateAt')).locale('zh-cn').utcOffset(8).format('YYYY-MM-DD HH:mm:ss');
+            },
+        }
     }, {
         scopes: {
             stateWhere: function (state) {

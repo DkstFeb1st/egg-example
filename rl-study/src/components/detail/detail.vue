@@ -18,8 +18,8 @@
 
         </div>
       </section>
-      <article v-html="study.vhtml">
-        <div>{{ study.vhtml }}</div>
+      <article v-html="study.fhtml">
+        <div>{{ study.fhtml }}</div>
       </article>
       <div class="detail-comment-wrapper">
         <header>
@@ -57,7 +57,7 @@
 <script>
   /*实现阅读 评分 留言功能*/
   import lifeMonitor from 'mixins/lifeMonitor'
-  import {getSpDetailListApi} from 'api/studyapi'
+  import {getSpDetailListApi} from 'apis/studyapi'
   import * as filters  from 'filters'
   import {WechatEmotion as Emotion} from 'vux'
 

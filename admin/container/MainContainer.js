@@ -6,16 +6,13 @@
  */
 import React from "react";
 import {connect} from "react-redux";
-
-
-import {push} from "react-router-redux";
+import {push, replace} from "react-router-redux";
 import {Icon, Layout, Menu} from "antd";
-import {initialRequest} from "reducers/UserReducer";
+import {initialRequest, updateMenuStateAction} from "reducers/UserReducer";
 const {Header, Sider, Content} = Layout;
 const SubMenu = Menu.SubMenu;
 
 
-@connect
 class MainContainer extends React.Component {
     constructor(props) {
         super(props)
@@ -36,26 +33,27 @@ class MainContainer extends React.Component {
 
     handleMenuClick(e) {
         console.log(e)
+        this.props.dispatch(updateMenuStateAction(e.key))
         switch (e.key) {
             case "4":
-                this.props.history.push({
+                this.props.dispatch(replace({
                     pathname: '/main/my'
-                })
+                }))
                 break;
             case "5":
-                this.props.history.push({
+                this.props.dispatch(replace({
                     pathname: '/main/edit'
-                })
+                }))
                 break;
             case "2":
-                this.props.history.push({
+                this.props.dispatch(replace({
                     pathname: '/main/audit'
-                })
+                }))
                 break;
             case "3":
-                this.props.history.push({
+                this.props.dispatch(replace({
                     pathname: '/main/examine'
-                })
+                }))
                 break;
         }
 
@@ -71,7 +69,7 @@ class MainContainer extends React.Component {
                         collapsed={this.state.collapsed}
                     >
                         <div className="logo"/>
-                        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}
+                        <Menu theme="dark" mode="inline" selectedKeys={this.props.currentMeunKey}
                               onClick={this.handleMenuClick.bind(this)}>
                             <SubMenu key="1" title="学习资料管理">
                                 <Menu.Item key="4"
@@ -121,6 +119,7 @@ class MainContainer extends React.Component {
 function mapStateToProps(state) {
     return {
         isAuthenticated: state.UserReducer.isAuthenticated,
+        currentMeunKey: state.UserReducer.currentMeunKey,
         user: state.UserReducer.user
     }
 }

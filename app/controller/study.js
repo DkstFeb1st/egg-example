@@ -34,7 +34,6 @@ module.exports = app => {
          * 增加学习资料访问次数
          * */
         * getSpDetail() {
-            const zhNow = moment().locale('zh-cn').utcOffset(8).format('YYYY-MM-DD HH:mm:ss');
             let {id} = this.ctx.request.body
             let spdetail = yield this.ctx.service.study.getStudyDetail(id)
             let score = 0;
@@ -51,8 +50,7 @@ module.exports = app => {
             let that = this
             let view_log = {
                 sp_id: id,
-                custno: this.ctx.session.userinfo.userid,
-                createdAt: zhNow
+                custno: this.ctx.session.userinfo.userid
             }
             yield this.ctx.model.Viewlog.create(view_log, {
                 isNewRecord: true
@@ -63,24 +61,100 @@ module.exports = app => {
             })
         }
 
+        /**
+         * 实时预览接口
+         * */
+        * viewSpDetail() {
+            let {id} = this.ctx.query
+            console.log(id)
+            let spdetail = yield this.ctx.service.study.getStudyDetail(id)
+            let score = 5;
+            console.log(spdetail.comments)
+            if (!spdetail.comments || spdetail.comments.length === 0) {
+                spdetail.rate = score
+            } else {
+                score = 0
+                spdetail.comments.map((obj, index) => {
+                    score = score + obj.rate
+                })
+                spdetail.rate = (score / spdetail.comments.length).toFixed(1)
+            }
+            this.ctx.body = {status: 200, spdetail: spdetail}
+            this.ctx.status = 200
+        }
         /*admin*/
         /*根据条件筛选学习资料*/
         * getSpList() {
             app.logger.info('后台查询操作')
             let spList = yield this.ctx.service.study.getSpList(this.ctx.query)
+            for (let i = 0; i < spList.length; i++) {
+                let score = 5;
+                if (!spList[i].comments || spList[i].comments.length === 0) {
+                    spList[i].rate = score
+                } else {
+                    spList[i].comments.map((obj, index) => {
+                        score = score + obj.rate
+                    })
+                    spList[i].rate = (score / spList[i].comments.length).toFixed(1)
+                }
+            }
             this.ctx.body = {status: 200, spList: spList}
             this.ctx.status = 200
         }
 
         /*修改操作*/
         * doUpdate() {
-            app.logger.info('后台修改操作')
+            app.logger.info('学习资料修改操作')
             const result = yield this.ctx.service.study.updateSp(this.ctx.request.body)
             if (result) {
-                this.ctx.body = {status: 200, msg: '修改成功'}
-                this.ctx.status = 200
+                let log = this.ctx.request.body.log
+                const logresult = yield this.ctx.service.log.doCreate(log)
+                if (logresult) {
+                    this.ctx.body = {status: 200, msg: '修改成功'}
+                    this.ctx.status = 200
+                } else {
+                    this.ctx.body = {status: 205, msg: '修改异常'}
+                    this.ctx.status = 200
+                }
             } else {
                 this.ctx.body = {status: 205, msg: '修改异常'}
+                this.ctx.status = 200
+            }
+        }
+
+        /*创建操作*/
+        * doCreate() {
+            app.logger.info('学习资料创建操作')
+            const userinfo = this.ctx.session.userinfo
+            const _request = this.ctx.request.body
+            const _param = Object.assign({}, _request, {
+                authorcustno: userinfo.userid,
+                authorname: userinfo.name,
+                authoravator: userinfo.avatar,
+                state: 1
+            })
+            for (let key in _param) {
+                if (!_param[key]) {
+                    this.ctx.body = {status: 201, msg: '参数错误'}
+                    this.ctx.status = 200
+                }
+            }
+            const result = yield this.ctx.service.study.createSp(_param)
+            if (result) {
+                let log = this.ctx.request.body.log
+                log = Object.assign({}, log, {
+                    sp_id: result.id
+                })
+                const logresult = yield this.ctx.service.log.doCreate(log)
+                if (logresult) {
+                    this.ctx.body = {status: 200, msg: '操作成功'}
+                    this.ctx.status = 200
+                } else {
+                    this.ctx.body = {status: 202, msg: '插入异常'}
+                    this.ctx.status = 200
+                }
+            } else {
+                this.ctx.body = {status: 202, msg: '插入异常'}
                 this.ctx.status = 200
             }
         }
