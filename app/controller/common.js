@@ -4,7 +4,8 @@
 const path = require("path");
 const fs = require("fs");
 const gm = require("gm");
-const sendToWormhole = require("stream-wormhole");
+const sendToWormhole = require("stream-wormhole")
+const isdebug = process.env.NODE_ENV !== "production";
 module.exports = app => {
     class CommonController extends app.Controller {
         //单个图库列表获取
@@ -81,11 +82,12 @@ module.exports = app => {
                             //添加用户图库
                             let _param = {
                                 name: part.filename,
-                                jpgurl: this.ctx.origin + "/" + result.jpgurl.substring(4),
-                                webpurl: this.ctx.origin + "/" + result.webpurl.substring(4),
+                                jpgurl: isdebug ? this.ctx.request.header.origin + "/" + result.jpgurl.substring(4) : this.ctx.request.header.origin + "/study/" + result.jpgurl.substring(4),
+                                webpurl: isdebug ? this.ctx.request.header.origin + "/" + result.webpurl.substring(4) : this.ctx.request.header.origin + "/study/" + result.webpurl.substring(4),
                                 userid: userid,
                                 hw: result.hw
                             };
+                            console.log(_param)
                             yield app.model.Gallery
                                 .create(_param, {
                                     isNewRecord: true
@@ -170,8 +172,8 @@ module.exports = app => {
                             //添加用户视频库
                             let _param = {
                                 name: part.filename,
-                                vediourl: this.ctx.origin + "/" + result.vediourl.substring(4),
-                                post: this.ctx.origin + "/" + result.post.substring(4),
+                                vediourl: isdebug ? this.ctx.request.header.origin + "/" + result.vediourl.substring(4) : this.ctx.request.header.origin + "/study/" + result.vediourl.substring(4),
+                                post: isdebug ? this.ctx.request.header.origin + "/" + result.post.substring(4) : this.ctx.request.header.origin + "/study/" + result.post.substring(4),
                                 duration: result.duration,
                                 userid: userid
                             };
@@ -261,7 +263,7 @@ module.exports = app => {
                             //添加文档
                             let _param = {
                                 name: part.filename,
-                                url: this.ctx.origin + "/" + result.url.substring(4),
+                                url: isdebug ? this.ctx.request.header.origin + "/" + result.url.substring(4) : this.ctx.rquest.header.origin + "/study/" + result.url.substring(4),
                                 size: result.size,
                                 userid: userid,
                                 type: result.type
