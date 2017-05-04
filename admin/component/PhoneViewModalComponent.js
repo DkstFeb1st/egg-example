@@ -80,7 +80,7 @@ class PhoneViewModalComponent extends React.Component {
                                             <section className="detail-author">
                                                 <div>
                                                     <img
-                                                        src={study.authoravator}
+                                                        src={study.authoravator ? study.authoravator : this.props.avatar}
                                                         alt=""
                                                         className="headerimg"
                                                     />

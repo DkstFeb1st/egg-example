@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const srcDir = path.resolve(__dirname, '../app');
 const HTMLPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 console.log(srcDir)
 const config = merge({}, {
     entry: {
@@ -60,6 +61,8 @@ const config = merge({}, {
         //     },
         // }),
         // generate output HTML
+        /*css单独打包*/
+        new ExtractTextPlugin("admin.css"),
         new HTMLPlugin({
             title: '农商学习管理平台',
             template: 'admin/index.template.html',
@@ -82,11 +85,11 @@ const config = merge({}, {
             },
             {
                 test: /\.css$/,
-                loader: "style-loader!css-loader"
+                loader: ExtractTextPlugin.extract("style-loader!css-loader")
             },
             {
                 test: /\.less$/,
-                loader: 'style-loader!css-loader!less-loader'
+                loader: ExtractTextPlugin.extract('style-loader!css-loader!less-loader')
             },
             {
                 test: /\.(png|jpg|gif|svg)$/,
