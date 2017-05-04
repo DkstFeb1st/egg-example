@@ -45,24 +45,24 @@ const config = merge({}, {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'adminvendor'
         }),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     comments: false,
-        //     // 最紧凑的输出
-        //     beautify: false,
-        //     compress: {
-        //         //supresses warnings, usually from modules minification
-        //         warnings: false,
-        //         // 删除所有的 `console` 语句// 还可以兼容ie浏览器
-        //         //drop_console: true,
-        //         // 内嵌定义了但是只用到一次的变量
-        //         collapse_vars: true,
-        //         // 提取出出现多次但是没有定义成变量去引用的静态值
-        //         reduce_vars: true,
-        //     },
-        // }),
+        new webpack.optimize.UglifyJsPlugin({
+            comments: false,
+            // 最紧凑的输出
+            beautify: false,
+            compress: {
+                //supresses warnings, usually from modules minification
+                warnings: false,
+                // 删除所有的 `console` 语句// 还可以兼容ie浏览器
+                //drop_console: true,
+                // 内嵌定义了但是只用到一次的变量
+                collapse_vars: true,
+                // 提取出出现多次但是没有定义成变量去引用的静态值
+                reduce_vars: true,
+            },
+        }),
         // generate output HTML
         /*css单独打包*/
-        new ExtractTextPlugin("admin.css"),
+        new ExtractTextPlugin("[name].[hash].css"),
         new HTMLPlugin({
             title: '农商学习管理平台',
             template: 'admin/index.template.html',
@@ -77,7 +77,7 @@ const config = merge({}, {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
-                    "presets": ["es2015", "react"],
+                    "presets": ["es2015", "react", "stage-0"],
                     "plugins": [
                         ["import", [{"libraryName": "antd", "style": true}]]
                     ]
@@ -85,19 +85,15 @@ const config = merge({}, {
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader!css-loader")
+                loader: ExtractTextPlugin.extract(['css-loader'])
             },
             {
                 test: /\.less$/,
-                loader: ExtractTextPlugin.extract('style-loader!css-loader!less-loader')
+                loader: ExtractTextPlugin.extract(['css-loader', 'less-loader'])
             },
             {
                 test: /\.(png|jpg|gif|svg)$/,
                 loader: 'url-loader',
-                options: {
-                    limit: 10000,
-                    name: '[name].[ext]?[hash]'
-                }
             }
         ]
     },

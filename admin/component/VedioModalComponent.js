@@ -143,6 +143,7 @@ class VedioModalComponent extends React.Component {
                                     </Button>
                                 </label>
                             </Upload>
+                            <label htmlFor="">双击观看视频</label>
                         </header>
                         <div className="vedio-wrapper">
                             {this.props.vedioList &&
@@ -183,7 +184,7 @@ class VedioModalComponent extends React.Component {
                     </TabPane>
                     <TabPane tab="视频链接" key="2">
                         <div>
-                            <label>视频地址</label>
+                            <label>视频地址(复制视频网站的通用代码，宽度改成300以内)</label>
                             <Input
                                 type="text"
                                 placeholder="请输入视频地址"
