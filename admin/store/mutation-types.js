@@ -2,7 +2,8 @@
  * Created by 1 on 2016/1/1.
  */
 
-export const LOGINSUCCESS = "LOGINSUCCESS"
+export const LOGIN = "LOGIN"
+export const LOGINOUT = "LOGINOUT"
 export const INITIAL = "INITIAL"
 export const GETSPLIST = "GETSPLIST"
 export const GETGALLERYLIST = "GETGALLERYLIST"

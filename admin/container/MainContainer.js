@@ -8,7 +8,8 @@ import React from "react";
 import {connect} from "react-redux";
 import {push, replace} from "react-router-redux";
 import {Icon, Layout, Menu} from "antd";
-import {initialRequest, updateMenuStateAction} from "reducers/UserReducer";
+import {initialRequest, logoutAction, updateMenuStateAction} from "reducers/UserReducer";
+import {browerHistory} from "react-router";
 const {Header, Sider, Content} = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -22,9 +23,14 @@ class MainContainer extends React.Component {
     }
 
     componentDidMount() {
+        console.log("initial")
         this.props.dispatch(initialRequest())
     }
 
+    handleLogout() {
+        this.props.dispatch(logoutAction())
+        this.props.dispatch(replace('/login'))
+    }
     toggle() {
         this.setState({
             collapsed: !this.state.collapsed,
@@ -36,7 +42,10 @@ class MainContainer extends React.Component {
         this.props.dispatch(updateMenuStateAction(e.key))
         switch (e.key) {
             case "4":
-                this.props.dispatch(replace({
+                // this.props.replace({
+                //         pathname: '/main/my'
+                // })
+                this.props.dispatch(push({
                     pathname: '/main/my'
                 }))
                 break;
@@ -102,10 +111,10 @@ class MainContainer extends React.Component {
                             />
                             <div className="header-user-info-wrapper">
                                 <label className="avator"><img
-                                    src={this.props.user.avatar || "http://wx.qlogo.cn/mmopen/icxAcjCgIMRsj9JbW4bKhUXJ5T3ndjZ6ucS47ibZYUtueNW6UDCMX8JNmhV5OFPNnlfR9aicIv1HNBUuqfCPIlcrg/0"}
+                                    src={this.props.user.avatar || "public/img/avatar.png"}
                                     alt=""/></label>
                                 <label className="name">{this.props.user.name}</label>
-                                <label className="logout">退出</label>
+                                <label className="logout" onClick={this.handleLogout.bind(this)}>退出</label>
                             </div>
                         </Header>
                         {this.props.children}
@@ -121,6 +130,7 @@ function mapStateToProps(state) {
         isAuthenticated: state.UserReducer.isAuthenticated,
         currentMeunKey: state.UserReducer.currentMeunKey,
         user: state.UserReducer.user
+
     }
 }
 

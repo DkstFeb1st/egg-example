@@ -2,13 +2,27 @@
  * Created by 1 on 2016/10/17.
  * 用户Reducer
  */
-import {GETDOCUMENTLIST, GETGALLERYLIST, GETVEDIOLIST, INITIAL, LOGINSUCCESS, UPDATEMENU} from "store/mutation-types";
+import {
+    GETDOCUMENTLIST,
+    GETGALLERYLIST,
+    GETVEDIOLIST,
+    INITIAL,
+    LOGIN,
+    LOGINOUT,
+    UPDATEMENU
+} from "store/mutation-types";
 import {getDocumentList, getImageList, getVedioList, initial, loginByPwd} from "apis/apiList";
 import {push} from "react-router-redux";
 
+export const logoutAction = () => {
+    return {
+        type: LOGINOUT
+    };
+};
+
 export const loginSuccess = _data => {
     return {
-        type: LOGINSUCCESS,
+        type: LOGIN,
         user: _data.user
     };
 };
@@ -131,10 +145,16 @@ export const UserReducer = function (state = {
                                      },
                                      action) {
     switch (action.type) {
-        case LOGINSUCCESS:
+        case LOGIN:
+            window.__INITIAL_STATE__ = {};
             return Object.assign({}, state, {
                 isAuthenticated: !state.isAuthenticated,
                 user: action.user
+            });
+        case LOGINOUT:
+            return Object.assign({}, state, {
+                isAuthenticated: !state.isAuthenticated,
+                user: {}
             });
         case INITIAL:
             return Object.assign({}, state, {

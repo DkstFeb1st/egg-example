@@ -2,23 +2,9 @@
  * Created by 1 on 2017/4/12.
  */
 import React from "react";
-import {connect} from "react-redux";
 class AppContainer extends React.Component {
     constructor(props) {
         super(props)
-    }
-
-    componentDidMount() {
-        //warning 可以写成middleware 插到根路由上
-        if (this.props.isAuthenticated) {
-            this.props.history.replace({
-                pathname: '/main'
-            })
-        } else {
-            this.props.history.replace({
-                pathname: '/login'
-            })
-        }
     }
 
     render() {
@@ -29,10 +15,5 @@ class AppContainer extends React.Component {
         )
     }
 }
-function mapStateToProps(state) {
-    return {
-        isAuthenticated: state.UserReducer.isAuthenticated,
-    }
-}
 
-module.exports = connect(mapStateToProps)(AppContainer);
+module.exports = AppContainer;

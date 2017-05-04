@@ -33,7 +33,7 @@ class PhoneViewModalComponent extends React.Component {
             });
             return
         }
-        if (nextProps.study.title) {
+        if (nextProps.study && nextProps.study.title) {
             console.log(nextProps.study)
             this.setState({
                 study: nextProps.study
