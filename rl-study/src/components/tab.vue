@@ -1,18 +1,18 @@
 <template>
   <div>
     <component v-bind:is="currentView"></component>
-    <tabbar>
-      <tabbar-item selected v-on:on-item-click="_obligatory">
+    <tabbar v-model="currentIndex">
+      <tabbar-item v-on:on-item-click="_obligatory">
         <img slot="icon" src="../assets/ic_sp_obligatory_select.png">
         <img slot="icon-active" src="../assets/ic_sp_obligatory_selected.png">
         <span slot="label">必修课</span>
       </tabbar-item>
-      <tabbar-item v-on:on-item-click="_elective">
+      <tabbar-item v-model="currentIndex" v-on:on-item-click="_elective">
         <img slot="icon" src="../assets/ic_sp_elective_select.png">
         <img slot="icon-active" src="../assets/ic_sp_elective_selected.png">
         <span slot="label">选修课</span>
       </tabbar-item>
-      <tabbar-item v-on:on-item-click="_interest">
+      <tabbar-item v-model="currentIndex" v-on:on-item-click="_interest">
         <img slot="icon" src="../assets/ic_sp_interest_select.png">
         <img slot="icon-active" src="../assets/ic_sp_interest_selected.png">
         <span slot="label">兴趣</span>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
   import {Tabbar, TabbarItem} from 'vux'
   import obligatory from 'components/main/obligatory.vue'
   import elective from 'components/main/elective.vue'
@@ -35,18 +36,43 @@
     },
     data () {
       return {
-        currentView: obligatory
+
       }
+    },
+    computed: {
+      ...mapGetters(['currentView', 'currentIndex'])
+//      currentView : function(){
+//          return this.$store.getters.currentView
+//      },
+//      currentIndex : function(){
+//          console.log(this.$store.getters.currentIndex)
+//          return this.$store.getters.currentIndex
+//      }
     },
     methods: {
       _obligatory: function () {
-        this.currentView = obligatory
+        let _param = {
+          currentView: obligatory,
+          currentIndex: 0
+        }
+        this.$store.dispatch('changeTabAction', _param)
+        //this.currentView = obligatory
       },
       _elective: function () {
-        this.currentView = elective
+        let _param = {
+          currentView: elective,
+          currentIndex: 1
+        }
+        this.$store.dispatch('changeTabAction', _param)
+        //this.currentView = elective
       },
       _interest: function () {
-        this.currentView = interest
+        let _param = {
+          currentView: interest,
+          currentIndex: 2
+        }
+        this.$store.dispatch('changeTabAction', _param)
+        //this.currentView = interest
       }
     }
   }

@@ -263,7 +263,7 @@ module.exports = app => {
                             //添加文档
                             let _param = {
                                 name: part.filename,
-                                url: isdebug ? this.ctx.request.header.origin + "/" + result.url.substring(4) : this.ctx.rquest.header.origin + "/study/" + result.url.substring(4),
+                                url: isdebug ? this.ctx.request.header.origin + "/" + result.url.substring(4) : this.ctx.request.header.origin + "/study/" + result.url.substring(4),
                                 size: result.size,
                                 userid: userid,
                                 type: result.type

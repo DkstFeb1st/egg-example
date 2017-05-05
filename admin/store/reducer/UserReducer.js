@@ -152,6 +152,7 @@ export const UserReducer = function (state = {
                 user: action.user
             });
         case LOGINOUT:
+            window.__INITIAL_STATE__ = {}
             return Object.assign({}, state, {
                 isAuthenticated: !state.isAuthenticated,
                 user: {}

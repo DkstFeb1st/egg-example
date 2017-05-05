@@ -37,7 +37,7 @@ module.exports = app => {
             if (this.ctx.query.auth_code) {//如果存在auth_code 则代表是扫码登陆
                 const token = yield this.ctx.service.user.getToken()
                 const userinfo = yield this.ctx.service.user.getUserInfo(token, this.ctx.query.auth_code)
-                console.log(userinfo)
+                this.ctx.session.userinfo = userinfo//用户信息存入session
                 let state = {
                     UserReducer: {
                         isAuthenticated: true,
