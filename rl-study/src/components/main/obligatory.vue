@@ -232,9 +232,9 @@
       align-items: flex-start;
       .list-item-img {
         position: relative;
-        width: 132px;
+        width: 120px;
         height: 90px;
-        padding-right: 12px;
+        margin-right: 12px;
         overflow: hidden;
         img {
           position: absolute;
@@ -242,6 +242,7 @@
           left: 50%;
           transform: translate(-50%, -50%);
           border-radius: 5px;
+          width: 100%;
         }
       }
       .list-item-content {

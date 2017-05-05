@@ -135,6 +135,26 @@
         span {
           word-wrap: break-word !important;
         }
+        .document-info {
+          .document-item-a {
+            width: 300px;
+            height: 60px;
+            padding: 12px;
+            img {
+              width: 36px;
+              margin-right: 12px;
+            }
+            .document-msg {
+              display: inline-block;
+              width: 213px;
+              p {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+              }
+            }
+          }
+        }
       }
       .detail-author, .detail-comment-item {
         display: -webkit-box;
