@@ -53,9 +53,7 @@ module.exports = app => {
                         user: this.ctx.session.userinfo
                     }
                 }
-                console.log(this.ctx.session.userinfo)
                 if (this.ctx.session.userinfo)//已经登陆 刷新
-
                     yield this.ctx.render('admin', {__state__: JSON.stringify(state)})
                 else
                     yield this.ctx.render('admin', {__state__: JSON.stringify("")})

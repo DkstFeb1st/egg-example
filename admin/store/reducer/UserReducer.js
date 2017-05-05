@@ -11,15 +11,27 @@ import {
     LOGINOUT,
     UPDATEMENU
 } from "store/mutation-types";
-import {getDocumentList, getImageList, getVedioList, initial, loginByPwd} from "apis/apiList";
+import {getDocumentList, getImageList, getVedioList, initial, loginByPwd, loginout} from "apis/apiList";
 import {push} from "react-router-redux";
 
-export const logoutAction = () => {
+const logoutAction = () => {
     return {
         type: LOGINOUT
     };
 };
-
+export const logoutRequest = () => {
+    return (dipsatch, getState) => {
+        return loginout().then(response => {
+            if (response.status === 200 && response.data.status === 200) {
+                dispatch(logoutAction());
+                dispatch(replace("/login"));
+                alert(response.data.msg);
+            } else {
+                alert(response.data.msg);
+            }
+        });
+    };
+};
 export const loginSuccess = _data => {
     return {
         type: LOGIN,
@@ -152,7 +164,7 @@ export const UserReducer = function (state = {
                 user: action.user
             });
         case LOGINOUT:
-            window.__INITIAL_STATE__ = {}
+            window.__INITIAL_STATE__ = {};
             return Object.assign({}, state, {
                 isAuthenticated: !state.isAuthenticated,
                 user: {}
