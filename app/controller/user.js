@@ -8,6 +8,7 @@ module.exports = app => {
         * loginByPwd() {
             const result = yield this.ctx.service.user.checkCust(this.ctx.request.body)
             if (result) {
+                this.ctx.session.userinfo = result//用户信息存入session
                 this.ctx.body = {status: 200, user: result}
                 this.ctx.status = 200
             } else {
@@ -16,6 +17,10 @@ module.exports = app => {
             }
         }
 
+        /*退出*/
+        * loginout() {
+            this.ctx.session.userinfo = null
+        }
         /*登录后系统权限及静态参数初始化*/
         * initial() {
             const custno = this.ctx.request.body
