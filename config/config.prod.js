@@ -8,11 +8,11 @@ module.exports = appInfo => {
     //数据库配置
     config.sequelize = {
         dialect: 'mysql', // support: mysql, mariadb, postgres, mssql
-        database: 'qdm105632177_db',
-        host: 'qdm105632177.my3w.com',
+        database: 'wxdb',
+        host: '172.16.30.2',
         port: '3306',
-        username: 'qdm105632177',
-        password: 'jin123654789',
+        username: 'rarcwx',
+        password: 'password!66Rarcwx',
         timezone: '+08:00'
     };
     return config;
