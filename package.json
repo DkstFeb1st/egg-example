@@ -81,6 +81,7 @@
     "stream-wormhole": "^1.0.3",
     "style-loader": "^0.16.0",
     "supertest": "^3.0.0",
+    "uglify-js": "^2.8.22",
     "url-loader": "^0.5.7",
     "vue-loader": "^11.1.4",
     "vue-ssr-webpack-plugin": "^2.1.0",
