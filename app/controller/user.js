@@ -20,6 +20,8 @@ module.exports = app => {
         /*退出*/
         * loginout() {
             this.ctx.session.userinfo = null
+            this.ctx.body = {status: 200, msg: '成功登出！'}
+            this.ctx.status = 200
         }
         /*登录后系统权限及静态参数初始化*/
         * initial() {

@@ -12,7 +12,7 @@ import {
     UPDATEMENU
 } from "store/mutation-types";
 import {getDocumentList, getImageList, getVedioList, initial, loginByPwd, loginout} from "apis/apiList";
-import {push} from "react-router-redux";
+import {push, replace} from "react-router-redux";
 
 const logoutAction = () => {
     return {
@@ -20,7 +20,7 @@ const logoutAction = () => {
     };
 };
 export const logoutRequest = () => {
-    return (dipsatch, getState) => {
+    return (dispatch, getState) => {
         return loginout().then(response => {
             if (response.status === 200 && response.data.status === 200) {
                 dispatch(logoutAction());

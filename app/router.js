@@ -20,12 +20,12 @@ module.exports = app => {
 
     /*后台*/
     app.post("/api/sp/loginByPwd", "user.loginByPwd"); //post
-    app.post("/api/sp/loginout", login_handler, "user.loginout")//post
+    app.post("/api/sp/loginout", login_handler, "user.loginout");//post
     app.get("/api/sp/initial", login_handler, "user.initial"); //get
     app.get("/api/sp/getSpList", login_handler, "study.getSpList"); //get
     app.put("/api/sp/doUpdate", login_handler, "study.doUpdate"); //put
     app.post("/api/sp/doCreate", login_handler, "study.doCreate"); //post
-    app.get("/api/sp/viewSpDetail", "study.viewSpDetail"); //get
+    app.get("/api/sp/viewSpDetail", login_handler, "study.viewSpDetail"); //get
 
     //通用
     app.get("/api/sp/getImageList", login_handler, "common.getImageList"); //get

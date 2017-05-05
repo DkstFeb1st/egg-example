@@ -9,8 +9,8 @@ export function loginByPwd(_param) {
     return axios.post(`api/sp/loginByPwd`, _param)
 }
 //退出
-export function loginout() {
-    return axios.post(`api/sp.loginout`)
+export function loginout(_param) {
+    return axios.post(`api/sp/loginout`)
 }
 //初始化系统
 export function initial() {
