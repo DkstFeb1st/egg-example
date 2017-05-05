@@ -136,6 +136,7 @@
           word-wrap: break-word !important;
         }
         .document-info {
+          margin-bottom: 12px;
           .document-item-a {
             width: 300px;
             height: 60px;
@@ -151,6 +152,7 @@
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden;
+                color: #333;
               }
             }
           }

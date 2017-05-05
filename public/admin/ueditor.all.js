@@ -24014,7 +24014,7 @@
                 '<img ' +
                 ' width="' + width + '" height="' + height + '" _url="' + url + '" class="document-item"' +
                 ' _type="' + type + '" _name="' + name + '" _size= "' + size + '"' +
-                ' src="' + me.options.langPath + me.options.lang + '/images/music.png" />' :
+                ' src="' + me.options.langPath + me.options.lang + '/images/document.png" />' :
                 '<a class="document-item-a"' +
                 ' href="' + url + '" width="' + width + '" height="' + height + '" type = "' + type + '" name = "' + name + '" size="' + size + '">' +
                 '<div class="document-info">' +

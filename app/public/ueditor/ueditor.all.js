@@ -24014,7 +24014,7 @@
                 '<img ' +
                 ' width="' + width + '" height="' + height + '" _url="' + url + '" class="document-item"' +
                 ' _type="' + type + '" _name="' + name + '" _size= "' + size + '"' +
-                ' src="' + me.options.langPath + me.options.lang + '/images/music.png" />' :
+                ' src="' + me.options.langPath + me.options.lang + '/images/document.png" />' :
                 '<a class="document-item-a"' +
                 ' href="' + url + '" width="' + width + '" height="' + height + '" type = "' + type + '" name = "' + name + '" size="' + size + '">' +
                 '<div class="document-info">' +
@@ -24054,9 +24054,9 @@
                  * 插入音乐
                  * @command music
                  * @method execCommand
-                 * @param { Object } musicOptions 插入音乐的参数项， 支持的key有： url=>音乐地址；
+                 * @param { Object } Options 插入音乐的参数项， 支持的key有： url=>音乐地址；
                  * width=>音乐容器宽度；height=>音乐容器高度；align=>音乐文件的对齐方式， 可选值有: left, center, right, none
-                 * @example
+                 * @examplemusic
                  * ```javascript
                  * //editor是编辑器实例
                  * //在编辑器里插入一个“植物大战僵尸”的APP
