@@ -70,7 +70,7 @@ module.exports = app => {
         },
         setterMethods: {//自定义属性
             rate: function (value) {
-                this.setDataValue('rate', parseFloat(value).toFixed(1));
+                this.setDataValue('rate', value);
             }
         },
         getterMethods: {

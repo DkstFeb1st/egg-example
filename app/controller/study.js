@@ -36,6 +36,9 @@ module.exports = app => {
         * getSpDetail() {
             let {id} = this.ctx.request.body
             let spdetail = yield this.ctx.service.study.getStudyDetail(id)
+            if (spdetail.rate === 'NaN') {
+                spdetail.rate = 5
+            }
             this.ctx.body = {status: 200, spdetail: spdetail}
             //增加浏览次数
             let that = this
@@ -58,12 +61,16 @@ module.exports = app => {
         * viewSpDetail() {
             let {id} = this.ctx.query
             let spdetail = yield this.ctx.service.study.getStudyDetail(id)
+            if (!spdetail.rate) {
+                spdetail.rate = 5
+            }
             this.ctx.body = {status: 200, spdetail: spdetail}
             this.ctx.status = 200
         }
         /*admin*/
         /*根据条件筛选学习资料*/
         * getSpList() {
+            console.log('后台查询操作')
             app.logger.info('后台查询操作')
             let spList = yield this.ctx.service.study.getSpList(this.ctx.query)
             for (let i = 0; i < spList.length; i++) {

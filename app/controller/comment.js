@@ -36,6 +36,7 @@ module.exports = app => {
             yield this.ctx.model.Comment.create(_param, {
                 isNewRecord: true
             }).then(function (comment) {
+                console.log(comment);
                 if (comment) {
                     that.ctx.body = {status: 200, msg: '评论成功'}
                     that.ctx.status = 200
