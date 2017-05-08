@@ -31,7 +31,16 @@ export function getCommentListApi(_id) {
   return axios.get(`api/sp/getCommentList?id=${_id}`)
 }
 
+/*
+ * 添加评论
+ * */
 export function addCommentApi(_param) {
   return axios.post(`api/sp/addComment`, _param)
+}
+/*
+ * 添加评分
+ * */
+export function addRateApi(_param) {
+  return axios.post(`api/sp/addRate`, _param)
 }
 

@@ -13,7 +13,6 @@ module.exports = app => {
         custno: STRING(7),
         name: STRING(16),
         avator: STRING(255),
-        rate: INTEGER,
         sp_id: INTEGER,
         state: {
             type: STRING(8),

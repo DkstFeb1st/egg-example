@@ -199,6 +199,11 @@ module.exports = app => {
          * */
         *getStudyDetail(_id) {
             const spdetail = yield this.ctx.model.Study.findById(_id, {
+                attributes: {
+                    include: [
+                        [app.Sequelize.fn("AVG", app.Sequelize.col("rates.rate")), "rate"]
+                    ]
+                },
                 include: [
                     {
                         model: this.ctx.model.Comment,
@@ -227,6 +232,11 @@ module.exports = app => {
                                 attributes: []
                             }
                         ]
+                    },
+                    {
+                        model: this.ctx.model.Rate,
+                        as: "rates",
+                        required: false
                     }
                 ],
                 group: ["comments.id"]
@@ -265,12 +275,14 @@ module.exports = app => {
             }
             console.log(_param);
             const spList = yield this.ctx.model.Study.scope(_scope).findAll({
+
                 include: [
                     {
-                        model: this.ctx.model.Comment,
-                        as: "comments",
+
+                        model: this.ctx.model.Rate,
+                        as: "rates",
                         required: false,
-                        where: {parentid: 0}
+                        group: ['rates.sp_id']
                     }
                 ],
                 order: "createdAt desc"

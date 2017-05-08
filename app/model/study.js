@@ -70,7 +70,12 @@ module.exports = app => {
         },
         setterMethods: {//自定义属性
             rate: function (value) {
-                this.setDataValue('rate', value);
+                this.setDataValue('rate', parseFloat(value).toFixed(1));
+            }
+        },
+        getterMethods: {
+            rate: function () {
+                return parseFloat(this.getDataValue('rate')).toFixed(1);
             }
         },
         classMethods: {
@@ -80,6 +85,11 @@ module.exports = app => {
                     foreignKey: 'sp_id',
                     sourceKey: 'id'
                 });
+                app.model.Study.hasMany(app.model.Rate, {
+                    as: 'rates',
+                    foreignKey: 'sp_id',
+                    sourceKey: 'id'
+                })
                 app.model.Study.hasMany(app.model.Viewlog, {
                     as: 'views',
                     foreignKey: 'sp_id',

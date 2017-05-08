@@ -24,7 +24,8 @@
       <div class="detail-comment-wrapper">
         <header>
           <label>全部评论</label>
-          <label class="detail-comment-edit" @click="goComment">写评论<i class="iconfont">&#xe69e;</i></label>
+          <label class="detail-comment-rate" @click="goRate">打分<i class="iconfont">&#xe625;</i></label>
+          <label class="detail-comment-edit" @click="goComment">评价<i class="iconfont">&#xe69e;</i></label>
         </header>
         <section v-for="( item, index ) in study.comments" class="detail-comment-item">
           <div>
@@ -101,6 +102,9 @@
     methods: {
       goComment: function () {
         this.$router.push({path: `/detail/commentform/${this.$route.params.id}?root=true`})
+      },
+      goRate: function () {
+        this.$router.push({path: `/detail/rateform/${this.$route.params.id}`})
       },
       goCommentList: function (_id) {
         this.$router.push({path: `/detail/commentlist/${_id}?sp_id=${this.$route.params.id}`})
@@ -196,6 +200,18 @@
             float: right;
             font-size: 14px;
             color: @primarycolor;
+          }
+          .detail-comment-edit.active {
+            color: @secondcolor
+          }
+          .detail-comment-rate {
+            margin-left: 12px;
+            float: right;
+            font-size: 14px;
+            color: @primarycolor;
+          }
+          .detail-comment-rate.active {
+            color: @secondcolor
           }
         }
         .detail-comment-item {

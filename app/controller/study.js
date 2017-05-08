@@ -36,15 +36,6 @@ module.exports = app => {
         * getSpDetail() {
             let {id} = this.ctx.request.body
             let spdetail = yield this.ctx.service.study.getStudyDetail(id)
-            let score = 0;
-            if (spdetail.comments.length === 0) {
-                spdetail.rate = score
-            } else {
-                spdetail.comments.map((obj, index) => {
-                    score = score + obj.rate
-                })
-                spdetail.rate = (score / spdetail.comments.length).toFixed(1)
-            }
             this.ctx.body = {status: 200, spdetail: spdetail}
             //增加浏览次数
             let that = this
@@ -66,19 +57,7 @@ module.exports = app => {
          * */
         * viewSpDetail() {
             let {id} = this.ctx.query
-            console.log(id)
             let spdetail = yield this.ctx.service.study.getStudyDetail(id)
-            let score = 5;
-            console.log(spdetail.comments)
-            if (!spdetail.comments || spdetail.comments.length === 0) {
-                spdetail.rate = score
-            } else {
-                score = 0
-                spdetail.comments.map((obj, index) => {
-                    score = score + obj.rate
-                })
-                spdetail.rate = (score / spdetail.comments.length).toFixed(1)
-            }
             this.ctx.body = {status: 200, spdetail: spdetail}
             this.ctx.status = 200
         }
@@ -88,14 +67,16 @@ module.exports = app => {
             app.logger.info('后台查询操作')
             let spList = yield this.ctx.service.study.getSpList(this.ctx.query)
             for (let i = 0; i < spList.length; i++) {
-                let score = 5;
-                if (!spList[i].comments || spList[i].comments.length === 0) {
+
+                if (!spList[i].rates || spList[i].rates.length === 0) {
+                    let score = 5;
                     spList[i].rate = score
                 } else {
-                    spList[i].comments.map((obj, index) => {
+                    let score = 0;
+                    spList[i].rates.map((obj, index) => {
                         score = score + obj.rate
                     })
-                    spList[i].rate = (score / spList[i].comments.length).toFixed(1)
+                    spList[i].rate = (score / spList[i].rates.length).toFixed(1)
                 }
             }
             this.ctx.body = {status: 200, spList: spList}

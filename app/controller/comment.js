@@ -25,10 +25,6 @@ module.exports = app => {
                 this.ctx.body = {status: 201, msg: '请填写评论内容'}
                 this.ctx.status = 200
                 return
-            } else if (_param.parentid === '0' && _param.rate === 0) {
-                this.ctx.body = {status: 201, msg: '亲，请为我打分'}
-                this.ctx.status = 200
-                return
             }
             //添加评论用户信息
             _param = Object.assign({}, _param, {
@@ -41,13 +37,53 @@ module.exports = app => {
                 isNewRecord: true
             }).then(function (comment) {
                 if (comment) {
-                    that.ctx.body = {status: 200}
+                    that.ctx.body = {status: 200, msg: '评论成功'}
                     that.ctx.status = 200
                 } else {
                     that.ctx.body = {status: 202, msg: '插入异常'}
                     that.ctx.status = 200
                 }
             })
+        }
+        /*
+         * 创建评分
+         * */
+        * addRate() {
+            let that = this
+            let _param = this.ctx.request.body
+            let {name, userid, avatar} = this.ctx.session.userinfo
+            if (_param.rate === 0) {
+                this.ctx.body = {status: 201, msg: '亲，请为我打分'}
+                this.ctx.status = 200
+                return
+            }
+            //添加评论用户信息
+            _param = Object.assign({}, _param, {
+                userid: userid,
+            })
+            let _rate = yield this.ctx.model.Rate.findOne({
+                where: {
+                    userid: userid,
+                    sp_id: _param.sp_id
+                }
+            })
+            if (_rate) {
+                that.ctx.body = {status: 202, msg: '不能重复评分'}
+                that.ctx.status = 200
+            } else {
+                yield this.ctx.model.Rate.create(_param, {
+                    isNewRecord: true
+                }).then(function (comment) {
+                    if (comment) {
+                        that.ctx.body = {status: 200, msg: '评分成功'}
+                        that.ctx.status = 200
+                    } else {
+                        that.ctx.body = {status: 202, msg: '插入异常'}
+                        that.ctx.status = 200
+                    }
+                })
+            }
+
         }
     }
     return CommentController

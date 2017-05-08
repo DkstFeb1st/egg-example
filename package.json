@@ -1,7 +1,7 @@
 {
-  "name": "example-egg",
+  "name": "rarcbank-studyplatom",
   "version": "1.0.0",
-  "description": "egg-init",
+  "description": "node egg react antd vue vux ueditor",
   "private": true,
   "dependencies": {
     "antd": "^2.9.2",

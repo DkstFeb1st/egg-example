@@ -17,6 +17,7 @@ module.exports = app => {
     app.post("/api/sp/getSpDetail", login_handler, "study.getSpDetail"); //get
     app.get("/api/sp/getCommentList", login_handler, "comment.getCommentList"); //get
     app.post("/api/sp/addComment", login_handler, "comment.create"); //post
+    app.post("/api/sp/addRate", login_handler, "comment.addRate");//post
 
     /*后台*/
     app.post("/api/sp/loginByPwd", "user.loginByPwd"); //post

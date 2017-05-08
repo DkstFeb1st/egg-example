@@ -3,6 +3,7 @@ import Router from "vue-router";
 import Tab from "components/tab.vue";
 import Detail from "components/detail/detail.vue";
 import CommentForm from "components/detail/commentForm.vue";
+import RateForm from "components/detail/RateForm.vue";
 import CommentList from "components/detail/commentlist.vue";
 
 Vue.use(Router)
@@ -23,6 +24,11 @@ export default new Router({
       path: '/detail/commentform/:id',
       name: 'comment',
       component: CommentForm
+    },
+    {
+      path: '/detail/rateform/:id',
+      name: 'rate',
+      component: RateForm
     },
     {
       path: '/detail/commentList/:id',

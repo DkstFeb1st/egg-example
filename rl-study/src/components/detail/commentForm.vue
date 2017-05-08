@@ -9,9 +9,6 @@
         v-model="content"
         @on-blur="_handleTextAreaBlur()">
       </x-textarea>
-      <cell title="评分" v-if="this.$route.query.root === 'true'">
-        <rater v-model="rate" slot="value" star="♡" active-color="red" :margin="15"></rater>
-      </cell>
       <swemoji
         :emshow="emshow"
         @on-emoji-click="_handleEmojiClick"
@@ -24,7 +21,7 @@
   </div>
 </template>
 <script>
-  import {XTextarea, Rater, Group, Cell, XButton, Box} from 'vux'
+  import {XTextarea, Group, XButton, Box} from 'vux'
   import swemoji from 'components/detail/swemoji.vue'
   import {addCommentApi} from 'apis/studyapi'
   export default {
@@ -32,8 +29,6 @@
     components: {
       XTextarea,
       Group,
-      Cell,
-      Rater,
       XButton,
       Box,
       swemoji
@@ -75,7 +70,13 @@
           .then(response => {
             this.$vux.loading.hide()
             if (response.status === 200 && response.data.status == 200) {
-              this.$router.go(-1)
+              let that = this
+              that.$vux.toast.show({
+                text: response.data.msg,
+                onHide() {
+                  that.$router.go(-1)
+                }
+              })
             } else {
               //提示
               this.$vux.alert.show({
