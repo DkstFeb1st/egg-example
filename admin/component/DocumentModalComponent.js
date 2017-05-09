@@ -29,7 +29,7 @@ class DocumentModalComponent extends React.Component {
     handleSubmit() {
         const {selected} = this.state;
         if (selected.length === 0) {
-            Message.fail("请选择文档！");
+            message.warning("请选择文档！");
         } else {
             this.props.handleDocumentInsert(selected);
         }

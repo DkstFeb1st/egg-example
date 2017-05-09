@@ -76,13 +76,13 @@ class GalleryModalComponent extends React.Component {
         const galleryModalType = this.props.galleryModalType;
         if (galleryModalType === "multi") {
             if (selected.length === 0) {
-                Message.fail("请选择图片！");
+                message.warning("请选择图片！");
             } else {
                 this.props.handleGalleryInsert(selected);
             }
         } else {
             if (selected.length === 0) {
-                Message.fail("请选择图片！");
+                message.warning("请选择图片！");
             } else {
                 this.props.handleAvatorInsert(selected);
             }
