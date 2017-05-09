@@ -34,31 +34,30 @@ module.exports = app => {
         }
 
         * pc() {
-            if (this.ctx.query.auth_code) {//如果存在auth_code 则代表是扫码登陆
-                const token = yield this.ctx.service.user.getToken()
-                const userinfo = yield this.ctx.service.user.getUserLoginInfo(token, this.ctx.query.auth_code)
-                console.log(userinfo)
-                this.ctx.session.userinfo = userinfo//用户信息存入session
-                let state = {
-                    UserReducer: {
-                        isAuthenticated: true,
-                        user: userinfo
-                    }
-                }
-                yield this.ctx.render('admin', {__state__: JSON.stringify(state)})
-            } else {
+            if (this.ctx.session.userinfo) {
                 let state = {
                     UserReducer: {
                         isAuthenticated: true,
                         user: this.ctx.session.userinfo
                     }
                 }
-                if (this.ctx.session.userinfo)//已经登陆 刷新
+                yield this.ctx.render('admin', {__state__: JSON.stringify(state)})
+            } else {
+                if (this.ctx.query.auth_code) {//如果存在auth_code 则代表是扫码登陆
+                    const token = yield this.ctx.service.user.getToken()
+                    const userinfo = yield this.ctx.service.user.getUserLoginInfo(token, this.ctx.query.auth_code)
+                    this.ctx.session.userinfo = userinfo//用户信息存入session
+                    let state = {
+                        UserReducer: {
+                            isAuthenticated: true,
+                            user: userinfo
+                        }
+                    }
                     yield this.ctx.render('admin', {__state__: JSON.stringify(state)})
-                else
+                } else {
                     yield this.ctx.render('admin', {__state__: JSON.stringify("")})
-            }
-
+                }
+            }//已经登陆 刷新
         }
     }
     return MainController;
