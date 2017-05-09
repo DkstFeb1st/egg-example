@@ -6,6 +6,7 @@ const corpid = 'wx365326b3672b185c'
 const corpsecret = '3hX0RBs2hm2UfLc7F8LugY5503oAIPCfulf089oVu8h6fOhHiyLpnQwIZlqpcR82'
 const getTokenUrl = `https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=${corpid}&corpsecret=${corpsecret}`//获取token链接
 const getUserIdUrl = `https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo`
+const getLoginInfo = `https://qyapi.weixin.qq.com/cgi-bin/service/get_login_info`
 const getUserInfoUrl = `https://qyapi.weixin.qq.com/cgi-bin/user/get`
 
 module.exports = app => {
@@ -30,6 +31,24 @@ module.exports = app => {
             }
         }
 
+        * getUserLoginInfo(_token, _code) {
+            console.log(_code)
+            const userid_result = yield app.curl(`${getLoginInfo}?access_token=${_token}`, {
+                method: 'POST',
+                contentType: 'json',
+                data: {
+                    'auth_code': _code
+                },
+                dataType: 'json'
+            })
+            if (userid_result) {
+                const user_id = userid_result.data.user_info.userid
+                const userinfo_result = yield app.curl(`${getUserInfoUrl}?access_token=${_token}&userid=${user_id}`, {
+                    dataType: 'json'
+                })
+                return userinfo_result.data
+            }
+        }
         /*
          * 检查是否有管理用户
          * */

@@ -23,6 +23,7 @@ class LoginContainer extends React.Component {
 
     render() {
         let {wait} = this.state;
+        const encodeurl = "https://qy.weixin.qq.com/cgi-bin/loginpage?corp_id=wx365326b3672b185c&redirect_uri=" + encodeURIComponent("https://app.rarcbank.com/study/pc") + "&usertype=member"
         return (
             <div className="login-module">
                 <div className="login-module-feature">
@@ -37,7 +38,7 @@ class LoginContainer extends React.Component {
                     <header className="login-form-header">
                         <a className="login-tab is-selected">管理员登录</a>
                         <a className="login-tab"
-                           href="https://qy.weixin.qq.com/cgi-bin/loginpage?corp_id=wx365326b3672b185c&redirect_uri=https://app.rarcbank.com/study/pc&usertype=all">普通用户登录</a>
+                           href={encodeurl}>普通用户登录</a>
                     </header>
                     <form className="login-form">
                         <div style={{marginBottom: '35px'}}></div>
