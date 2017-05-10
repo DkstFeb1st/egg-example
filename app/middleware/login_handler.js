@@ -18,6 +18,7 @@ module.exports = options => {
                     position: '3,'
                 }
                 this.session.userinfo = userinfo
+                yield next
             } else {
                 this.body = {status: 203, msg: '用户token失效'}
                 this.status = 200

@@ -21,8 +21,8 @@ module.exports = appInfo => {
   };
 
     config.bodyParser = {
-        jsonLimit: "50mb",
-        formLimit: "50mb"
+        jsonLimit: "5000mb",
+        formLimit: "5000mb"
     };
     config.multipart = {
         fileSize: "500mb",
@@ -36,9 +36,7 @@ module.exports = appInfo => {
             ".html": "ejs"
         }
     };
-    config.security = {
-        csrf: false
-    };
 
-  return config;
+
+    return config;
 };

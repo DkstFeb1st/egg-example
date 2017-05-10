@@ -92,8 +92,19 @@ module.exports = app => {
 
         /*修改操作*/
         * doUpdate() {
+            // this.ctx.body = {status: 205, msg: '修改异常'}
+            // this.ctx.status = 200
             app.logger.info('学习资料修改操作')
-            const result = yield this.ctx.service.study.updateSp(this.ctx.request.body)
+            //添加xss过滤
+            let {title, fhtml} = this.ctx.request.body
+            let titleFilter = this.ctx.helper.escape(title)
+            console.log(titleFilter)
+            let fhtmlFilter = this.ctx.helper.shtml(fhtml)
+            let _param = Object.assign({}, this.ctx.request.body, {
+                title: titleFilter,
+                fhtml: fhtmlFilter
+            })
+            const result = yield this.ctx.service.study.updateSp(_param)
             if (result) {
                 let log = this.ctx.request.body.log
                 const logresult = yield this.ctx.service.log.doCreate(log)
@@ -112,6 +123,7 @@ module.exports = app => {
 
         /*创建操作*/
         * doCreate() {
+            console.log(this.ctx.request.body)
             app.logger.info('学习资料创建操作')
             const userinfo = this.ctx.session.userinfo
             const _request = this.ctx.request.body

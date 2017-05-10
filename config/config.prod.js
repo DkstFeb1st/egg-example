@@ -15,6 +15,12 @@ module.exports = appInfo => {
         password: 'password!66Rarcwx',
         timezone: '+08:00'
     };
+    config.helper = {
+        shtml: {
+            "domainWhiteList": ['app.rarcbank.com'],
+            "whiteList": {"iframe": [], "source": []}
+        }
+    }
     return config;
 };
 

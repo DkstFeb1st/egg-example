@@ -41,7 +41,7 @@ module.exports = app => {
                         user: this.ctx.session.userinfo
                     }
                 }
-                yield this.ctx.render('admin', {__state__: JSON.stringify(state)})
+                yield this.ctx.render('admin', this.ctx.helper.sjson({__state__: JSON.stringify(state)}))
             } else {
                 if (this.ctx.query.auth_code) {//如果存在auth_code 则代表是扫码登陆
                     const token = yield this.ctx.service.user.getToken()
@@ -53,9 +53,9 @@ module.exports = app => {
                             user: userinfo
                         }
                     }
-                    yield this.ctx.render('admin', {__state__: JSON.stringify(state)})
+                    yield this.ctx.render('admin', this.ctx.helper.sjson({__state__: JSON.stringify(state)}))
                 } else {
-                    yield this.ctx.render('admin', {__state__: JSON.stringify("")})
+                    yield this.ctx.render('admin', this.ctx.helper.sjson({__state__: JSON.stringify("")}))
                 }
             }//已经登陆 刷新
         }

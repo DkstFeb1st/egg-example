@@ -5,6 +5,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {Button, Icon, message, Modal, Pagination, Upload} from "antd";
 import {getImageListRequest} from "reducers/UserReducer";
+var Cookies = require('cookies-js')
 
 const heightStyle = {
     height: "117px"
@@ -128,6 +129,7 @@ class GalleryModalComponent extends React.Component {
     }
 
     render() {
+        console.log(Cookies.get('csrfToken'))
         const {selected, current} = this.state;
         return (
             <Modal
@@ -147,6 +149,7 @@ class GalleryModalComponent extends React.Component {
                         showUploadList={false}
                         multiple={true}
                         beforeUpload={this.beforeUpload.bind(this)}
+                        headers={{'x-csrf-token': Cookies.get('csrfToken')}}
                     >
                         <Button>
                             <Icon type="upload"/>本地上传
