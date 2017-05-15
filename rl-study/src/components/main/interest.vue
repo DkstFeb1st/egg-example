@@ -62,11 +62,6 @@
     <div class="list-wrapper">
 
       <div class="list-item-wrapper" v-for="( item, index ) in interestList " v-on:click="goToDetail(item.id)">
-        <div class="list-item-img">
-          <img
-            :src="item.avator"
-          />
-        </div>
         <div class="list-item-content">
           <p class="list-item-title">{{item.title}}</p>
           <p class="list-item-type">
@@ -77,6 +72,11 @@
                            {{item.view_num}}人观看 | {{item.comment_num}}评论
                         </span>
           </p>
+        </div>
+        <div class="list-item-img">
+          <img
+            :src="item.avator"
+          />
         </div>
       </div>
     </div>
