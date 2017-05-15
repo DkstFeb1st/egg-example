@@ -37,7 +37,7 @@ module.exports = appInfo => {
         }
     };
     config.security = {
-        domainWhiteList: ['127.0.0.1', 'app.rarcbank.com', 'v.qq.com'],
+        domainWhiteList: ['127.0.0.1', 'app.rarcbank.com', 'v.qq.com', 'open.weixin.qq.com'],
     };
     config.helper = {
         shtml: {
