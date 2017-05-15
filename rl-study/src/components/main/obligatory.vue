@@ -65,12 +65,12 @@
         <div class="list-item-content">
           <label class="list-item-title">{{item.title}}</label>
           <label class="list-item-type">
-                        <span>
+            <label>
                           {{item.authorname}}
-                        </span>
-            <span>
+                        </label>
+            <label>
                            {{item.view_num}}人观看 | {{item.comment_num}}评论
-                        </span>
+                        </label>
           </label>
         </div>
         <div class="list-item-img">
