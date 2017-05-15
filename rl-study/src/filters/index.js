@@ -23,12 +23,12 @@ export function emoji(str) {
   console.log(emojiObjs)
   return emojiObjs;
 }
-
+/*剔除年份和秒*/
 export function datetimeNormal(datetime) {
   if (datetime) {
-    return datetime.replace('T', ' ').slice(0, 19)
+    return datetime.substring(5, 16)
   } else {
-    return ''
+    return ""
   }
 
 }

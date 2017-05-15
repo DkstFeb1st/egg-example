@@ -3,23 +3,27 @@
  */
 
 import axios from "axios";
+var Cookies = require('cookies-js')
+var instance = axios.create({
+  headers: {'x-csrf-token': Cookies.get('csrfToken')}
+})
+
 export function getObligatoryListApi() {
-  //return axios.get(`${HEADURL}getUserInfo`)
-  return axios.get(`api/sp/getObligatoryList`)
+  return instance.get(`api/sp/getObligatoryList`)
 }
 
 export function getElectiveListApi() {
-  return axios.get(`api/sp/getElectiveList`)
+  return instance.get(`api/sp/getElectiveList`)
 }
 
 export function getInterestListApi() {
-  return axios.get(`api/sp/getInterestList`)
+  return instance.get(`api/sp/getInterestList`)
 }
 /*
  * _id : 学习资料,id，_custno : 8581234
  * */
 export function getSpDetailListApi(_id, _custno) {
-  return axios.post(`api/sp/getSpDetail`, {
+  return instance.post(`api/sp/getSpDetail`, {
     id: _id,
     custno: _custno
   })
@@ -28,19 +32,36 @@ export function getSpDetailListApi(_id, _custno) {
  * _id 评论id
  * */
 export function getCommentListApi(_id) {
-  return axios.get(`api/sp/getCommentList?id=${_id}`)
+  return instance.get(`api/sp/getCommentList?id=${_id}`)
 }
 
 /*
  * 添加评论
  * */
 export function addCommentApi(_param) {
-  return axios.post(`api/sp/addComment`, _param)
+  return instance.post(`api/sp/addComment`, _param)
 }
 /*
  * 添加评分
  * */
 export function addRateApi(_param) {
-  return axios.post(`api/sp/addRate`, _param)
+  return instance.post(`api/sp/addRate`, _param)
 }
 
+/*
+ * 添加点赞
+ * */
+export function addTopApi(c_id) {
+  return instance.post(`api/sp/addTop`, {
+    c_id: c_id
+  })
+}
+
+/*
+ * 获取点赞列表
+ * */
+export function getTopList(_param) {
+  return instance.get(`api/sp/getTopList`, {
+    params: _param
+  })
+}

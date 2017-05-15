@@ -5,6 +5,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {Button, Icon, message, Modal, Pagination, Upload} from "antd";
 import {getDocumentListRequest} from "reducers/UserReducer";
+var Cookies = require('cookies-js')
 
 class DocumentModalComponent extends React.Component {
     constructor(props) {
@@ -108,6 +109,7 @@ class DocumentModalComponent extends React.Component {
                         showUploadList={false}
                         multiple={true}
                         beforeUpload={this.beforeUpload.bind(this)}
+                        headers={{'x-csrf-token': Cookies.get('csrfToken')}}
                     >
                         <Button>
                             <Icon type="upload"/>本地上传

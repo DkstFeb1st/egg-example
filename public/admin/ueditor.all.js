@@ -17997,7 +17997,6 @@
                     if (ext == 'ogv') ext = 'ogg';
                     str = '<video' + (id ? ' id="' + id + '"' : '') + ' class="' + classname + ' video-js" ' + (align ? ' style="float:' + align + '"' : '') +
                         ' controls preload="none" width="' + width + '" height="' + height + '" src="' + url + '" poster="' + post + '" data-setup="{}">' +
-                        ' controls preload="none" width="' + width + '" height="' + height + '" src="' + url + '" poster="' + post + '" data-setup="{}">' +
                         '<source src="' + url + '" type="video/' + ext + '" /></video>';
                     break;
             }
@@ -18012,7 +18011,7 @@
                     node.parentNode.replaceChild(UE.uNode.createElement(html), node);
                 }
                 if (className && className.indexOf('edui-upload-video') != -1) {
-                    var html = creatInsertStr(img2video ? node.getAttr('_url') : node.getAttr('src'), node.getAttr('width'), node.getAttr('height'), null, node.getStyle('float') || '', className, img2video ? 'video' : 'image', node.getAttr('_post'));
+                    var html = creatInsertStr(img2video ? node.getAttr('_url') : node.getAttr('src'), node.getAttr('width'), node.getAttr('height'), null, node.getStyle('float') || '', className, img2video ? 'video' : 'image', img2video ? node.getAttr('_post') : node.getAttr('poster'));
                     node.parentNode.replaceChild(UE.uNode.createElement(html), node);
                 }
             })

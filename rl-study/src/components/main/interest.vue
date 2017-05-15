@@ -73,11 +73,10 @@
                         <span>
                           {{item.authorname}}
                         </span>
+            <span>
+                           {{item.view_num}}人观看 | {{item.comment_num}}评论
+                        </span>
           </p>
-          <div class="list-item-extra">
-            {{item.view_num}}人观看 | {{item.comment_num}}人评论
-
-          </div>
         </div>
       </div>
     </div>
@@ -220,47 +219,4 @@
     }
   }
 
-  .list-wrapper {
-    background-color: #fff;
-    .list-item-wrapper {
-      padding: 12px;
-      display: -webkit-box;
-      -webkit-box-orient: horizontal;
-      -webkit-box-pack: start;
-      -webkit-box-align: start;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: flex-start;
-      .list-item-img {
-        position: relative;
-        width: 120px;
-        height: 90px;
-        margin-right: 12px;
-        overflow: hidden;
-        img {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          border-radius: 5px;
-          width: 100%;
-        }
-      }
-      .list-item-content {
-        flex: 1;
-        -webkit-box-flex: 1;
-        .list-item-title {
-          margin-bottom: 12px;
-          font-size: 18px;
-          color: #000;
-        }
-        .list-item-type, .list-item-extra {
-          font-size: 12px;
-          color: #666;
-          margin-bottom: 12px;
-        }
-      }
-    }
-  }
 </style>

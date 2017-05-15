@@ -18,6 +18,8 @@ module.exports = app => {
     app.get("/api/sp/getCommentList", login_handler, "comment.getCommentList"); //get
     app.post("/api/sp/addComment", login_handler, "comment.create"); //post
     app.post("/api/sp/addRate", login_handler, "comment.addRate");//post
+    app.post("/api/sp/addTop", login_handler, "comment.addTop");//post
+    app.get("/api/sp/getTopList", login_handler, "comment.getTopList");//get
 
     /*后台*/
     app.post("/api/sp/loginByPwd", "user.loginByPwd"); //post

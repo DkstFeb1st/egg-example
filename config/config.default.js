@@ -21,8 +21,8 @@ module.exports = appInfo => {
   };
 
     config.bodyParser = {
-        jsonLimit: "5000mb",
-        formLimit: "5000mb"
+        jsonLimit: "50mb",
+        formLimit: "50mb"
     };
     config.multipart = {
         fileSize: "500mb",
@@ -36,7 +36,80 @@ module.exports = appInfo => {
             ".html": "ejs"
         }
     };
-
+    config.security = {
+        domainWhiteList: ['127.0.0.1', 'app.rarcbank.com', 'v.qq.com'],
+    };
+    config.helper = {
+        shtml: {
+            whiteList: {
+                a: ['class', 'href', 'width', 'height', 'type', 'name', 'size'],
+                abbr: ['title'],
+                address: [],
+                area: ['shape', 'coords', 'href', 'alt'],
+                article: [],
+                aside: [],
+                audio: ['autoplay', 'controls', 'loop', 'preload', 'src'],
+                b: [],
+                bdi: ['dir'],
+                bdo: ['dir'],
+                big: [],
+                blockquote: ['cite'],
+                br: [],
+                caption: [],
+                center: [],
+                cite: [],
+                code: [],
+                col: ['align', 'valign', 'span', 'width'],
+                colgroup: ['align', 'valign', 'span', 'width'],
+                dd: [],
+                del: ['datetime'],
+                details: ['open'],
+                div: ['class'],
+                dl: [],
+                dt: [],
+                em: [],
+                font: ['color', 'size', 'face'],
+                footer: [],
+                h1: [],
+                h2: [],
+                h3: [],
+                h4: [],
+                h5: [],
+                h6: [],
+                header: [],
+                hr: [],
+                i: [],
+                img: ['src', 'alt', 'title', 'width', 'height'],
+                ins: ['datetime'],
+                li: [],
+                mark: [],
+                nav: [],
+                ol: [],
+                p: [],
+                pre: [],
+                s: [],
+                section: [],
+                small: [],
+                span: [],
+                sub: [],
+                sup: [],
+                strong: [],
+                table: ['width', 'border', 'align', 'valign'],
+                tbody: ['align', 'valign'],
+                td: ['width', 'rowspan', 'colspan', 'align', 'valign'],
+                tfoot: ['align', 'valign'],
+                th: ['width', 'rowspan', 'colspan', 'align', 'valign'],
+                thead: ['align', 'valign'],
+                tr: ['rowspan', 'align', 'valign'],
+                tt: [],
+                u: [],
+                ul: [],
+                video: ['autoplay', 'controls', 'loop', 'preload', 'src', 'height', 'width', 'poster', 'class'],
+                iframe: ['src', 'allowfullscreen', 'frameborder'],
+                source: ['src', 'type']
+            }
+        }
+    }
 
     return config;
 };

@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {Button, Icon, Input, message, Modal, Pagination, Tabs, Upload} from "antd";
 import {getVedioListRequest} from "reducers/UserReducer";
 const TabPane = Tabs.TabPane;
+var Cookies = require('cookies-js')
 
 class VedioModalComponent extends React.Component {
     constructor(props) {
@@ -88,7 +89,11 @@ class VedioModalComponent extends React.Component {
             const link = this.link.refs.input.value
             if (!link) {
                 message.warning('请输入视频地址！')
+            } else if (link.indexOf('v.qq.com') === -1) {
+                message.warning('仅支持腾讯视频！')
             } else {
+                //替换宽度和高度
+
                 this.props.handleVedioLinkInsert(link)
             }
         }
@@ -136,6 +141,7 @@ class VedioModalComponent extends React.Component {
                                 showUploadList={false}
                                 multiple={true}
                                 beforeUpload={this.beforeUpload.bind(this)}
+                                headers={{'x-csrf-token': Cookies.get('csrfToken')}}
                             >
                                 <label style={{marginRight: "12px"}}>
                                     <Button>
@@ -184,10 +190,10 @@ class VedioModalComponent extends React.Component {
                     </TabPane>
                     <TabPane tab="视频链接" key="2">
                         <div>
-                            <label>视频地址(复制视频网站的通用代码，宽度改成300以内)</label>
+                            <label>视频地址(复制视频网站的通用代码)</label>
                             <Input
                                 type="text"
-                                placeholder="请输入视频地址"
+                                placeholder="支持腾讯视频"
                                 ref={(input) => {
                                     this.link = input
                                 }}

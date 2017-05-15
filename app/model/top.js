@@ -1,24 +1,21 @@
-/*
- * 学习评论模型
- * */
+/**
+ * Created by 1 on 2017/5/11.
+ * 评论点赞模型
+ */
 var moment = require('moment')
 module.exports = app => {
     const {STRING, INTEGER, DATE} = app.Sequelize
-    return app.model.define('Comment', {
+    return app.model.define('Top', {
         id: {
             type: INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        custno: STRING(7),
-        name: STRING(16),
-        avator: STRING(255),
-        sp_id: INTEGER,
-        state: {
-            type: STRING(8),
-            defaultValue: '1'
-        },
-        content: STRING(255),
+        userid: STRING(7),
+        avatar: STRING(255),
+        c_id: INTEGER,
+        name: STRING(64),
+        gender: INTEGER,
         createdAt: {
             type: DATE,
             get: function () {
@@ -34,20 +31,6 @@ module.exports = app => {
             },
         }
     }, {
-        classMethods: {
-            associate() {
-                app.model.Comment.hasMany(app.model.Comment, {
-                    as: 'subcomment',
-                    foreignKey: 'parentid',
-                    sourceKey: 'id'
-                });
-                app.model.Comment.hasMany(app.model.Top, {
-                    as: 'top',
-                    foreignKey: 'c_id',
-                    sourceKey: 'id'
-                })
-            }
-        },
-        tableName: 'rl_spc_list'
+        tableName: 'rl_spt_list'
     })
 }

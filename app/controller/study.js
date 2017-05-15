@@ -39,7 +39,16 @@ module.exports = app => {
             if (spdetail.rate === 'NaN') {
                 spdetail.rate = 5
             }
-            this.ctx.body = {status: 200, spdetail: spdetail}
+            let tops_rs = yield app.model.Top.findAll({
+                where: {
+                    userid: this.ctx.session.userinfo.userid
+                }
+            })
+            let tops = [];
+            tops_rs.map((obj, index) => {
+                tops.push(obj.c_id)
+            })
+            this.ctx.body = {status: 200, spdetail: spdetail, tops: tops}
             //增加浏览次数
             let that = this
             let view_log = {
@@ -61,7 +70,7 @@ module.exports = app => {
         * viewSpDetail() {
             let {id} = this.ctx.query
             let spdetail = yield this.ctx.service.study.getStudyDetail(id)
-            if (!spdetail.rate) {
+            if (spdetail.rate === 'NaN') {
                 spdetail.rate = 5
             }
             this.ctx.body = {status: 200, spdetail: spdetail}
@@ -98,12 +107,13 @@ module.exports = app => {
             //添加xss过滤
             let {title, fhtml} = this.ctx.request.body
             let titleFilter = this.ctx.helper.escape(title)
-            console.log(titleFilter)
             let fhtmlFilter = this.ctx.helper.shtml(fhtml)
+            console.log(fhtml)
             let _param = Object.assign({}, this.ctx.request.body, {
                 title: titleFilter,
                 fhtml: fhtmlFilter
             })
+            console.log(_param)
             const result = yield this.ctx.service.study.updateSp(_param)
             if (result) {
                 let log = this.ctx.request.body.log

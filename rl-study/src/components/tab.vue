@@ -79,10 +79,18 @@
 </script>
 
 <style lang="less">
+  @import "../css/default.less";
   .weui-tabbar {
     position: fixed !important;
     .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon, .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon > i, .weui-tabbar__item.weui-bar__item_on .weui-tabbar__label {
-      color: #2aaa73;
+      color: @primarycolor;
+    }
+    .weui-tabbar__icon {
+      width: 32px;
+      height: 32px;
+    }
+    .weui-tabbar__label {
+      color: #666
     }
   }
 </style>

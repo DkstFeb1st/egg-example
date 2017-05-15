@@ -8,7 +8,6 @@
       <!--评论列表-->
       <div class="detail-comment">
         <p class="detail-comment-name">{{commentList.name}}</p>
-        <p class="detail-comment-time">{{commentList.createdAt | datetimeNormal}}</p>
         <p class="detail-comment-content">
           <template v-for="(obj,index) in commentList.content ">
                   <span v-if="obj.node === 'text'">
@@ -17,6 +16,19 @@
             <emotion :isGif="true" v-else>{{obj.text}}</emotion>
           </template>
         </p>
+        <p class="detail-comment-time">{{commentList.createdAt | datetimeNormal}}</p>
+        <section class="detail-comment-topList" v-if="commentList.top.length !== 0" @click="goTopList">
+          <section class="avatarList">
+            <template v-for="(obj,index) in commentList.top">
+              <img :src="obj.avatar" alt="" v-if="index < 4">
+            </template>
+          </section>
+          <section class="total">{{commentList.top.length}}赞过></section>
+        </section>
+        <section class="detail-comment-topempty" v-if="commentList.top.length === 0">
+          暂无人赞过
+
+        </section>
       </div>
     </header>
     <div class="detail-comment-wrapper">
@@ -30,8 +42,15 @@
         </div>
         <!--评论列表-->
         <div class="detail-comment">
-          <p class="detail-comment-name">{{item.name}}</p>
-          <p class="detail-comment-time">{{item.createdAt | datetimeNormal}}</p>
+          <p class="detail-comment-name">{{item.name}}
+
+            <Top
+              :top_num="item.top_num"
+              v-on:goTop="goTop(item.id,index)"
+              :active="tops.includes(item.id)"
+            >
+            </Top>
+          </p>
           <p class="detail-comment-content">
             <template v-for="(obj,index) in item.content ">
                   <span v-if="obj.node === 'text'">
@@ -40,19 +59,22 @@
               <emotion :isGif="true" v-else>{{obj.text}}</emotion>
             </template>
           </p>
+          <p class="detail-comment-time">{{item.createdAt | datetimeNormal}}</p>
         </div>
       </section>
     </div>
   </div>
 </template>
 <script>
-  import {getCommentListApi} from 'apis/studyapi'
+  import {getCommentListApi, addTopApi} from 'apis/studyapi'
   import * as filters  from 'filters'
   import {WechatEmotion as Emotion} from 'vux'
+  import Top from "components/detail/topComponent.vue";
   export default {
     name: "commentList",
     components: {
       Emotion,
+      Top
     },
     beforeMount: function () {
       this.$vux.loading.show({
@@ -62,12 +84,12 @@
         .then(response => {
           this.$vux.loading.hide()
           if (response.status === 200 && response.data.status === 200) {
-            console.log(response)
             response.data.commentList.content = filters.emoji(response.data.commentList.content)
             for (let _i = 0; _i < response.data.commentList.subcomment.length; _i++) {
               response.data.commentList.subcomment[_i].content = filters.emoji(response.data.commentList.subcomment[_i].content)
             }
             this.commentList = response.data.commentList
+            this.tops = response.data.tops//我的点赞评论id数组
           } else {
             this.$vux.alert.show({
               text: response.data.msg
@@ -82,13 +104,35 @@
     },
     data () {
       return {
-        commentList: {}
+        commentList: {},
+        tops: []
       }
     },
     methods: {
+      goTop: function (_id, index) {
+        addTopApi(_id)
+          .then(response => {
+            if (response.status === 200 && response.data.status === 200) {
+              this.commentList.subcomment[index].top_num = this.commentList.subcomment[index].top_num + 1
+              this.tops.push(_id)
+            } else {
+              this.$vux.alert.show({
+                title: '提示',
+                content: response.data.msg
+              })
+            }
+          })
+          .catch(error => {
+            this.$vux.loading.hide()
+            alert('访问出错')
+          })
+      },
       goComment: function () {
         this.$router.push({path: `/detail/commentform/${this.$route.params.id}?root=false&id=${this.$route.query.sp_id}`})
       },
+      goTopList: function () {
+        this.$router.push({path: `/detail/topList/${this.$route.params.id}`})
+      }
     }
   }
 </script>
@@ -134,6 +178,10 @@
           float: right;
           color: #666;
         }
+
+      }
+      .detail-comment-name {
+        color: #0e77ca
       }
       .detail-comment-callback {
         padding-left: 8px;
@@ -141,6 +189,28 @@
         line-height: 1.6;
         font-size: 12px;
         color: #6F9FB5;
+      }
+      .detail-comment-topempty {
+        font-size: 12px;
+        color: #666;
+      }
+      .detail-comment-topList {
+        display: -webkit-box;
+        -webkit-box-orient: horizontal;
+        -webkit-box-align: center;
+        height: 24px;
+        .avatarList {
+          img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin-right: 4px;
+          }
+        }
+        .total {
+          font-size: 12px;
+          color: #666;
+        }
       }
     }
   }

@@ -33,7 +33,7 @@ module.exports = app => {
                         as: "comments",
                         required: false,
                         attributes: [],
-                        where: {parentid: {$not: 0}}
+                        where: {parentid: 0}
                     },
                     {
                         model: this.ctx.model.Viewlog,
@@ -85,7 +85,7 @@ module.exports = app => {
                             as: "comments",
                             required: false,
                             attributes: [],
-                            where: {parentid: {$not: 0}}
+                            where: {parentid: 0}
                         },
                         {
                             model: this.ctx.model.Viewlog,
@@ -127,7 +127,7 @@ module.exports = app => {
                             as: "comments",
                             required: false,
                             attributes: [],
-                            where: {parentid: {$not: 0}}
+                            where: {parentid: 0}
                         },
                         {
                             model: this.ctx.model.Viewlog,
@@ -221,13 +221,28 @@ module.exports = app => {
                                         )
                                     ),
                                     "comment_num"
-                                ]
+                                ],
+                                [
+                                    app.Sequelize.fn(
+                                        "COUNT",
+                                        app.Sequelize.fn(
+                                            "DISTINCT",
+                                            app.Sequelize.col("comments.top.id")
+                                        )
+                                    ),
+                                    "top_num"
+                                ],
                             ]
                         },
                         include: [
                             {
                                 model: this.ctx.model.Comment,
                                 as: "subcomment",
+                                required: false,
+                                attributes: []
+                            }, {
+                                model: this.ctx.model.Top,
+                                as: "top",
                                 required: false,
                                 attributes: []
                             }

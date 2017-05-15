@@ -129,7 +129,6 @@ class GalleryModalComponent extends React.Component {
     }
 
     render() {
-        console.log(Cookies.get('csrfToken'))
         const {selected, current} = this.state;
         return (
             <Modal

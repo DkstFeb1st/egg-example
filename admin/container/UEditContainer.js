@@ -157,7 +157,6 @@ class UEditContainer extends React.Component {
 
     /*视频链接插入*/
     handleVedioLinkInsert(html) {
-        console.log(html);
         this.ue.execCommand("inserthtml", html);
         this.setState({
             videoModalVisible: !this.state.videoModalVisible

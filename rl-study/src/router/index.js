@@ -5,6 +5,7 @@ import Detail from "components/detail/detail.vue";
 import CommentForm from "components/detail/commentForm.vue";
 import RateForm from "components/detail/RateForm.vue";
 import CommentList from "components/detail/commentlist.vue";
+import TopList from "components/detail/topList.vue";
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/detail/commentList/:id',
       name: 'commentList',
       component: CommentList
+    },
+    {
+      path: '/detail/topList/:c_id',
+      name: 'topList',
+      component: TopList
     }
   ]
 })

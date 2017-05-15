@@ -7,11 +7,13 @@ import {sync} from "vuex-router-sync";
 import * as filters from "./filters";
 import "./css/default.less";
 import "./css/iconfont.css";
-require('es6-promise')
-require('babel-polyfill')
+import "./css/animate.css";
 // create the app instance.
 // here we inject the router and store to all child components,
 import {AlertPlugin, ConfirmPlugin, LoadingPlugin, ToastPlugin} from "vux";
+require('es6-promise')
+require('babel-polyfill')
+
 // sync the router with the vuex store.
 // this registers `store.state.route`
 sync(store, router)

@@ -21,12 +21,6 @@ module.exports = appInfo => {
     config.security = {
         csrf: false
     };
-    config.helper = {
-        shtml: {
-            "domainWhiteList": ['app.rarcbank.com'],
-            "whiteList": {"iframe": [], "source": []}
-        }
-    }
     return config;
 };
 
