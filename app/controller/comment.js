@@ -37,12 +37,13 @@ module.exports = app => {
                 return
             }
             //添加评论用户信息
+            //添加xss防护
             _param = Object.assign({}, _param, {
                 name: name,
                 avator: avatar,
                 custno: userid,
+                content: this.ctx.helper.escape(this.ctx.request.body.content)
             })
-            console.log(_param);
             yield this.ctx.model.Comment.create(_param, {
                 isNewRecord: true
             }).then(function (comment) {

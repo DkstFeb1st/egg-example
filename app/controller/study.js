@@ -101,19 +101,18 @@ module.exports = app => {
 
         /*修改操作*/
         * doUpdate() {
-            // this.ctx.body = {status: 205, msg: '修改异常'}
-            // this.ctx.status = 200
             app.logger.info('学习资料修改操作')
             //添加xss过滤
+            let _param = this.ctx.request.body
             let {title, fhtml} = this.ctx.request.body
-            let titleFilter = this.ctx.helper.escape(title)
-            let fhtmlFilter = this.ctx.helper.shtml(fhtml)
-            console.log(fhtml)
-            let _param = Object.assign({}, this.ctx.request.body, {
-                title: titleFilter,
-                fhtml: fhtmlFilter
-            })
-            console.log(_param)
+            if (title || fhtml) {
+                let titleFilter = this.ctx.helper.escape(title)
+                let fhtmlFilter = this.ctx.helper.shtml(fhtml)
+                _param = Object.assign({}, this.ctx.request.body, {
+                    title: titleFilter,
+                    fhtml: fhtmlFilter
+                })
+            }
             const result = yield this.ctx.service.study.updateSp(_param)
             if (result) {
                 let log = this.ctx.request.body.log
