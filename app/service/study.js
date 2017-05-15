@@ -187,7 +187,8 @@ module.exports = app => {
                     }
                 ],
                 where: {
-                    interest: "1"
+                    interest: "1",
+                    state: "3"
                 },
                 group: ["Study.id"]
             });
