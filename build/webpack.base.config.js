@@ -1,6 +1,7 @@
 const path = require('path')
 const vueConfig = require('./vue-loader.config.js')
 const vuxLoader = require('vux-loader')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const webpackConfig = {
     devtool: false,
   entry: {
@@ -44,11 +45,11 @@ const webpackConfig = {
       },
       {
           test: /\.css$/,
-          loader: "style-loader!css-loader"
+          loader: ExtractTextPlugin.extract("css-loader")
       },
         {
             test: /\.less$/,
-            loader: 'style-loader!css-loader!less-loader'
+            loader: ExtractTextPlugin.extract("css-loader!less-loader")
         },
         {
         test: /\.(png|jpg|gif|svg)$/,

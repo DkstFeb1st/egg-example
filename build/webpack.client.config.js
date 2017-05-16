@@ -3,6 +3,7 @@ const merge = require('webpack-merge')
 const base = require('./webpack.base.config.js')
 const vueConfig = require('./vue-loader.config.js')
 const HTMLPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 //const SWPrecachePlugin = require('sw-precache-webpack-plugin')
 
 const config = merge(base, {
@@ -21,7 +22,8 @@ const config = merge(base, {
         title: '农商学习微平台',
         template: 'rl-study/src/index.template.html',
         filename: '../view/index.html'
-    })
+    }),
+      new ExtractTextPlugin('style.css')
   ]
 })
 
