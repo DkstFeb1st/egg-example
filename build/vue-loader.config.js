@@ -6,7 +6,4 @@ module.exports = {
         browsers: ['iOS >= 7', 'Android >= 4.1']
     })
   ],
-    loaders: {
-        less: ExtractTextPlugin.extract('css-loader!less-loader'),
-    }
 }

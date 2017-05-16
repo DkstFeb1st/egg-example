@@ -23,7 +23,6 @@ const config = merge(base, {
         template: 'rl-study/src/index.template.html',
         filename: '../view/index.html'
     }),
-      new ExtractTextPlugin('style.css')
   ]
 })
 
