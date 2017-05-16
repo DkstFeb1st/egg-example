@@ -23,8 +23,8 @@ module.exports = app => {
                 dataType: 'json'
             })
             if (userid_result) {
-                //const user_id = userid_result.data.UserId
-                const userinfo_result = yield app.curl(`${getUserInfoUrl}?access_token=${_token}&userid=8581234`, {
+                const user_id = userid_result.data.UserId
+                const userinfo_result = yield app.curl(`${getUserInfoUrl}?access_token=${_token}&userid=${user_id}`, {
                     dataType: 'json'
                 })
                 return userinfo_result.data
