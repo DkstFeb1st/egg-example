@@ -22,11 +22,8 @@ export function getInterestListApi() {
 /*
  * _id : 学习资料,id，_custno : 8581234
  * */
-export function getSpDetailListApi(_id, _custno) {
-  return instance.post(`api/sp/getSpDetail`, {
-    id: _id,
-    custno: _custno
-  })
+export function getSpDetailListApi(_param) {
+  return instance.post(`api/sp/getSpDetail`, _param)
 }
 /*
  * _id 评论id
@@ -49,11 +46,20 @@ export function addRateApi(_param) {
 }
 
 /*
- * 添加点赞
+ * 添加评论点赞
  * */
 export function addTopApi(c_id) {
   return instance.post(`api/sp/addTop`, {
     c_id: c_id
+  })
+}
+
+/*
+ * 添加文章点赞
+ * */
+export function createTopApi(sp_id) {
+  return instance.post(`api/sp/createTop`, {
+    sp_id: sp_id
   })
 }
 

@@ -3,7 +3,6 @@
     <div class="detail-wrapper">
       <header class="detail-title">
         {{ study.title }}
-
       </header>
       <section class="detail-author">
         <div>
@@ -21,7 +20,24 @@
       <article v-html="study.fhtml">
         <div>{{ study.fhtml }}</div>
       </article>
+      <div class="sptop-wrapper">
+        <div class="sptop" :class="{active : sptops.length > 0}">
+          <Top
+            :top_num="study.topnum"
+            v-on:goTop="createTop(study.id)"
+            :active="sptops.length > 0"
+          >
+          </Top>
+        </div>
+      </div>
       <div class="detail-comment-wrapper">
+        <header class="order-header">
+          <label>评论</label>
+          <div style="float: right">
+            <label class="order-label" @click="doOrderActionsheet">{{order === 'hot' ? '热门排序' : '最新排序'}}<i
+              class="iconfont">&#xe643;</i></label>
+          </div>
+        </header>
         <section v-for="( item, index ) in study.comments" class="detail-comment-item" @click="goCommentList(item.id)">
           <div>
             <img v-bind:src="item.avator" alt="" class="headerimg">
@@ -48,6 +64,8 @@
             <p class="detail-comment-time">{{item.createdAt | datetimeNormal}} · {{item.comment_num}}回复</p>
           </div>
         </section>
+        <section class="detail-comment-empty" v-if=" study.comments.length === 0" @click="goComment">暂无评论， 点击抢沙发
+        </section>
       </div>
     </div>
     <footer>
@@ -60,15 +78,17 @@
         <i class="iconfont" @click="goLove">&#xe707;</i>
       </div>
     </footer>
+    <actionsheet v-model="orderActionsheet" :menus="orderMenus" show-cancel
+                 @on-click-menu="doOrderActionsheetMenu"></actionsheet>
   </div>
 
 </template>
 <script>
   /*实现阅读 评分 留言功能*/
   import lifeMonitor from 'mixins/lifeMonitor'
-  import {getSpDetailListApi, addTopApi} from 'apis/studyapi'
+  import {getSpDetailListApi, addTopApi, createTopApi} from 'apis/studyapi'
   import * as filters  from 'filters'
-  import {WechatEmotion as Emotion, Badge} from 'vux'
+  import {WechatEmotion as Emotion, Badge, Actionsheet} from 'vux'
   import Top from "components/detail/topComponent.vue";
 
   export default {
@@ -78,8 +98,12 @@
       this.$vux.loading.show({
         text: '疯狂加载中...'
       })
-
-      getSpDetailListApi(this.$route.params.id)
+      let params = {
+        id: this.$route.params.id,
+        order: 'new',
+        view: true
+      }
+      getSpDetailListApi(params)
         .then(response => {
           console.log(response)
           this.$vux.loading.hide()
@@ -90,6 +114,7 @@
             }
             this.study = response.data.spdetail
             this.tops = response.data.tops//我的点赞评论id数组
+            this.sptops = response.data.sptops
           } else {
             this.$vux.alert.show({
               title: '提示',
@@ -105,15 +130,110 @@
     components: {
       Emotion,
       Badge,
-      Top
+      Top,
+      Actionsheet
     },
     data () {
       return {
         study: {},
-        tops: []
+        tops: [],
+        sptops: [],
+        orderActionsheet: false,
+        orderMenus: {
+          hot: '按热门排序',
+          new: '按最新排序'
+        },
+        order: 'hot'
       }
     },
     methods: {
+      doOrderActionsheet: function () {
+        this.orderActionsheet = !this.orderActionsheet
+      },
+      doOrderActionsheetMenu: function (key) {
+        if (key === 'hot') {
+          this.order = 'hot'
+          this.$vux.loading.show({
+            text: '疯狂加载中...'
+          })
+          let params = {
+            id: this.$route.params.id,
+            order: 'hot'
+          }
+          getSpDetailListApi(params)
+            .then(response => {
+              console.log(response)
+              this.$vux.loading.hide()
+              if (response.status === 200 && response.data.status === 200) {
+                for (let _i = 0; _i < response.data.spdetail.comments.length; _i++) {
+                  response.data.spdetail.comments[_i].content = filters.emoji(response.data.spdetail.comments[_i].content)
+                }
+                this.study = response.data.spdetail
+                this.tops = response.data.tops//我的点赞评论id数组
+
+              } else {
+                this.$vux.alert.show({
+                  title: '提示',
+                  content: response.data.msg
+                })
+              }
+            })
+            .catch(error => {
+              this.$vux.loading.hide()
+              alert('访问出错')
+            })
+        } else {
+          this.order = 'new'
+          this.$vux.loading.show({
+            text: '疯狂加载中...'
+          })
+          let params = {
+            id: this.$route.params.id,
+            order: 'new'
+          }
+          getSpDetailListApi(params)
+            .then(response => {
+              console.log(response)
+              this.$vux.loading.hide()
+              if (response.status === 200 && response.data.status === 200) {
+                for (let _i = 0; _i < response.data.spdetail.comments.length; _i++) {
+                  response.data.spdetail.comments[_i].content = filters.emoji(response.data.spdetail.comments[_i].content)
+                }
+                this.study = response.data.spdetail
+                this.tops = response.data.tops//我的点赞评论id数组
+              } else {
+                this.$vux.alert.show({
+                  title: '提示',
+                  content: response.data.msg
+                })
+              }
+            })
+            .catch(error => {
+              this.$vux.loading.hide()
+              alert('访问出错')
+            })
+        }
+      },
+      createTop: function (_id) {
+        createTopApi(_id)
+          .then(response => {
+            if (response.status === 200 && response.data.status === 200) {
+              //this.study.comments[index].top_num = this.study.comments[index].top_num + 1
+              //this.tops.push(_id)
+              this.study.topnum = this.study.topnum + 1
+              this.sptops.push(_id)
+            } else {
+              this.$vux.alert.show({
+                title: '提示',
+                content: response.data.msg
+              })
+            }
+          })
+          .catch(error => {
+            this.$vux.loading.hide()
+            alert('访问出错')
+          })
+      },
       goTop: function (_id, index) {
         addTopApi(_id)
           .then(response => {
@@ -210,6 +330,7 @@
         -webkit-box-orient: horizontal;
         -webkit-box-align: start;
         -webkit-box-pack: justify;
+        width: 100%;
         padding: 12px;
         background-color: #fff;
         .detail-author-info {
@@ -241,8 +362,6 @@
       .detail-comment-wrapper {
         background-color: #fff;
         header {
-          line-height: 2;
-          padding: 0 12px;
           .detail-comment-edit {
             float: right;
             font-size: 14px;
@@ -296,10 +415,46 @@
             }
           }
         }
+        .detail-comment-empty {
+          margin-top: 30px;
+          height: 80px;
+          color: #666;
+          background-color: #f5f5f5;
+          text-align: center;
+
+        }
       }
     }
   }
 
+  .order-header {
+    margin-top: 12px;
+    padding: 0 12px;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #e7e7eb;
+    label {
+      color: #666;
+    }
+  }
+
+  .sptop-wrapper {
+    padding-bottom: 12px;
+    background-color: #fff;
+    .sptop {
+      display: -webkit-box;
+      -webkit-box-pack: center;
+      -webkit-box-align: center;
+      width: 90px;
+      height: 32px;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+    }
+    .sptop.active {
+      border: 1px solid @secondcolor;
+    }
+  }
   footer {
     position: fixed;
     bottom: 0;

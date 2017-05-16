@@ -6,7 +6,7 @@
       name="top"
       v-on:after-enter="afterEnter"
     >
-      <span class="add1" v-if="animated ">+1</span>
+      <span class="add1" v-if="animated">+1</span>
     </transition>
   </i>
 </template>

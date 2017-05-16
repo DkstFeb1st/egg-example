@@ -98,6 +98,44 @@ module.exports = app => {
         }
 
         /*
+         * 创建文章点赞
+         * */
+        * createTop() {
+            let that = this
+            let _param = this.ctx.request.body
+            let {name, userid, avatar, gender} = this.ctx.session.userinfo
+
+            //添加评论用户信息
+            _param = Object.assign({}, _param, {
+                userid: userid,
+                avatar: avatar,
+                name: name,
+                gender: gender
+            })
+            let _top = yield this.ctx.model.Top.findOne({
+                where: {
+                    userid: userid,
+                    sp_id: _param.sp_id
+                }
+            })
+            if (_top) {
+                that.ctx.body = {status: 202, msg: '您已经赞过了'}
+                that.ctx.status = 200
+            } else {
+                yield this.ctx.model.Top.create(_param, {
+                    isNewRecord: true
+                }).then(function (top) {
+                    if (top) {
+                        that.ctx.body = {status: 200, msg: '点赞成功'}
+                        that.ctx.status = 200
+                    } else {
+                        that.ctx.body = {status: 202, msg: '操作异常'}
+                        that.ctx.status = 200
+                    }
+                })
+            }
+        }
+        /*
          * 创建点赞
          * */
         * addTop() {

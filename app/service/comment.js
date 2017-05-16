@@ -30,7 +30,8 @@ module.exports = app => {
                         model: this.ctx.model.Top, as: 'top', required: false,
                     }
                 ],
-                group: ["subcomment.id", "top.id"]
+                group: ["subcomment.id", "top.id"],
+                order: "subcomment.createdAt DESC"
             })
             return commentList
         }

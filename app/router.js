@@ -19,6 +19,7 @@ module.exports = app => {
     app.post("/api/sp/addComment", login_handler, "comment.create"); //post
     app.post("/api/sp/addRate", login_handler, "comment.addRate");//post
     app.post("/api/sp/addTop", login_handler, "comment.addTop");//post
+    app.post("/api/sp/createTop", login_handler, "comment.createTop");//post
     app.get("/api/sp/getTopList", login_handler, "comment.getTopList");//get
 
     /*后台*/

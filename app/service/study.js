@@ -48,7 +48,8 @@ module.exports = app => {
                     },
                     state: "3"
                 },
-                group: ["Study.id"]
+                group: ["Study.id"],
+                order: 'createdAt DESC'
             });
             return obligatoryList;
         }
@@ -98,7 +99,8 @@ module.exports = app => {
                         interest: "0",
                         state: "3"
                     },
-                    group: ["Study.id"]
+                    group: ["Study.id"],
+                    order: 'createdAt DESC'
                 });
                 return electiveList;
             } else {
@@ -142,7 +144,8 @@ module.exports = app => {
                         },
                         state: "3"
                     },
-                    group: ["Study.id"]
+                    group: ["Study.id"],
+                    order: 'createdAt DESC'
                 });
                 return electiveList;
             }
@@ -190,7 +193,8 @@ module.exports = app => {
                     interest: "1",
                     state: "3"
                 },
-                group: ["Study.id"]
+                group: ["Study.id"],
+                order: 'createdAt DESC'
             });
             return interestList;
         }
@@ -198,11 +202,12 @@ module.exports = app => {
         /*
          * 获取资料详情
          * */
-        *getStudyDetail(_id) {
+        *getStudyDetail(_id, order) {
             const spdetail = yield this.ctx.model.Study.findById(_id, {
                 attributes: {
                     include: [
-                        [app.Sequelize.fn("AVG", app.Sequelize.col("rates.rate")), "rate"]
+                        [app.Sequelize.fn("AVG", app.Sequelize.col("rates.rate")), "rate"],
+                        [app.Sequelize.fn("COUNT", app.Sequelize.fn("DISTINCT", app.Sequelize.col("tops.id"))), "topnum"]
                     ]
                 },
                 include: [
@@ -253,10 +258,23 @@ module.exports = app => {
                         model: this.ctx.model.Rate,
                         as: "rates",
                         required: false
+                    },
+                    {
+                        model: this.ctx.model.Top,
+                        as: "tops",
+                        required: false
                     }
                 ],
-                group: ["comments.id"]
+                group: ["comments.id"],
+                order: order === 'hot' ? [[app.Sequelize.fn(
+                    "COUNT",
+                    app.Sequelize.fn(
+                        "DISTINCT",
+                        app.Sequelize.col("comments.top.id")
+                    )
+                ), 'DESC']] : 'comments.createdAt DESC'
             });
+            console.log(spdetail)
             return spdetail;
         }
 

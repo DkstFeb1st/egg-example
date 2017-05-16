@@ -95,6 +95,11 @@ module.exports = app => {
                     foreignKey: 'sp_id',
                     sourceKey: 'id'
                 })
+                app.model.Study.hasMany(app.model.Top, {
+                    as: 'tops',
+                    foreignKey: 'sp_id',
+                    sourceKey: 'id'
+                })
             }
         },
         tableName: 'rl_sp_list',

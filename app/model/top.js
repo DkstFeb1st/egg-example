@@ -14,6 +14,7 @@ module.exports = app => {
         userid: STRING(7),
         avatar: STRING(255),
         c_id: INTEGER,
+        sp_id: INTEGER,
         name: STRING(64),
         gender: INTEGER,
         createdAt: {

@@ -32,36 +32,53 @@ module.exports = app => {
         /**
          * 实时返回详情记录
          * 增加学习资料访问次数
+         * 评论最新排序 热门排序
+         * --需要更深的解耦--
          * */
         * getSpDetail() {
-            let {id} = this.ctx.request.body
-            let spdetail = yield this.ctx.service.study.getStudyDetail(id)
+            let {id, order, view} = this.ctx.request.body
+            let spdetail = yield this.ctx.service.study.getStudyDetail(id, order)
+            console.log(spdetail)
             if (spdetail.rate === 'NaN') {
                 spdetail.rate = 5
             }
             let tops_rs = yield app.model.Top.findAll({
                 where: {
-                    userid: this.ctx.session.userinfo.userid
+                    userid: this.ctx.session.userinfo.userid,
+                    sp_id: {
+                        $eq: null
+                    }
                 }
             })
             let tops = [];
             tops_rs.map((obj, index) => {
                 tops.push(obj.c_id)
             })
-            this.ctx.body = {status: 200, spdetail: spdetail, tops: tops}
-            //增加浏览次数
-            let that = this
-            let view_log = {
-                sp_id: id,
-                custno: this.ctx.session.userinfo.userid
-            }
-            yield this.ctx.model.Viewlog.create(view_log, {
-                isNewRecord: true
-            }).then(function (viewlog) {
-                if (viewlog) {
-                    that.ctx.status = 200
+            let sptops_rs = yield app.model.Top.findAll({
+                where: {
+                    userid: this.ctx.session.userinfo.userid,
+                    sp_id: id
                 }
             })
+            this.ctx.body = {status: 200, spdetail: spdetail, tops: tops, sptops: sptops_rs}
+            //增加浏览次数
+            if (view) {
+                let that = this
+                let view_log = {
+                    sp_id: id,
+                    custno: this.ctx.session.userinfo.userid
+                }
+                yield this.ctx.model.Viewlog.create(view_log, {
+                    isNewRecord: true
+                }).then(function (viewlog) {
+                    if (viewlog) {
+                        that.ctx.status = 200
+                    }
+                })
+            } else {
+                this.ctx.status = 200
+            }
+
         }
 
         /**
@@ -79,7 +96,6 @@ module.exports = app => {
         /*admin*/
         /*根据条件筛选学习资料*/
         * getSpList() {
-            console.log('后台查询操作')
             app.logger.info('后台查询操作')
             let spList = yield this.ctx.service.study.getSpList(this.ctx.query)
             for (let i = 0; i < spList.length; i++) {
