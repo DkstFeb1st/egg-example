@@ -127,6 +127,13 @@
           alert('访问出错')
         })
     },
+    updated: function () {
+      setTimeout(function () {
+        $('.weixinAudio').weixinAudio({
+          autoplay: false,
+        });
+      }, 1000);
+    },
     components: {
       Emotion,
       Badge,
