@@ -15,6 +15,7 @@ require('css/iconfont.css');
 require('css/app.less');
 require('css/admin.less')
 require('css/ueditor.css')
+require('css/weixinAudio.css')
 
 /*创建store*/
 const initialState = window.__INITIAL_STATE__ || ""

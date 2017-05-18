@@ -199,6 +199,86 @@ module.exports = app => {
             }
         }
 
+        /*获取批量音频*/
+        /*分页*/
+        *getAudioList() {
+            const {pageSize, current, userid} = this.ctx.query;
+            let offset = (current - 1) * pageSize;
+            const audioTotal = yield this.ctx.model.Audio.count({
+                where: {
+                    userid: userid
+                }
+            });
+            const audioList = yield this.ctx.model.Audio.findAll({
+                where: {
+                    userid: userid
+                },
+                order: "createdAt DESC",
+                offset: offset,
+                limit: parseInt(pageSize)
+            });
+            this.ctx.body = {
+                status: 200,
+                audioList: audioList,
+                audioTotal: audioTotal
+            };
+            this.ctx.status = 200;
+        }
+
+        /*音频上传*/
+        /*限定 mp3 |  * */
+        *doAudioUpload() {
+            const userid = this.ctx.session.userinfo.userid;
+            const parts = this.ctx.multipart();
+            let part;
+            while ((part = yield parts) != null) {
+                if (part.length) {
+                } else {
+
+                    if (!part.filename) {
+                        // 这时是用户没有选择文件就点击了上传(part 是 file stream，但是 part.filename 为空)
+                        // 需要做出处理，例如给出错误提示消息
+                        return;
+                    }
+                    // otherwise, it's a stream
+                    // 文件处理，上传到云存储等等
+                    let result;
+                    try {
+                        const audio_dir = `app/public/audio/${userid}/`;
+                        if (!fs.existsSync(audio_dir)) {
+                            fs.mkdirSync(audio_dir);
+                        }
+                        result = yield app.uploadAudio(part, audio_dir);
+                        console.log(result);
+                        if (result) {
+
+                            //添加音频
+                            let _param = {
+                                name: part.filename,
+                                url: isdebug ? this.ctx.request.header.origin + "/" + result.url.substring(4) : this.ctx.request.header.origin + "/study/" + result.url.substring(4),
+                                userid: userid,
+                            };
+                            yield app.model.Audio
+                                .create(_param, {
+                                    isNewRecord: true
+                                })
+                                .then(function (audio) {
+                                    if (!audio) {
+                                        this.ctx.body = {status: 202, msg: "操作异常"};
+                                        this.ctx.status = 200;
+                                    }
+                                });
+                        }
+                    } catch (err) {
+                        // 必须将上传的文件流消费掉，要不然浏览器响应会卡死
+                        yield sendToWormhole(part);
+                        throw err;
+                    }
+                    this.ctx.body = {status: 200};
+                    this.ctx.status = 200;
+                }
+            }
+        }
         /*获取批量文件*/
         /*分页*/
         *getDocumentList() {

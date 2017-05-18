@@ -3,6 +3,7 @@
  * 用户Reducer
  */
 import {
+    GETAUDIOLIST,
     GETDOCUMENTLIST,
     GETGALLERYLIST,
     GETVEDIOLIST,
@@ -11,7 +12,7 @@ import {
     LOGINOUT,
     UPDATEMENU
 } from "store/mutation-types";
-import {getDocumentList, getImageList, getVedioList, initial, loginByPwd, loginout} from "apis/apiList";
+import {getAudioList, getDocumentList, getImageList, getVedioList, initial, loginByPwd, loginout} from "apis/apiList";
 import {push, replace} from "react-router-redux";
 
 const logoutAction = () => {
@@ -121,7 +122,28 @@ export const getVedioListRequest = _param => {
         });
     };
 };
+/*
+ * 用户音频
+ * */
+const getAudioAction = _data => {
+    return {
+        type: GETAUDIOLIST,
+        audioList: _data.audioList,
+        audioTotal: _data.audioTotal
+    }
+}
 
+export const getAudioListRequest = _param => {
+    return (dispatch, getState) => {
+        return getAudioList(_param).then(response => {
+            if (response.status === 200 && response.data.status === 200) {
+                dispatch(getAudioAction(response.data));
+            } else {
+                alert(response.data.msg);
+            }
+        })
+    }
+}
 /*
  * 用户文库
  * */
@@ -186,6 +208,11 @@ export const UserReducer = function (state = {
                 galleryList: action.galleryList,
                 galleryTotal: action.galleryTotal
             });
+        case GETAUDIOLIST:
+            return Object.assign({}, state, {
+                audioList: action.audioList,
+                audioTotal: action.audioTotal
+            })
         case GETVEDIOLIST:
             return Object.assign({}, state, {
                 vedioList: action.vedioList,

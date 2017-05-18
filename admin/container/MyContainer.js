@@ -122,6 +122,7 @@ class MyContainer extends React.Component {
             >
                 <Table columns={columns} dataSource={this.props.spList}/>
                 <PhoneViewModalComponent
+                    newKey={Math.random()}
                     id={current}
                     visible={viewModalVisible}
                     handleViewModalVisible={this.handleViewModalVisible.bind(this)}

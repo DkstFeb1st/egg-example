@@ -65,3 +65,10 @@ export function getDocumentList(_param) {
         params: _param
     })
 }
+
+//获取音频列表
+export function getAudioList(_param) {
+    return instance.get(`api/sp/getAudioList`, {
+        params: _param
+    })
+}

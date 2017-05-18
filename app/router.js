@@ -38,4 +38,6 @@ module.exports = app => {
     app.post("/api/sp/doVedioUpload", login_handler, "common.doVedioUpload"); //post
     app.get("/api/sp/getDocumentList", login_handler, "common.getDocumentList"); //get
     app.post("/api/sp/doDocumentUpload", login_handler, "common.doDocumentUpload"); //post
+    app.get("/api/sp/getAudioList", login_handler, "common.getAudioList");//get
+    app.post("/api/sp/doAudioUpload", login_handler, "common.doAudioUpload")//post
 };

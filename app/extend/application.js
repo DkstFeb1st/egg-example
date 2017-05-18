@@ -24,6 +24,24 @@ module.exports = {
             // })
         });
     },
+    uploadAudio(stream, filepath) {
+        return new Promise((resolve, reject) => {
+            console.log(stream)
+            const ws = fs.createWriteStream(filepath + stream.filename);
+            stream.pipe(ws);
+            let param = {
+                url: filepath + stream.filename,
+                name: stream.filename
+            };
+            ws.on("error", function (e) {
+                console.log(e);
+                reject(false);
+            }),
+                ws.on("finish", function () {
+                    resolve(param);
+                });
+        })
+    },
     /*文档上传*/
     uploadDocument(stream, filepath) {
         return new Promise((resolve, reject) => {

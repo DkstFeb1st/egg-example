@@ -8,6 +8,7 @@ import UEditor from "simple-react-ui/dist/ueditor";
 import ueditor from "img/appmsg_new.png";
 import GalleryModalComponent from "components/GalleryModalComponent";
 import VedioModalComponent from "components/VedioModalComponent";
+import AudioModalComponent from "components/AudioModalComponent";
 import DocumentModalComponent from "components/DocumentModalComponent";
 import PhoneViewModalComponent from "components/PhoneViewModalComponent";
 import {createSpRequest, updateSpRequest} from "reducers/StudyReducer";
@@ -24,6 +25,7 @@ class UEditContainer extends React.Component {
                 ? this.props.location.state.record.avator
                 : "",
             videoModalVisible: false,
+            audioModalVisible: false,
             fileModalVisible: false,
             viewModalVisible: false,
             study: {}
@@ -163,6 +165,26 @@ class UEditContainer extends React.Component {
         });
     }
 
+    /*音频选择窗口控制*/
+    handleAudioModalVisible() {
+        this.setState({
+            audioModalVisible: !this.state.audioModalVisible
+        });
+    }
+
+    /*音频选择*/
+    /*音频插入*/
+    handleAudioInsert(audio) {
+        console.log(audio)
+        this.ue.execCommand('music', {
+            name: audio.name,
+            url: audio.url
+        });
+        this.setState({
+            audioModalVisible: !this.state.audioModalVisible
+        });
+    }
+
     /*文件选择*/
     handleFileModalVisible() {
         this.setState({
@@ -180,7 +202,6 @@ class UEditContainer extends React.Component {
 
     /*图文编辑预览*/
     handleViewModalVisible() {
-        console.log(this.ue.getContent())
         let that = this;
         const {avator} = this.state;
         const fhtml = this.ue.getContent();
@@ -220,6 +241,7 @@ class UEditContainer extends React.Component {
             galleryModalType,
             avator,
             videoModalVisible,
+            audioModalVisible,
             viewModalVisible,
             fileModalVisible,
             study
@@ -279,7 +301,7 @@ class UEditContainer extends React.Component {
                     <UEditor
                         id="ueditorContainer"
                         name="content"
-                        width={706}
+                        width={600}
                         height={500}
                         uconfigSrc={
                             process.env.NODE_ENV !== "production"
@@ -316,11 +338,14 @@ class UEditContainer extends React.Component {
                                 />
                                 视频
                             </li>
-                            <li className="media-item music">
+                            <li
+                                className="media-item music"
+                                onClick={this.handleAudioModalVisible.bind(this)}
+                            >
                                 <i
                                     style={{background: `url(${ueditor}) 0 -124px no-repeat`}}
                                 />
-                                音乐
+                                音频
                             </li>
                             <li
                                 className="media-item file"
@@ -372,6 +397,14 @@ class UEditContainer extends React.Component {
                     handleVedioInsert={this.handleVedioInsert.bind(this)}
                     handleVedioLinkInsert={this.handleVedioLinkInsert.bind(this)}
                 />
+                <AudioModalComponent
+                    newKey={Math.random()}
+                    title="选择音频"
+                    visible={audioModalVisible}
+                    handleAudioModalVisible={this.handleAudioModalVisible.bind(this)}
+                    handleAudioInsert={this.handleAudioInsert.bind(this)}
+                >
+                </AudioModalComponent>
                 <DocumentModalComponent
                     newKey={Math.random()}
                     title="选择文件"
@@ -380,6 +413,7 @@ class UEditContainer extends React.Component {
                     handleDocumentInsert={this.handleDocumentInsert.bind(this)}
                 />
                 <PhoneViewModalComponent
+                    newKey={Math.random()}
                     study={study}
                     visible={viewModalVisible}
                     handleViewModalVisible={this.handleViewModalVisible.bind(this)}

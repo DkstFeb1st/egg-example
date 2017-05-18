@@ -26,6 +26,14 @@ class PhoneViewModalComponent extends React.Component {
                 if (response.status === 200 && response.data.status === 200) {
                     that.setState({
                         study: response.data.spdetail
+                    }, function () {
+                        if (nextProps.visible) {
+                            setTimeout(function () {
+                                $('.weixinAudio').weixinAudio({
+                                    autoplay: false,
+                                });
+                            }, 1000);
+                        }
                     });
                 } else {
                     alert(response.data.msg);
@@ -34,9 +42,16 @@ class PhoneViewModalComponent extends React.Component {
             return
         }
         if (nextProps.study && nextProps.study.title) {
-            console.log(nextProps.study)
             this.setState({
                 study: nextProps.study
+            }, function () {
+                if (nextProps.visible) {
+                    setTimeout(function () {
+                        $('.weixinAudio').weixinAudio({
+                            autoplay: false,
+                        });
+                    }, 1000);
+                }
             });
         }
     }
@@ -46,6 +61,7 @@ class PhoneViewModalComponent extends React.Component {
     }
 
     render() {
+
         const {study, widthClass} = this.state;
         return (
             <div
@@ -69,7 +85,7 @@ class PhoneViewModalComponent extends React.Component {
                         }
                         style={{display: this.props.visible ? "" : "none"}}
                     >
-                        <div className="preview-modal-dialog">
+                        <div className="preview-modal-dialog" key={this.props.newKey}>
                             <div className="modal-body">
                                 <section className="preview-body">
                                     <div className="detail-container">
