@@ -31,7 +31,6 @@
                 // self.Audio.load(function(){
                 //     //self.updateTotalTime();
                 // });
-                self.Audio.load();
                 self.events();
                 self.updateTotalTime()
                 // 设置src
@@ -51,11 +50,11 @@
                         self.pause();
                         return;
                     }
-                    for (var p in obj) {
-                        if (obj[p].currentState === "play") {
-                            obj[p].pause()
-                        }
-                    }
+                    // for (var p in obj) {
+                    //     if (obj[p].currentState === "play") {
+                    //         obj[p].pause()
+                    //     }
+                    // }
                     self.Audio.play();
                     console.log("beginplay")
                     clearInterval(self.timer);
@@ -102,14 +101,10 @@
                 });
                 self.$Audio.on('canplay', function () {
                     alert("canplay" + self.Audio.duration)
-                    for (let $k in self.Audio) {
-                        alert($k)
-                        alert(self.Audio[$k])
-                    }
-                    alert("canplay" + self.Audio.duration)
-                });
+                    console.log('canplay')
+                })
                 self.$Audio.on('loadedmetadata', function () {
-                    alert("loadedmetadata" + self.Audio.duration)
+                    alert("loadedmetadata" + elf.$Audio.duration)
                 })
             },
             //正在播放
@@ -158,7 +153,6 @@
             updateTotalTime: function () {
 
                 var self = this;
-                //alert(self.Audio.duration)
                 var time = self.Audio.duration;
                 var minutes = self.getAudioMinutes(time),
                     seconds = self.getAudioSeconds(time),

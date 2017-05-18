@@ -13,6 +13,7 @@ module.exports = app => {
         userid: STRING(7),
         name: STRING(255),
         url: STRING(255),
+        duration: STRING(64),
         createdAt: {
             type: DATE,
             get: function () {

@@ -14,6 +14,8 @@
     <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>"
           as="<%= file.match(/\.css$/)?'style':'script' %>">
     <% }}} %>
+    <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="public/weixinAudio.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 <div id="container">

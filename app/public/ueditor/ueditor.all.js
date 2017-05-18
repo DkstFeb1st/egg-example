@@ -18011,7 +18011,7 @@
                     node.parentNode.replaceChild(UE.uNode.createElement(html), node);
                 }
                 if (className && className.indexOf('edui-upload-video') != -1) {
-                    var html = creatInsertStr(img2video ? node.getAttr('_url') : node.getAttr('src'), node.getAttr('width'), node.getAttr('height'), null, node.getStyle('float') || '', className, img2video ? 'video' : 'image', node.getAttr('_post'));
+                    var html = creatInsertStr(img2video ? node.getAttr('_url') : node.getAttr('src'), node.getAttr('width'), node.getAttr('height'), null, node.getStyle('float') || '', className, img2video ? 'video' : 'image', img2video ? node.getAttr('_post') : node.getAttr('poster'));
                     node.parentNode.replaceChild(UE.uNode.createElement(html), node);
                 }
             })
@@ -24053,9 +24053,9 @@
                  * 插入音乐
                  * @command music
                  * @method execCommand
-                 * @param { Object } Options 插入音乐的参数项， 支持的key有： url=>音乐地址；
+                 * @param { Object } musicOptions 插入音乐的参数项， 支持的key有： url=>音乐地址；
                  * width=>音乐容器宽度；height=>音乐容器高度；align=>音乐文件的对齐方式， 可选值有: left, center, right, none
-                 * @examplemusic
+                 * @example
                  * ```javascript
                  * //editor是编辑器实例
                  * //在编辑器里插入一个“植物大战僵尸”的APP
@@ -24092,39 +24092,51 @@
     UE.plugin.register('music', function () {
         var me = this;
 
-        function creatInsertStr(url, width, height, align, cssfloat, toEmbed) {
+        function creatInsertStr(url, name, toEmbed) {
             return !toEmbed ?
                 '<img ' +
-                (align && !cssfloat ? 'align="' + align + '"' : '') +
-                (cssfloat ? 'style="float:' + cssfloat + '"' : '') +
-                ' width="' + width + '" height="' + height + '" _url="' + url + '" class="edui-faked-music"' +
+                ' _url="' + url + '" class="edui-faked-music"' +
+                ' _name="' + name + '"' +
                 ' src="' + me.options.langPath + me.options.lang + '/images/music.png" />'
+                //'<audio src="'+url+' controls"></audio>'
                 :
-                '<embed type="application/x-shockwave-flash" class="edui-faked-music" pluginspage="http://www.macromedia.com/go/getflashplayer"' +
-                ' src="' + url + '" width="' + width + '" height="' + height + '" ' + (align && !cssfloat ? 'align="' + align + '"' : '') +
-                (cssfloat ? 'style="float:' + cssfloat + '"' : '') +
-                ' wmode="transparent" play="true" loop="false" menu="false" allowscriptaccess="never" allowfullscreen="true" >';
+                '<div class="weixinAudio" src="' + url + '" name="' + name + '">' +
+                '<audio src="' + url + '" id="media" width="1" height="1" preload></audio>' +
+                '<span id="audio_area" class="db audio_area">' +
+                '<span class="audio_wrp db">' +
+                '<span class="audio_play_area" id="audio_play">' +
+                '<i class="icon_audio_default"></i>' +
+                '<i class="icon_audio_playing"></i>' +
+                '</span>' +
+                '<span id="audio_length" class="audio_length tips_global">3.07</span>' +
+                '<span class="db audio_info_area">' +
+                '<strong class="db audio_title">' + name + '</strong>' +
+                '<span className="audio_source tips_global">瑞安农商银行</span>' +
+                '</span>' +
+                '<span id="audio_progress" class="progress_bar" style="width: 0%;"></span>' +
+                '</span>' +
+                '</span>' +
+                '</div>';
         }
 
         return {
             outputRule: function (root) {
                 utils.each(root.getNodesByTagName('img'), function (node) {
                     var html;
+                    console.log(node)
                     if (node.getAttr('class') == 'edui-faked-music') {
-                        var cssfloat = node.getStyle('float');
-                        var align = node.getAttr('align');
-                        html = creatInsertStr(node.getAttr("_url"), node.getAttr('width'), node.getAttr('height'), align, cssfloat, true);
+                        // html = creatInsertStr(node.getAttr("_url"), node.getAttr('_name'), true);
+                        html = creatInsertStr(node.getAttr("_url"), node.getAttr('_name'), true);
                         var embed = UE.uNode.createElement(html);
                         node.parentNode.replaceChild(embed, node);
                     }
                 })
             },
             inputRule: function (root) {
-                utils.each(root.getNodesByTagName('embed'), function (node) {
-                    if (node.getAttr('class') == 'edui-faked-music') {
-                        var cssfloat = node.getStyle('float');
-                        var align = node.getAttr('align');
-                        html = creatInsertStr(node.getAttr("src"), node.getAttr('width'), node.getAttr('height'), align, cssfloat, false);
+                utils.each(root.getNodesByTagName('div'), function (node) {
+                    console.log(node)
+                    if (node.getAttr('class') == 'weixinAudio') {
+                        html = creatInsertStr(node.getAttr("src"), node.getAttr('name'), false);
                         var img = UE.uNode.createElement(html);
                         node.parentNode.replaceChild(img, node);
                     }
@@ -24153,7 +24165,7 @@
                 'music': {
                     execCommand: function (cmd, musicObj) {
                         var me = this,
-                            str = creatInsertStr(musicObj.url, musicObj.width || 400, musicObj.height || 95, "none", false);
+                            str = creatInsertStr(musicObj.url, musicObj.name, false);
                         me.execCommand("inserthtml", str);
                     },
                     queryCommandState: function () {

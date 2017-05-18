@@ -257,6 +257,7 @@ module.exports = app => {
                                 name: part.filename,
                                 url: isdebug ? this.ctx.request.header.origin + "/" + result.url.substring(4) : this.ctx.request.header.origin + "/study/" + result.url.substring(4),
                                 userid: userid,
+                                duration: result.duration
                             };
                             yield app.model.Audio
                                 .create(_param, {

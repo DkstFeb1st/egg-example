@@ -38,7 +38,16 @@ module.exports = {
                 reject(false);
             }),
                 ws.on("finish", function () {
-                    resolve(param);
+                    ffmpeg.ffprobe(`${filepath}${stream.filename}`, function (err,
+                                                                              metadata) {
+                        const duration = moment
+                            .unix(metadata.streams[0].duration)
+                            .subtract(8, "hours")
+                            .format("HH:mm:ss");
+                        console.log(duration)
+                        param["duration"] = !err && duration;
+                        resolve(param);
+                    })
                 });
         })
     },
