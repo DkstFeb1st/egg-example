@@ -26,14 +26,6 @@ class PhoneViewModalComponent extends React.Component {
                 if (response.status === 200 && response.data.status === 200) {
                     that.setState({
                         study: response.data.spdetail
-                    }, function () {
-                        if (nextProps.visible) {
-                            setTimeout(function () {
-                                $('.weixinAudio').weixinAudio({
-                                    autoplay: false,
-                                });
-                            }, 1000);
-                        }
                     });
                 } else {
                     alert(response.data.msg);
@@ -44,14 +36,6 @@ class PhoneViewModalComponent extends React.Component {
         if (nextProps.study && nextProps.study.title) {
             this.setState({
                 study: nextProps.study
-            }, function () {
-                if (nextProps.visible) {
-                    setTimeout(function () {
-                        $('.weixinAudio').weixinAudio({
-                            autoplay: false,
-                        });
-                    }, 1000);
-                }
             });
         }
     }

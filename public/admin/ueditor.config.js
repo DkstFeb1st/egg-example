@@ -393,7 +393,7 @@
             header: [],
             hr: [],
             i: ['class', 'style'],
-            img: ['src', 'alt', 'title', 'width', 'height', 'id', '_src', '_url', '_post', '_name', '_size', '_type', 'loadingclass', 'class', 'data-latex', 'style'],
+            img: ['src', 'alt', 'title', 'width', 'height', 'id', '_src', '_url', '_post', '_name', '_size', '_type', '_duration', 'loadingclass', 'class', 'data-latex', 'style'],
             ins: ['datetime'],
             li: ['class', 'style'],
             mark: [],

@@ -26,11 +26,6 @@ class AudioModalComponent extends React.Component {
                 pageSize: 4
             };
             this.props.dispatch(getAudioListRequest(param));
-            setTimeout(function () {
-                $('.weixinAudio').weixinAudio({
-                    autoplay: false,
-                });
-            }, 1000);
         }
     }
 
@@ -82,11 +77,6 @@ class AudioModalComponent extends React.Component {
             pageSize: 4
         };
         this.props.dispatch(getAudioListRequest(param));
-        setTimeout(function () {
-            $('.weixinAudio').weixinAudio({
-                autoplay: false,
-            });
-        }, 1000);
     }
 
     handleSubmit() {
@@ -145,7 +135,8 @@ class AudioModalComponent extends React.Component {
                                                 <i className="icon_audio_default"></i>
                                                 <i className="icon_audio_playing"></i>
                                             </span>
-                                            <span id="audio_length" className="audio_length tips_global">00.00</span>
+                                            <span id="audio_length"
+                                                  className="audio_length tips_global">{obj.duration}</span>
                                             <span className="db audio_info_area">
                                                 <strong className="db audio_title">{obj.name}</strong>
                                                 <span className="audio_source tips_global">瑞安农商银行</span>

@@ -178,7 +178,8 @@ class UEditContainer extends React.Component {
         console.log(audio)
         this.ue.execCommand('music', {
             name: audio.name,
-            url: audio.url
+            url: audio.url,
+            duration: audio.duration
         });
         this.setState({
             audioModalVisible: !this.state.audioModalVisible

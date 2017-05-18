@@ -15,6 +15,7 @@
             this.$audio_play = $context.find('#audio_play');
             this.$audio_length = $context.find('#audio_length');
             this.$audio_progress = $context.find('#audio_progress');
+            this.duration = this.$audio_progress.text();
             //属性
             this.currentState = 'pause';
             this.timer = null;
@@ -28,12 +29,8 @@
         Plugin.prototype = {
             init: function () {
                 var self = this;
-                // self.Audio.load(function(){
-                //     //self.updateTotalTime();
-                // });
-                self.Audio.load();
                 self.events();
-                self.updateTotalTime()
+                // self.updateTotalTime()
                 // 设置src
                 if (self.settings.src !== '') {
                     self.changeSrc(self.settings.src);
@@ -95,10 +92,10 @@
                 self.$audio_play.on('click', function (e) {
                     //e.stopPropagation();//阻止冒泡
                     self.play();
-                    if (!updateTime) {
-                        self.updateTotalTime();
-                        updateTime = true;
-                    }
+                    // if (!updateTime) {
+                    //     self.updateTotalTime();
+                    //     updateTime = true;
+                    // }
                 });
                 self.$Audio.on('canplay', function () {
                     alert("canplay" + self.Audio.duration)
@@ -123,7 +120,7 @@
             //进度条
             animateProgressBarPosition: function () {
                 var self = this,
-                    percentage = (self.Audio.currentTime * 100 / self.Audio.duration) + '%';
+                    percentage = (self.Audio.currentTime * 100 / self.duration) + '%';
                 if (percentage == "NaN%") {
                     percentage = 0 + '%';
                 }

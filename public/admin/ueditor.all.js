@@ -24092,15 +24092,16 @@
     UE.plugin.register('music', function () {
         var me = this;
 
-        function creatInsertStr(url, name, toEmbed) {
+        function creatInsertStr(url, name, duration, toEmbed) {
             return !toEmbed ?
                 '<img ' +
                 ' _url="' + url + '" class="edui-faked-music"' +
                 ' _name="' + name + '"' +
+                '_duration="' + duration + '"' +
                 ' src="' + me.options.langPath + me.options.lang + '/images/music.png" />'
                 //'<audio src="'+url+' controls"></audio>'
                 :
-                '<div class="weixinAudio" src="' + url + '" name="' + name + '">' +
+                '<div class="weixinAudio" src="' + url + '" name="' + name + '" duration="' + duration + '">' +
                 '<audio src="' + url + '" id="media" width="1" height="1" preload></audio>' +
                 '<span id="audio_area" class="db audio_area">' +
                 '<span class="audio_wrp db">' +
@@ -24108,7 +24109,7 @@
                 '<i class="icon_audio_default"></i>' +
                 '<i class="icon_audio_playing"></i>' +
                 '</span>' +
-                '<span id="audio_length" class="audio_length tips_global">3.07</span>' +
+                '<span id="audio_length" class="audio_length tips_global">' + duration + '</span>' +
                 '<span class="db audio_info_area">' +
                 '<strong class="db audio_title">' + name + '</strong>' +
                 '<span className="audio_source tips_global">瑞安农商银行</span>' +
@@ -24126,7 +24127,7 @@
                     console.log(node)
                     if (node.getAttr('class') == 'edui-faked-music') {
                         // html = creatInsertStr(node.getAttr("_url"), node.getAttr('_name'), true);
-                        html = creatInsertStr(node.getAttr("_url"), node.getAttr('_name'), true);
+                        html = creatInsertStr(node.getAttr("_url"), node.getAttr('_name'), node.getAttr('_duration'), true);
                         var embed = UE.uNode.createElement(html);
                         node.parentNode.replaceChild(embed, node);
                     }
@@ -24136,7 +24137,7 @@
                 utils.each(root.getNodesByTagName('div'), function (node) {
                     console.log(node)
                     if (node.getAttr('class') == 'weixinAudio') {
-                        html = creatInsertStr(node.getAttr("src"), node.getAttr('name'), false);
+                        html = creatInsertStr(node.getAttr("src"), node.getAttr('name'), node.getAttr('duration'), false);
                         var img = UE.uNode.createElement(html);
                         node.parentNode.replaceChild(img, node);
                     }
@@ -24165,7 +24166,7 @@
                 'music': {
                     execCommand: function (cmd, musicObj) {
                         var me = this,
-                            str = creatInsertStr(musicObj.url, musicObj.name, false);
+                            str = creatInsertStr(musicObj.url, musicObj.name, musicObj.duration, false);
                         me.execCommand("inserthtml", str);
                     },
                     queryCommandState: function () {
