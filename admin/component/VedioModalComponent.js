@@ -144,7 +144,7 @@ class VedioModalComponent extends React.Component {
                                 headers={{'x-csrf-token': Cookies.get('csrfToken')}}
                             >
                                 <label style={{marginRight: "12px"}}>
-                                    <Button>
+                                    <Button type="primary">
                                         <Icon type="upload"/>本地上传
                                     </Button>
                                 </label>

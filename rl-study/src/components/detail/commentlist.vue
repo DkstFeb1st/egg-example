@@ -32,7 +32,7 @@
       </div>
     </header>
     <div class="detail-comment-wrapper">
-      <header>
+      <header class="detail-comment-header">
         <label>全部评论</label>
         <label class="detail-comment-edit" @click="goComment">写评论<i class="iconfont">&#xe69e;</i></label>
       </header>
@@ -139,7 +139,7 @@
 <style lang="less">
   @import "../../css/default.less";
 
-  header {
+  header.detail-comment-header {
     line-height: 2;
     padding: 0 12px;
     .detail-comment-edit {

@@ -93,6 +93,10 @@ class AudioModalComponent extends React.Component {
         });
     }
 
+    handleDbClick(value, e) {
+        e.preventDefault()
+        window.open(value)
+    }
     render() {
         const {selected, current} = this.state;
         return (
@@ -116,10 +120,11 @@ class AudioModalComponent extends React.Component {
                         headers={{'x-csrf-token': Cookies.get('csrfToken')}}
                     >
                         <label style={{marginRight: "12px"}}>
-                            <Button>
+                            <Button type="primary">
                                 <Icon type="upload"/>本地上传
                             </Button>
                         </label>
+                        <label htmlFor="">双击查看音频</label>
                     </Upload>
                 </header>
                 <div className="audio-wrapper">
@@ -127,7 +132,10 @@ class AudioModalComponent extends React.Component {
                         this.props.audioList && this.props.audioList.map((obj, index) => {
                             return (
                                 <p className={selected.includes(obj) ? "selected weixinAudio" : "weixinAudio"}
-                                   key={obj.id} onClick={this.handleSelect.bind(this, obj)}>
+                                   key={obj.id}
+                                   onClick={this.handleSelect.bind(this, obj)}
+                                   onDoubleClick={this.handleDbClick.bind(this, obj.url)}
+                                >
                                     <audio src={obj.url} id="media" width="1" height="1" preload></audio>
                                     <span className="db audio_area" id="audio_area">
                                         <span className="audio_wrp db">

@@ -15,6 +15,7 @@
             this.$audio_play = $context.find('#audio_play');
             this.$audio_length = $context.find('#audio_length');
             this.$audio_progress = $context.find('#audio_progress');
+            this.duration = this.$audio_progress.text();
             //属性
             this.currentState = 'pause';
             this.timer = null;
@@ -28,11 +29,8 @@
         Plugin.prototype = {
             init: function () {
                 var self = this;
-                // self.Audio.load(function(){
-                //     //self.updateTotalTime();
-                // });
                 self.events();
-                self.updateTotalTime()
+                // self.updateTotalTime()
                 // 设置src
                 if (self.settings.src !== '') {
                     self.changeSrc(self.settings.src);
@@ -50,11 +48,11 @@
                         self.pause();
                         return;
                     }
-                    // for (var p in obj) {
-                    //     if (obj[p].currentState === "play") {
-                    //         obj[p].pause()
-                    //     }
-                    // }
+                    for (var p in obj) {
+                        if (obj[p].currentState === "play") {
+                            obj[p].pause()
+                        }
+                    }
                     self.Audio.play();
                     console.log("beginplay")
                     clearInterval(self.timer);
@@ -94,13 +92,21 @@
                 self.$audio_play.on('click', function (e) {
                     //e.stopPropagation();//阻止冒泡
                     self.play();
-                    if (!updateTime) {
-                        self.updateTotalTime();
-                        updateTime = true;
-                    }
+                    // if (!updateTime) {
+                    //     self.updateTotalTime();
+                    //     updateTime = true;
+                    // }
                 });
                 self.$Audio.on('canplay', function () {
-                    console.log('canplay')
+                    alert("canplay" + self.Audio.duration)
+                    for (let $k in self.Audio) {
+                        alert($k)
+                        alert(self.Audio[$k])
+                    }
+                    alert("canplay" + self.Audio.duration)
+                });
+                self.$Audio.on('loadedmetadata', function () {
+                    alert("loadedmetadata" + self.Audio.duration)
                 })
             },
             //正在播放
@@ -114,7 +120,7 @@
             //进度条
             animateProgressBarPosition: function () {
                 var self = this,
-                    percentage = (self.Audio.currentTime * 100 / self.Audio.duration) + '%';
+                    percentage = (self.Audio.currentTime * 100 / self.duration) + '%';
                 if (percentage == "NaN%") {
                     percentage = 0 + '%';
                 }
@@ -149,16 +155,12 @@
             updateTotalTime: function () {
 
                 var self = this;
-                // self.$Audio.on('canplay', function () {
-                console.log(self.Audio)
-                console.log(self.Audio.duration)
+                //alert(self.Audio.duration)
                 var time = self.Audio.duration;
                 var minutes = self.getAudioMinutes(time),
                     seconds = self.getAudioSeconds(time),
                     audioTime = minutes + ":" + seconds;
                 self.$audio_length.text(audioTime);
-                //})
-                //})
             },
             //改变音频源
             changeSrc: function (src, callback) {

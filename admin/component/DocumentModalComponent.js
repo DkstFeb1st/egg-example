@@ -111,7 +111,7 @@ class DocumentModalComponent extends React.Component {
                         beforeUpload={this.beforeUpload.bind(this)}
                         headers={{'x-csrf-token': Cookies.get('csrfToken')}}
                     >
-                        <Button>
+                        <Button type="primary">
                             <Icon type="upload"/>本地上传
                         </Button>
                     </Upload>

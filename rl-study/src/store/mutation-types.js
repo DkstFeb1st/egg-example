@@ -3,7 +3,8 @@
  */
 
 export const INITIAL = "INITIAL"
-export const CHANGETAB = "CHANGETAB"
 export const OBLIGATORY = 'OBLIGATORY'
 export const ELECTIVE = 'ELECTIVE'
 export const INTEREST = 'INTEREST'
+export const CHANGETAB = "CHANGETAB"
+export const CHANGETABITEM = "CHANGETABITEM"
