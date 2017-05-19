@@ -16,9 +16,9 @@ module.exports = app => {
             //     that.ctx.body = html
             // })
             if (this.ctx.query.code) {
-                const token = yield this.ctx.service.user.getToken()
-                const userinfo = yield this.ctx.service.user.getUserInfo(token, this.ctx.query.code)
-                let position_dict = yield this.ctx.service.user.getPositionFromDict(userinfo.position)
+                const token = yield this.ctx.service.qyweixin.getToken()
+                const userinfo = yield this.ctx.service.qyweixin.getUserInfo(token, this.ctx.query.code)
+                let position_dict = yield this.ctx.service.qyweixin.getPositionFromDict(userinfo.position)
                 if (position_dict) {
                     userinfo.position = `${position_dict.value},`
                 } else {
@@ -44,8 +44,8 @@ module.exports = app => {
                 yield this.ctx.render('admin', {__state__: JSON.stringify(state)})
             } else {
                 if (this.ctx.query.auth_code) {//如果存在auth_code 则代表是扫码登陆
-                    const token = yield this.ctx.service.user.getToken()
-                    const userinfo = yield this.ctx.service.user.getUserLoginInfo(token, this.ctx.query.auth_code)
+                    const token = yield this.ctx.service.qyweixin.getToken()
+                    const userinfo = yield this.ctx.service.qyweixin.getUserLoginInfo(token, this.ctx.query.auth_code)
                     this.ctx.session.userinfo = userinfo//用户信息存入session
                     let state = {
                         UserReducer: {

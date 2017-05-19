@@ -20,6 +20,7 @@
   import {mapGetters} from 'vuex'
   import {Tabbar, TabbarItem} from 'vux'
   import tabitem from 'components/main/tabitem.vue'
+  import main from 'components/user/main.vue'
   import lifeMonitor from 'mixins/lifeMonitor'
   export default {
     name: "tab",
@@ -45,7 +46,7 @@
       },
       _tabitem2: function () {
         let _param = {
-          currentView: tabitem,
+          currentView: main,
           currentIndex: 1
         }
         this.$store.dispatch('changeTabAction', _param)

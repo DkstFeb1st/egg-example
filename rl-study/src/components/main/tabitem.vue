@@ -60,10 +60,18 @@
 </script>
 
 <style lang="less">
+  @import "../../css/default.less";
   .vux-tab .vux-tab-item {
     background: none !important;
   }
 
+  .vux-tab .vux-tab-item.vux-tab-selected {
+    color: @primarycolor !important;
+  }
+
+  .vux-tab-bar-inner {
+    background-color: @primarycolor !important;
+  }
   .tabitem-wrapper {
     header.tabitem-wrapper-item {
       position: relative;

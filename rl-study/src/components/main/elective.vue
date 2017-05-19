@@ -116,8 +116,7 @@
 </script>
 
 <style lang="less">
-  @primarycolor: #208157;
-  @secondcolor: lighten(#208157, 10%);
+  @import "../../css/default.less";
   .fly1-enter-active, .fly2-enter-active {
     transition: all .5s;
     transform: translateY(0px);
