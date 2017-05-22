@@ -10,7 +10,10 @@ import {
     INITIAL,
     LOGIN,
     LOGINOUT,
-    UPDATEMENU
+    UPDATEMENU,
+    UPLOADINGAUDIO,
+    UPLOADINGDOCUMENT,
+    UPLOADINGVEDIO
 } from "store/mutation-types";
 import {getAudioList, getDocumentList, getImageList, getVedioList, initial, loginByPwd, loginout} from "apis/apiList";
 import {push, replace} from "react-router-redux";
@@ -165,6 +168,27 @@ export const getDocumentListRequest = _param => {
         });
     };
 };
+
+/*
+ * function : update uploading vedio progress percent
+ * */
+export const uploadingVedio = _vedioList => {
+    return {
+        type: UPLOADINGVEDIO,
+        vedioList: _vedioList
+    }
+}
+
+/*
+ * function : update uploading audio progress percent
+ * */
+export const uploadingAudio = _audioList => {
+    return {
+        type: UPLOADINGAUDIO,
+        audioList: _audioList
+    }
+}
+
 export const UserReducer = function (state = {
                                          isAuthenticated: false,
                                          stateList: [],
@@ -174,6 +198,10 @@ export const UserReducer = function (state = {
                                          galleryTotal: 0,
                                          documentList: [],
                                          documentTotal: 0,
+                                         vedioList: [],
+                                         vedioTotal: 0,
+                                         musicList: [],
+                                         musicTotal: 0,
                                          currentMeunKey: [],
                                          user: {}
                                      },
@@ -223,6 +251,14 @@ export const UserReducer = function (state = {
                 documentList: action.documentList,
                 documentTotal: action.documentTotal
             });
+        case UPLOADINGVEDIO:
+            return Object.assign({}, state, {
+                vedioList: action.vedioList
+            })
+        case UPLOADINGAUDIO:
+            return Object.assign({}, state, {
+                audioList: action.audioList
+            })
         default:
             return state;
     }

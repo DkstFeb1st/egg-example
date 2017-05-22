@@ -3,8 +3,8 @@
  * */
 import React from "react";
 import {connect} from "react-redux";
-import {Button, Icon, Input, message, Modal, Pagination, Tabs, Upload} from "antd";
-import {getVedioListRequest} from "reducers/UserReducer";
+import {Button, Icon, Input, message, Modal, Pagination, Progress, Tabs, Upload} from "antd";
+import {getVedioListRequest, uploadingVedio} from "reducers/UserReducer";
 const TabPane = Tabs.TabPane;
 var Cookies = require('cookies-js')
 
@@ -45,26 +45,41 @@ class VedioModalComponent extends React.Component {
     }
 
     beforeUpload(file) {
-        message.loading("上传中", 100);
+        this.props.vedioList.push(file)
     }
 
+    /*
+     * add upload progress for uploading filelist 2017/05/22
+     * */
     handleFileUpload(param) {
         const {file, fileList, event} = param;
-        if (event && event.percent === 100) {
-            this.setState({
-                current: 1
-            });
-            let param = {
-                userid: this.props.user.userid,
-                current: 1,
-                pageSize: 6
-            };
-            let that = this
-            setTimeout(function () {
-                message.destroy();
-                message.success('上传成功')
-                that.props.dispatch(getVedioListRequest(param));
-            }, 2000);
+        let that = this
+        if (event) {
+            this.props.vedioList.map((obj, index) => { //上传进度表现
+                if (obj.uid === file.uid) {
+                    let array = this.props.vedioList.slice()
+                    array[index]['percent'] = event.percent
+                    that.props.dispatch(uploadingVedio(array))
+                }
+            })
+        }
+        for (let _i = 0; _i < fileList.length; _i++) {//多文件上传全部完成则更新列表
+            if (fileList[_i].status !== 'done')
+                break
+            else if (_i == fileList.length - 1 && fileList[_i].status == 'done') {
+                this.setState({
+                    current: 1
+                });
+                let param = {
+                    userid: this.props.user.userid,
+                    current: 1,
+                    pageSize: 6
+                };
+                let that = this
+                setTimeout(function () {
+                    that.props.dispatch(getVedioListRequest(param));
+                }, 2000);
+            }
         }
     }
 
@@ -171,6 +186,8 @@ class VedioModalComponent extends React.Component {
                                         </div>
 
                                         <span className="lbl_content">{obj.name}</span>
+                                        <Progress showInfo={false} percent={obj.percent ? obj.percent : 0}
+                                                  strokeWidth={5} className={obj.percent ? "" : "hide"}/>
                                         <div className="selected_mask">
                                             <div className="selected_mask_inner"/>
                                             <div className="selected_mask_icon"/>

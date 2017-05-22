@@ -5,8 +5,8 @@
 
 import React from "react";
 import {connect} from "react-redux";
-import {Button, Icon, message, Modal, Pagination, Upload} from "antd";
-import {getAudioListRequest} from "reducers/UserReducer";
+import {Button, Icon, message, Modal, Pagination, Progress, Upload} from "antd";
+import {getAudioListRequest, uploadingAudio} from "reducers/UserReducer";
 var Cookies = require('cookies-js')
 
 class AudioModalComponent extends React.Component {
@@ -39,26 +39,39 @@ class AudioModalComponent extends React.Component {
     }
 
     beforeUpload(file) {
-        message.loading("上传中", 100);
+        //message.loading("上传中", 100);
+        this.props.audioList.push(file)
     }
 
     handleFileUpload(param) {
         const {file, fileList, event} = param;
-        if (event && event.percent === 100) {
-            this.setState({
-                current: 1
-            });
-            let param = {
-                userid: this.props.user.userid,
-                current: 1,
-                pageSize: 4
-            };
-            let that = this
-            setTimeout(function () {
-                message.destroy();
-                message.success('上传成功')
-                that.props.dispatch(getAudioListRequest(param));
-            }, 2000);
+        let that = this
+        if (event) {
+            this.props.audioList.map((obj, index) => { //上传进度表现
+                if (obj.uid === file.uid) {
+                    let array = this.props.audioList.slice()
+                    array[index]['percent'] = event.percent
+                    that.props.dispatch(uploadingAudio(array))
+                }
+            })
+        }
+        for (let _i = 0; _i < fileList.length; _i++) {//多文件上传全部完成则更新列表
+            if (fileList[_i].status !== 'done')
+                break
+            else if (_i == fileList.length - 1 && fileList[_i].status == 'done') {
+                this.setState({
+                    current: 1
+                });
+                let param = {
+                    userid: this.props.user.userid,
+                    current: 1,
+                    pageSize: 4
+                };
+                let that = this
+                setTimeout(function () {
+                    that.props.dispatch(getAudioListRequest(param));
+                }, 1500);
+            }
         }
     }
 
@@ -153,6 +166,8 @@ class AudioModalComponent extends React.Component {
                                                   style={{width: "0%"}}></span>
                                         </span>
                                     </span>
+                                    <Progress showInfo={false} percent={obj.percent ? obj.percent : 0} strokeWidth={5}
+                                              className={obj.percent ? "" : "hide"}/>
                                 </p>
                             )
                         })
