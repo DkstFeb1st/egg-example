@@ -228,7 +228,7 @@
               //this.study.comments[index].top_num = this.study.comments[index].top_num + 1
               //this.tops.push(_id)
               this.study.topnum = this.study.topnum + 1
-              this.sptops.push(_id)
+              this.sptops.push(_study.id)
             } else {
               this.$vux.alert.show({
                 title: '提示',
@@ -238,6 +238,7 @@
           })
           .catch(error => {
             this.$vux.loading.hide()
+            console.log(error)
             alert('访问出错')
           })
       },
@@ -246,7 +247,7 @@
           .then(response => {
             if (response.status === 200 && response.data.status === 200) {
               this.study.comments[index].top_num = this.study.comments[index].top_num + 1
-              this.tops.push(_id)
+              this.tops.push(_item.id)
             } else {
               this.$vux.alert.show({
                 title: '提示',

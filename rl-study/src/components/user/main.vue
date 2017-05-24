@@ -80,13 +80,13 @@
   @import "../../css/default.less";
 
   .user-wrapper {
-    .userinfowrapper {
+    .user-wrapper-header {
       position: relative;
       background: url('../../assets/img_member_cover_1.png') no-repeat;
       background-size: 100% 100%;
       height: 220px;
       margin-bottom: 12px;
-      .user-info-wrapper {
+      .userinfowrapper {
         position: absolute;
         bottom: -1px;
         width: 100%;
