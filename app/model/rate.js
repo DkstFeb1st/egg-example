@@ -14,6 +14,7 @@ module.exports = app => {
             type: STRING(7),
             primaryKey: true,
         },
+        custno: STRING(7),
         rate: INTEGER,
         createdAt: {
             type: DATE,

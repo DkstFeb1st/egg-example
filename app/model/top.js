@@ -32,6 +32,22 @@ module.exports = app => {
             },
         }
     }, {
+        scopes: {
+            useridWhere: function (userid) {
+                return {
+                    where: {
+                        userid: userid
+                    }
+                }
+            },
+            custnoWhere: function (custno) {
+                return {
+                    where: {
+                        custno: custno
+                    }
+                }
+            },
+        },
         tableName: 'rl_spt_list'
     })
 }

@@ -53,6 +53,28 @@ module.exports = app => {
             }
             this.ctx.status = 200
         }
+
+        /*前端用户tab页数据获取*/
+        * getUserTab() {
+            let user = this.ctx.session.userinfo
+            //获取文章数目
+            let sp_param = {state: 3, authorcustno: user.userid}
+            const spListResult = yield this.ctx.service.study.getSpList(sp_param)
+            //获取获评数目
+            let cm_param = {userid: user.userid}
+            const commentedListResult = yield  this.ctx.service.comment.getCommentListByWhere(cm_param)
+            //获取获赞数目
+            let tp_param = {userid: user.userid}
+            const topedListResult = yield  this.ctx.service.comment.getTopListByWhere(tp_param)
+            this.ctx.body = {
+                status: 200,
+                user: user,
+                spList: spListResult,
+                cmdList: commentedListResult,
+                tpdList: topedListResult
+            }
+            this.ctx.status = 200
+        }
     }
     return UserController;
 }

@@ -24,7 +24,7 @@
         <div class="sptop" :class="{active : sptops.length > 0}">
           <Top
             :top_num="study.topnum"
-            v-on:goTop="createTop(study.id)"
+            v-on:goTop="createTop(study)"
             :active="sptops.length > 0"
           >
           </Top>
@@ -47,9 +47,9 @@
             <p class="detail-comment-name">{{item.name}}
 
               <Top
-                :top_num="item.top_num"
-                v-on:goTop="goTop(item.id,index)"
-                :active="tops.includes(item.id)"
+              :top_num="item.top_num"
+              v-on:goTop="goTop(item,index)"
+              :active="tops.includes(item.id)"
               >
               </Top>
             </p>
@@ -221,8 +221,8 @@
             })
         }
       },
-      createTop: function (_id) {
-        createTopApi(_id)
+      createTop: function (_study) {
+        createTopApi(_study.id, _study.authorcustno)
           .then(response => {
             if (response.status === 200 && response.data.status === 200) {
               //this.study.comments[index].top_num = this.study.comments[index].top_num + 1
@@ -241,8 +241,8 @@
             alert('访问出错')
           })
       },
-      goTop: function (_id, index) {
-        addTopApi(_id)
+      goTop: function (_item, index) {
+        addTopApi(_item.id, _item.custno)
           .then(response => {
             if (response.status === 200 && response.data.status === 200) {
               this.study.comments[index].top_num = this.study.comments[index].top_num + 1
@@ -260,13 +260,13 @@
           })
       },
       goComment: function () {
-        this.$router.push({path: `/detail/commentform/${this.$route.params.id}?root=true`})
+        this.$router.push({path: `/detail/commentform/${this.$route.params.id}?root=true&userid=${this.study.authorcustno}`})
       },
       goRate: function () {
-        this.$router.push({path: `/detail/rateform/${this.$route.params.id}`})
+        this.$router.push({path: `/detail/rateform/${this.$route.params.id}?userid=${this.study.authorcustno}`})
       },
       goCommentList: function (_id) {
-        this.$router.push({path: `/detail/commentlist/${_id}?sp_id=${this.$route.params.id}`})
+        this.$router.push({path: `/detail/commentlist/${_id}?sp_id=${this.$route.params.id}&userid=${this.study.authorcustno}`})
       },
       goLove: function () {
         this.$vux.alert.show({
@@ -354,7 +354,7 @@
           }
         }
         .detail-rate {
-          color: @primarycolor;
+          color: @secondcolor;
           span {
             font-size: 20px;
             font-style: italic;

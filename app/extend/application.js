@@ -12,9 +12,8 @@ ffmpeg.setFfprobePath(path.join(__dirname, "../ffmpeg/ffprobe.exe"));
 const {createBundleRenderer} = require("vue-server-renderer");
 const isdebug = process.env.NODE_ENV !== "production"
 module.exports = {
-    aesKey: "jcx",
     //vue服务端bundle渲染
-    createRenderer(bundle, template) {
+    createRenderer(bundle, template){
     // https://github.com/vuejs/vue/blob/dev/packages/vue-server-renderer/README.md#why-use-bundlerenderer
         return createBundleRenderer(bundle, {
             template
@@ -74,9 +73,10 @@ module.exports = {
     //视频上传
     //获取第一帧缩略图
     uploadVedio(stream, filepath) {
+        var that = this
         console.log(stream);
         return new Promise((resolve, reject) => {
-            const ws = fs.createWriteStream(filepath + stream.filename);
+            var ws = fs.createWriteStream(filepath + stream.filename);
             stream.pipe(ws);
             ws.on("error", function () {
                 reject(false);
@@ -95,7 +95,6 @@ module.exports = {
                         .format("HH:mm:ss");
                     url["duration"] = !err && duration;
                 });
-
                 ffmpeg(`${filepath}${stream.filename}`)
                     .takeScreenshots({
                         count: 1,
@@ -104,15 +103,25 @@ module.exports = {
                         folder: filepath,
                         size: "300x180"
                     })
+                    // .videoCodec('libx264')
+                    // .size('320x240')
+                    // .videoBitrate('512k')
+                    // .audioBitrate('128k')
+                    // .output('app/public/outputfile.mp4')
+
                     .on("end", function () {
                         resolve(url);
-                    });
+                    })
+                    .on('error', function (err) {
+                        console.log('An error occurred: ' + err);
+                    })
+
             });
         });
     },
     //图片上传存储并压缩
     //参数 文件stream 存储路径filepath
-    uploadImg(stream, filepath, filename, new_dir) {
+    uploadImg(stream, filepath, filename, new_dir){
         return new Promise((resolve, reject) => {
             const ws = fs.createWriteStream(filepath);
             stream.pipe(ws);

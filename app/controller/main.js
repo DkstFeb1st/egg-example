@@ -20,9 +20,9 @@ module.exports = app => {
                 const userinfo = yield this.ctx.service.qyweixin.getUserInfo(token, this.ctx.query.code)
                 let position_dict = yield this.ctx.service.qyweixin.getPositionFromDict(userinfo.position)
                 if (position_dict) {
-                    userinfo.position = `${position_dict.value},`
+                    userinfo.positions = `${position_dict.value},`
                 } else {
-                    userinfo.position = '4,'
+                    userinfo.positions = '4,'
                 }
                 this.ctx.session.userinfo = userinfo//用户信息存入session
             } else {

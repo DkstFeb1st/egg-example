@@ -104,8 +104,6 @@ class VedioModalComponent extends React.Component {
             const link = this.link.refs.input.value
             if (!link) {
                 message.warning('请输入视频地址！')
-            } else if (link.indexOf('v.qq.com') === -1) {
-                message.warning('仅支持腾讯视频！')
             } else {
                 //替换宽度和高度
 
@@ -185,7 +183,8 @@ class VedioModalComponent extends React.Component {
                                             <span>{obj.duration}</span>
                                         </div>
 
-                                        <span className="lbl_content">{obj.name}</span>
+                                        <span className="lbl_content"><span
+                                            style={{"color": "red"}}>{ obj.status === '0' ? '(转码中)' : '' }</span>{obj.name}</span>
                                         <Progress showInfo={false} percent={obj.percent ? obj.percent : 0}
                                                   strokeWidth={5} className={obj.percent ? "" : "hide"}/>
                                         <div className="selected_mask">
@@ -207,10 +206,10 @@ class VedioModalComponent extends React.Component {
                     </TabPane>
                     <TabPane tab="视频链接" key="2">
                         <div>
-                            <label>视频地址(复制视频网站的通用代码)</label>
+                            <label>视频地址</label>
                             <Input
                                 type="text"
-                                placeholder="支持腾讯视频"
+                                placeholder="支持vue"
                                 ref={(input) => {
                                     this.link = input
                                 }}

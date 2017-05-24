@@ -71,7 +71,7 @@ module.exports = app => {
             }
             //添加评论用户信息
             _param = Object.assign({}, _param, {
-                userid: userid,
+                custno: userid,
             })
             let _rate = yield this.ctx.model.Rate.findOne({
                 where: {
@@ -145,7 +145,7 @@ module.exports = app => {
 
             //添加评论用户信息
             _param = Object.assign({}, _param, {
-                userid: userid,
+                custno: userid,
                 avatar: avatar,
                 name: name,
                 gender: gender
@@ -187,6 +187,16 @@ module.exports = app => {
             })
             this.ctx.body = {status: 200, topList: topList}
             this.ctx.status = 200
+        }
+
+        /*
+         * 获取用户获评数量
+         * */
+
+        * getCommentedList(userid) {
+            yield this.ctx.model.Comment.count({
+                where: {}
+            })
         }
     }
     return CommentController

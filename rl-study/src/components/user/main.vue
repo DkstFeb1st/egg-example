@@ -1,7 +1,7 @@
 <template>
   <div class="user-wrapper">
     <header class="user-wrapper-header">
-      <div class="user-info-wrapper">
+      <div v-bind:class="{ moring : moring, aftermoon : aftermoon,night : night ,userinfowrapper : true}">
         <p class="user-name">{{user.name}}<label
           v-bind:class="{ boy : user.gender ===1,girl : user.gender !== 1,gender : true }"></label></p>
         <p class="user-position">瑞安农商银行 - {{user.position}}</p>
@@ -10,15 +10,15 @@
         </label>
         <div class="user-data-wrapper">
           <div class="user-data-item">
-            <p>10</p>
+            <p>{{spList.length}}</p>
             <p>文章</p>
           </div>
           <div class="user-data-item">
-            <p>1</p>
+            <p>{{cmdList.length}}</p>
             <p>获评</p>
           </div>
           <div class="user-data-item">
-            <p>100</p>
+            <p>{{tpdList.length}}</p>
             <p>获赞</p>
           </div>
           <div class="user-data-item">
@@ -51,19 +51,27 @@
   </div>
 </template>
 <script>
+  import {mapGetters} from 'vuex'
   import lifeMonitor from 'mixins/lifeMonitor'
+  const moment = require('moment')
   export default {
     name: 'main',
+    beforeMount: function () {
+      this.$vux.loading.show({
+        text: '疯狂加载中...'
+      })
+      this.$store.dispatch('getUserTabAction').then(() => this.$vux.loading.hide())
+    },
     data: function () {
       return {
-        user: {
-          avatar: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2665837462,1719494701&fm=23&gp=0.jpg",
-          name: "金朝祥",
-          gender: 1,
-          position: "科员"
-        }
+        moring: moment(new Date).locale('zh-cn').utcOffset(8).format('HH') > '06' && moment(new Date).locale('zh-cn').utcOffset(8).format('HH') < '12',
+        aftermoon: moment(new Date).locale('zh-cn').utcOffset(8).format('HH') > '12' && moment(new Date).locale('zh-cn').utcOffset(8).format('HH') < '18',
+        night: moment(new Date).locale('zh-cn').utcOffset(8).format('HH') > '18' && moment(new Date).locale('zh-cn').utcOffset(8).format('HH') < '06'
       }
     },
+    computed: {
+      ...mapGetters(['user', 'spList', 'cmdList', 'tpdList'])
+    }
 
   }
 </script>
@@ -72,7 +80,7 @@
   @import "../../css/default.less";
 
   .user-wrapper {
-    .user-wrapper-header {
+    .userinfowrapper {
       position: relative;
       background: url('../../assets/img_member_cover_1.png') no-repeat;
       background-size: 100% 100%;

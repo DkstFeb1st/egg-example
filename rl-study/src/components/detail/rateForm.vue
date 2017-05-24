@@ -32,7 +32,8 @@
       _handlerSubmit: function () {
         const data = {
           sp_id: this.$route.params.id,
-          rate: this.rate
+          rate: this.rate,
+          userid: this.$route.query.userid
         }
         this.$vux.loading.show({
           text: '疯狂加载中...'
