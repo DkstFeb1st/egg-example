@@ -48,18 +48,20 @@ export function addRateApi(_param) {
 /*
  * 添加评论点赞
  * */
-export function addTopApi(c_id) {
+export function addTopApi(c_id, userid) {
   return instance.post(`api/sp/addTop`, {
-    c_id: c_id
+    c_id: c_id,
+    userid: userid
   })
 }
 
 /*
  * 添加文章点赞
  * */
-export function createTopApi(sp_id) {
+export function createTopApi(sp_id, userid) {
   return instance.post(`api/sp/createTop`, {
-    sp_id: sp_id
+    sp_id: sp_id,
+    userid: userid,
   })
 }
 
@@ -70,4 +72,11 @@ export function getTopList(_param) {
   return instance.get(`api/sp/getTopList`, {
     params: _param
   })
+}
+
+/*
+ * 我的tab页数据fetch
+ * */
+export function getUserTabApi() {
+  return instance.get(`api/sp/getUserTab`)
 }

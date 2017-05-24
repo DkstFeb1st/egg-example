@@ -45,9 +45,9 @@
           <p class="detail-comment-name">{{item.name}}
 
             <Top
-              :top_num="item.top_num"
-              v-on:goTop="goTop(item.id,index)"
-              :active="tops.includes(item.id)"
+            :top_num="item.top_num"
+            v-on:goTop="goTop(item,index)"
+            :active="tops.includes(item.id)"
             >
             </Top>
           </p>
@@ -109,8 +109,8 @@
       }
     },
     methods: {
-      goTop: function (_id, index) {
-        addTopApi(_id)
+      goTop: function (_item, index) {
+        addTopApi(_item.id, _item.custno)
           .then(response => {
             if (response.status === 200 && response.data.status === 200) {
               this.commentList.subcomment[index].top_num = this.commentList.subcomment[index].top_num + 1
@@ -128,7 +128,7 @@
           })
       },
       goComment: function () {
-        this.$router.push({path: `/detail/commentform/${this.$route.params.id}?root=false&id=${this.$route.query.sp_id}`})
+        this.$router.push({path: `/detail/commentform/${this.$route.params.id}?root=false&id=${this.$route.query.sp_id}&userid=${this.$route.query.userid}`})
       },
       goTopList: function () {
         this.$router.push({path: `/detail/topList/${this.$route.params.id}`})

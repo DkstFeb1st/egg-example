@@ -180,7 +180,7 @@ module.exports = app => {
                         as: "comments",
                         required: false,
                         attributes: [],
-                        where: {parentid: {$not: 0}}
+                        where: {parentid: 0}
                     },
                     {
                         model: this.ctx.model.Viewlog,
@@ -307,7 +307,6 @@ module.exports = app => {
                     method: ["departmentWhere", department]
                 });
             }
-            console.log(_param);
             const spList = yield this.ctx.model.Study.scope(_scope).findAll({
 
                 include: [

@@ -158,8 +158,9 @@ class UEditContainer extends React.Component {
     }
 
     /*视频链接插入*/
-    handleVedioLinkInsert(html) {
-        this.ue.execCommand("inserthtml", html);
+    handleVedioLinkInsert(src) {
+        let iframe = '<iframe src="' + src + '" width="320" height="180" allowfullscreen scrolling=no></iframe>'
+        this.ue.execCommand("inserthtml", iframe);
         this.setState({
             videoModalVisible: !this.state.videoModalVisible
         });

@@ -21,6 +21,7 @@ module.exports = app => {
     app.post("/api/sp/addTop", login_handler, "comment.addTop");//post
     app.post("/api/sp/createTop", login_handler, "comment.createTop");//post
     app.get("/api/sp/getTopList", login_handler, "comment.getTopList");//get
+    app.get("/api/sp/getUserTab", login_handler, "user.getUserTab");//get
 
     /*后台*/
     app.post("/api/sp/loginByPwd", "user.loginByPwd"); //post

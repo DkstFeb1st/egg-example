@@ -8,3 +8,4 @@ export const ELECTIVE = 'ELECTIVE'
 export const INTEREST = 'INTEREST'
 export const CHANGETAB = "CHANGETAB"
 export const CHANGETABITEM = "CHANGETABITEM"
+export const GETUSERTAB = "GETUSERTAB"

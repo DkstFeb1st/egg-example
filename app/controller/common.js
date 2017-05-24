@@ -5,6 +5,9 @@ const path = require("path");
 const fs = require("fs");
 const gm = require("gm");
 const sendToWormhole = require("stream-wormhole")
+const ffmpeg = require("fluent-ffmpeg");
+ffmpeg.setFfmpegPath(path.join(__dirname, "../ffmpeg/ffmpeg.exe"));
+ffmpeg.setFfprobePath(path.join(__dirname, "../ffmpeg/ffprobe.exe"));
 const isdebug = process.env.NODE_ENV !== "production";
 module.exports = app => {
     class CommonController extends app.Controller {
@@ -61,7 +64,6 @@ module.exports = app => {
                     // console.log(part)
                     // 文件处理，上传到云存储等等
                     let result;
-                    console.log();
                     try {
                         const new_dir = `app/public/img/new/${userid}/`;
                         fs.exists(new_dir, function (exists) {
@@ -166,6 +168,10 @@ module.exports = app => {
                         if (!fs.existsSync(vedio_dir)) {
                             fs.mkdirSync(vedio_dir);
                         }
+                        const vedio_codec_dir = `app/public/cvedio/${userid}/`;
+                        if (!fs.existsSync(vedio_codec_dir)) {
+                            fs.mkdirSync(vedio_codec_dir)
+                        }
                         result = yield app.uploadVedio(part, vedio_dir);
                         if (result) {
                             console.log(result);
@@ -177,6 +183,7 @@ module.exports = app => {
                                 duration: result.duration,
                                 userid: userid
                             };
+                            var that = this
                             yield app.model.Vedio
                                 .create(_param, {
                                     isNewRecord: true
@@ -185,6 +192,51 @@ module.exports = app => {
                                     if (!vedio) {
                                         this.ctx.body = {status: 202, msg: "插入异常"};
                                         this.ctx.status = 200;
+                                    } else {
+                                        that.ctx.runInBackground(function*() {//视频后台解码
+                                            return new Promise((resolve, reject) => {
+                                                var x = part
+                                                ffmpeg(`${vedio_dir}${part.filename}`)
+                                                    .videoCodec('libx264')
+                                                    .size('320x240')
+                                                    .videoBitrate('512k')
+                                                    .audioBitrate('128k')
+                                                    .output(`${vedio_codec_dir}${part.filename}`)
+                                                    .on("end", function () {
+                                                        //change video status
+                                                        //codecing -> coded
+                                                        //1 -> 2
+                                                        console.log("end")
+                                                        const result = that.ctx.model.Vedio
+                                                            .update({
+                                                                status: '1',
+                                                                vediourl: that.ctx.request.header.origin + "/" + `${vedio_codec_dir}${x.filename}`.substring(4)
+                                                            }, {
+                                                                where: {
+                                                                    id: vedio.id
+                                                                }
+                                                            })
+                                                        if (!result) {
+                                                            that.ctx.model.Vedio.destory({
+                                                                where: {
+                                                                    id: vedio.id
+                                                                }
+                                                            })
+                                                        }
+                                                    })
+                                                    .on('codecData', function (data) {
+                                                        console.log('Input is ' + data.audio + ' audio ' + 'with ' + data.video + ' video');
+                                                    })
+                                                    .on('progress', function (progress) {
+                                                        console.log('Processing: ' + progress.percent + '% done');
+                                                    })
+                                                    .on('error', function (err) {
+                                                        console.log('An error occurred: ' + err);
+                                                    })
+                                                    .run();
+                                            })
+
+                                        })
                                     }
                                 });
                         }

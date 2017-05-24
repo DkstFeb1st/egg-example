@@ -35,6 +35,52 @@ module.exports = app => {
             })
             return commentList
         }
+
+        /*
+         * 条件查询评论
+         * userid : 被点评人userid
+         * custno : 点评人id
+         * */
+        * getCommentListByWhere(_param) {
+            let {userid, custno} = _param
+            let _scope = [];
+            if (userid) {
+                _scope.push({
+                    method: ["useridWhere", userid]
+                })
+            }
+            if (custno) {
+                _scope.push({
+                    method: ["custnoWhere", custno]
+                })
+            }
+            const commentList = yield this.ctx.model.Comment.scope(_scope).findAll({
+                order: "createdAt desc"
+            });
+            return commentList;
+        }
+
+        /*
+         * 条件查询点赞
+         * */
+        * getTopListByWhere(_param) {
+            let {userid, custno} = _param
+            let _scope = [];
+            if (userid) {
+                _scope.push({
+                    method: ["useridWhere", userid]
+                })
+            }
+            if (custno) {
+                _scope.push({
+                    method: ["custnoWhere", custno]
+                })
+            }
+            const TopList = yield this.ctx.model.Top.scope(_scope).findAll({
+                order: "createdAt desc"
+            });
+            return TopList;
+        }
     }
     return Comment
 }

@@ -14,6 +14,7 @@ module.exports = app => {
         vediourl: STRING(255),
         post: STRING(255),
         duration: STRING(255),
+        status: STRING(8),
         userid: STRING(7),
         createdAt: {
             type: DATE,

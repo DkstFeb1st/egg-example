@@ -14,6 +14,7 @@ module.exports = app => {
         name: STRING(16),
         avator: STRING(255),
         sp_id: INTEGER,
+        userid: STRING(7),
         state: {
             type: STRING(8),
             defaultValue: '1'
@@ -34,6 +35,22 @@ module.exports = app => {
             },
         }
     }, {
+        scopes: {
+            useridWhere: function (userid) {
+                return {
+                    where: {
+                        userid: userid
+                    }
+                }
+            },
+            custnoWhere: function (custno) {
+                return {
+                    where: {
+                        custno: custno
+                    }
+                }
+            },
+        },
         classMethods: {
             associate() {
                 app.model.Comment.hasMany(app.model.Comment, {
