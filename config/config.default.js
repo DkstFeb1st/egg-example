@@ -85,7 +85,7 @@ module.exports = appInfo => {
                 mark: [],
                 nav: [],
                 ol: [],
-                p: [],
+                p: ['style'],
                 pre: [],
                 s: [],
                 section: [],

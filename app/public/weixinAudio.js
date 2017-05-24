@@ -15,7 +15,19 @@
             this.$audio_play = $context.find('#audio_play');
             this.$audio_length = $context.find('#audio_length');
             this.$audio_progress = $context.find('#audio_progress');
-            this.duration = this.$audio_progress.text();
+            this.duration = this.$audio_length.text();
+            var duration = 0;
+            var dur_arr = this.duration.split(':');
+            for (var $i = 0; $i < dur_arr.length; $i++) {
+                if ($i === 0) {
+                    duration = parseFloat(duration) + parseFloat(dur_arr[$i] * 3600)
+                } else if ($i === 1) {
+                    duration = parseFloat(duration) + parseFloat(dur_arr[$i] * 60)
+                } else {
+                    duration = parseFloat(duration) + parseFloat(dur_arr[$i])
+                }
+            }
+            this.duration = duration
             //属性
             this.currentState = 'pause';
             this.timer = null;
@@ -98,15 +110,8 @@
                     // }
                 });
                 self.$Audio.on('canplay', function () {
-                    alert("canplay" + self.Audio.duration)
-                    for (let $k in self.Audio) {
-                        alert($k)
-                        alert(self.Audio[$k])
-                    }
-                    alert("canplay" + self.Audio.duration)
                 });
                 self.$Audio.on('loadedmetadata', function () {
-                    alert("loadedmetadata" + self.Audio.duration)
                 })
             },
             //正在播放
@@ -119,6 +124,7 @@
             },
             //进度条
             animateProgressBarPosition: function () {
+
                 var self = this,
                     percentage = (self.Audio.currentTime * 100 / self.duration) + '%';
                 if (percentage == "NaN%") {
@@ -150,17 +156,6 @@
                 var word = String(word);
                 while (word.length < howManyZero) word = "0" + word;
                 return word;
-            },
-            //更新总时间
-            updateTotalTime: function () {
-
-                var self = this;
-                //alert(self.Audio.duration)
-                var time = self.Audio.duration;
-                var minutes = self.getAudioMinutes(time),
-                    seconds = self.getAudioSeconds(time),
-                    audioTime = minutes + ":" + seconds;
-                self.$audio_length.text(audioTime);
             },
             //改变音频源
             changeSrc: function (src, callback) {

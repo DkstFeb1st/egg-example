@@ -18,23 +18,7 @@ module.exports = app => {
             })
             return cust
         }
-        /*
-         * 根据字典表获取职位对应的key
-         * */
-        * getPositionFromDict(_position) {
-            const position_dict = yield this.ctx.model.Dict.findOne({
-                where: {
-                    label: {
-                        $like: `%${_position}%`
-                    },
-                    type: 'job'
-                }
-            })
-            if (position_dict.length === 0) {
-                return false
-            }
-            return position_dict
-        }
+
     }
     return User;
 };
