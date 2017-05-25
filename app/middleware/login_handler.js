@@ -8,6 +8,7 @@ module.exports = options => {
          * 校验是否登录 session里是否存在userinfo
          * */
         if (this.session.userinfo) {
+            console.log(this.session.userinfo)
             yield next
         } else {
             if (debug) {

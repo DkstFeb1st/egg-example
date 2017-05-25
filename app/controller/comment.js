@@ -110,7 +110,8 @@ module.exports = app => {
                 userid: userid,
                 avatar: avatar,
                 name: name,
-                gender: gender
+                gender: gender,
+                custno: _param.userid
             })
             let _top = yield this.ctx.model.Top.findOne({
                 where: {
@@ -145,7 +146,7 @@ module.exports = app => {
 
             //添加评论用户信息
             _param = Object.assign({}, _param, {
-                custno: userid,
+                custno: _param.userid,
                 avatar: avatar,
                 name: name,
                 gender: gender

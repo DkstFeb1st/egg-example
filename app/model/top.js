@@ -17,6 +17,7 @@ module.exports = app => {
         sp_id: INTEGER,
         name: STRING(64),
         gender: INTEGER,
+        custno: STRING(7),
         createdAt: {
             type: DATE,
             get: function () {

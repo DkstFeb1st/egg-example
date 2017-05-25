@@ -3,7 +3,7 @@
     <header class="user-wrapper-header">
       <div v-bind:class="{ moring : moring, aftermoon : aftermoon,night : night ,userinfowrapper : true}">
         <p class="user-name">{{user.name}}<label
-          v-bind:class="{ boy : user.gender ===1,girl : user.gender !== 1,gender : true }"></label></p>
+          v-bind:class="{ boy : user.gender === '1',girl : user.gender !== '1',gender : true }"></label></p>
         <p class="user-position">瑞安农商银行 - {{user.position}}</p>
         <label class="user-avatar">
           <img :src="user.avatar" alt="">

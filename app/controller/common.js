@@ -65,14 +65,14 @@ module.exports = app => {
                     // 文件处理，上传到云存储等等
                     let result;
                     try {
-                        const new_dir = `app/public/img/new/${userid}/`;
+                        const new_dir = `C:/WeiXin/application/WeiXinapp/TopDiawWang/sp/image/imagec/${userid}/`;
                         fs.exists(new_dir, function (exists) {
                             if (!exists) {
                                 fs.mkdir(new_dir);
                             }
                         });
                         const filepath =
-                            "app/public/img/old/" + path.basename(part.filename);
+                            "C:/WeiXin/application/WeiXinapp/TopDiawWang/sp/image/old/" + path.basename(part.filename);
                         // console.log(filepath)
                         result = yield app.uploadImg(
                             part,
@@ -84,8 +84,8 @@ module.exports = app => {
                             //添加用户图库
                             let _param = {
                                 name: part.filename,
-                                jpgurl: isdebug ? this.ctx.request.header.origin + "/" + result.jpgurl.substring(4) : this.ctx.request.header.origin + "/study/" + result.jpgurl.substring(4),
-                                webpurl: isdebug ? this.ctx.request.header.origin + "/" + result.webpurl.substring(4) : this.ctx.request.header.origin + "/study/" + result.webpurl.substring(4),
+                                jpgurl: isdebug ? this.ctx.request.header.origin + "/" + result.jpgurl.substring(4) : this.ctx.request.header.origin + result.jpgurl.substring(31),
+                                webpurl: isdebug ? this.ctx.request.header.origin + "/" + result.webpurl.substring(4) : this.ctx.request.header.origin + result.webpurl.substring(31),
                                 userid: userid,
                                 hw: result.hw
                             };
@@ -164,11 +164,11 @@ module.exports = app => {
                     // 文件处理，上传到云存储等等
                     let result;
                     try {
-                        const vedio_dir = `app/public/vedio/${userid}/`;
+                        const vedio_dir = `C:/WeiXin/application/WeiXinapp/TopDiawWang/sp/video/${userid}/`;
                         if (!fs.existsSync(vedio_dir)) {
                             fs.mkdirSync(vedio_dir);
                         }
-                        const vedio_codec_dir = `app/public/cvedio/${userid}/`;
+                        const vedio_codec_dir = `C:/WeiXin/application/WeiXinapp/TopDiawWang/sp/cvideo/${userid}/`;
                         if (!fs.existsSync(vedio_codec_dir)) {
                             fs.mkdirSync(vedio_codec_dir)
                         }
@@ -178,8 +178,8 @@ module.exports = app => {
                             //添加用户视频库
                             let _param = {
                                 name: part.filename,
-                                vediourl: isdebug ? this.ctx.request.header.origin + "/" + result.vediourl.substring(4) : this.ctx.request.header.origin + "/study/" + result.vediourl.substring(4),
-                                post: isdebug ? this.ctx.request.header.origin + "/" + result.post.substring(4) : this.ctx.request.header.origin + "/study/" + result.post.substring(4),
+                                vediourl: isdebug ? this.ctx.request.header.origin + "/" + result.vediourl.substring(4) : this.ctx.request.header.origin + result.vediourl.substring(31),
+                                post: isdebug ? this.ctx.request.header.origin + "/" + result.post.substring(4) : this.ctx.request.header.origin + result.post.substring(31),
                                 duration: result.duration,
                                 userid: userid
                             };
@@ -210,7 +210,7 @@ module.exports = app => {
                                                         const result = that.ctx.model.Vedio
                                                             .update({
                                                                 status: '1',
-                                                                vediourl: that.ctx.request.header.origin + "/" + `${vedio_codec_dir}${x.filename}`.substring(4)
+                                                                vediourl: that.ctx.request.header.origin + "/" + `${vedio_codec_dir}${x.filename}`.substring(31)
                                                             }, {
                                                                 where: {
                                                                     id: vedio.id
@@ -296,7 +296,7 @@ module.exports = app => {
                     // 文件处理，上传到云存储等等
                     let result;
                     try {
-                        const audio_dir = `app/public/audio/${userid}/`;
+                        const audio_dir = `C:/WeiXin/application/WeiXinapp/TopDiawWang/sp/audio/${userid}/`;
                         if (!fs.existsSync(audio_dir)) {
                             fs.mkdirSync(audio_dir);
                         }
@@ -307,7 +307,7 @@ module.exports = app => {
                             //添加音频
                             let _param = {
                                 name: part.filename,
-                                url: isdebug ? this.ctx.request.header.origin + "/" + result.url.substring(4) : this.ctx.request.header.origin + "/study/" + result.url.substring(4),
+                                url: isdebug ? this.ctx.request.header.origin + "/" + result.url.substring(4) : this.ctx.request.header.origin + result.url.substring(31),
                                 userid: userid,
                                 duration: result.duration
                             };
@@ -385,7 +385,7 @@ module.exports = app => {
                     // 文件处理，上传到云存储等等
                     let result;
                     try {
-                        const document_dir = `app/public/document/${userid}/`;
+                        const document_dir = `C:/WeiXin/application/WeiXinapp/TopDiawWang/sp/document/${userid}/`;
                         if (!fs.existsSync(document_dir)) {
                             fs.mkdirSync(document_dir);
                         }
@@ -396,7 +396,7 @@ module.exports = app => {
                             //添加文档
                             let _param = {
                                 name: part.filename,
-                                url: isdebug ? this.ctx.request.header.origin + "/" + result.url.substring(4) : this.ctx.request.header.origin + "/study/" + result.url.substring(4),
+                                url: isdebug ? this.ctx.request.header.origin + "/" + result.url.substring(4) : this.ctx.request.header.origin + result.url.substring(31),
                                 size: result.size,
                                 userid: userid,
                                 type: result.type
