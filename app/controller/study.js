@@ -82,13 +82,14 @@ module.exports = app => {
                         sp_id: id
                     }
                 });
-                const num = yield app.model.Viewlog.count({
+                const view = yield app.model.Viewlog.findOne({
                     where: {
                         sp_id: id,
                         custno: this.ctx.session.userinfo.userid
                     }
                 });
-                if (num === 0) {
+                console.log(this.ctx.session.userinfo.userid)
+                if (!view) {
                     //not study
                     let view_log = {
                         sp_id: id,
@@ -103,6 +104,18 @@ module.exports = app => {
                             if (viewlog) {
                             }
                         });
+                } else {
+                    let view_log = {
+                        id: view.id,
+                    };
+                    this.ctx.model.Viewlog
+                        .update(view_log, {
+                            where: {
+                                id: view_log.id
+                            }
+                        })
+                        .then(() => {
+                        })
                 }
                 this.ctx.body = {
                     status: 200,
@@ -147,13 +160,13 @@ module.exports = app => {
                         sp_id: id
                     }
                 });
-                const num = yield app.model.Viewlog.count({
+                const view = yield app.model.Viewlog.findOne({
                     where: {
                         sp_id: id,
                         custno: this.ctx.session.userinfo.userid
                     }
                 });
-                if (num === 0) {
+                if (!view) {
                     //not study
                     let view_log = {
                         sp_id: id,
@@ -168,6 +181,18 @@ module.exports = app => {
                             if (viewlog) {
                             }
                         });
+                } else {
+                    let view_log = {
+                        id: view.id,
+                    };
+                    this.ctx.model.Viewlog
+                        .update(view_log, {
+                            where: {
+                                id: view_log.id
+                            }
+                        })
+                        .then(() => {
+                        })
                 }
                 this.ctx.body = {
                     status: 200,
@@ -181,13 +206,13 @@ module.exports = app => {
             } else {
                 //子课程 包括课程详情
                 let spdetail = yield this.ctx.service.study.getStudyDetail(id);
-                const num = yield app.model.Viewlog.count({
+                const view = yield app.model.Viewlog.findOne({
                     where: {
                         sp_id: id,
                         custno: this.ctx.session.userinfo.userid
                     }
                 });
-                if (num === 0) {
+                if (!view) {
                     //not study
                     let view_log = {
                         sp_id: id,
@@ -202,6 +227,18 @@ module.exports = app => {
                             if (viewlog) {
                             }
                         });
+                } else {
+                    let view_log = {
+                        id: view.id,
+                    };
+                    this.ctx.model.Viewlog
+                        .update(view_log, {
+                            where: {
+                                id: view_log.id
+                            }
+                        })
+                        .then(() => {
+                        })
                 }
                 this.ctx.body = {status: 200, spdetail: spdetail};
                 this.ctx.status = 200;
