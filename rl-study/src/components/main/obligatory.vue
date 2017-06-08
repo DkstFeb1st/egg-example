@@ -59,27 +59,10 @@
     <!--</section>-->
     <!--</div>-->
     <!--</transition>-->
-    <div class="list-wrapper">
-
-      <div class="list-item-wrapper" v-for="( item, index ) in obligatoryList " v-on:click="goToDetail(item.id)">
-        <div class="list-item-content">
-          <label class="list-item-title">{{item.title}}</label>
-          <label class="list-item-type">
-            <label>
-                          {{item.authorname}}
-                        </label>
-            <label>
-                           {{item.view_num}}人观看 | {{item.comment_num}}评论
-                        </label>
-          </label>
-        </div>
-        <div class="list-item-img">
-          <img
-            :src="item.avator"
-          />
-        </div>
-      </div>
-    </div>
+    <CourseListItem
+      :courseList="obligatoryList"
+    >
+    </CourseListItem>
     <empty tip="暂无学习内容" v-if="obligatoryList && obligatoryList.length === 0"></empty>
   </div>
 </template>
@@ -87,7 +70,7 @@
 <script>
   import lifeMonitor from 'mixins/lifeMonitor'
   import empty  from 'components/empty/empty.vue'
-
+  import CourseListItem from 'components/course/courseListItem.vue'
   export default {
     name: "obligatory",
     mixins: [lifeMonitor],
@@ -98,7 +81,8 @@
       this.$store.dispatch('getObligatoryListAction').then(() => this.$vux.loading.hide())
     },
     components: {
-      empty
+      empty,
+      CourseListItem
     },
     data () {
       return {}
@@ -107,17 +91,12 @@
       obligatoryList: function () {
         return this.$store.state.study.obligatoryList
       }
-    },
-    methods: {
-      goToDetail(_id){
-        this.$router.push(`/detail/${_id}`)
-      }
     }
   }
 </script>
 
 <style lang="less">
-  @import "../../css/default.less";
+  @import "../../css/constant.less";
 
   .fly1-enter-active, .fly2-enter-active {
     transition: all .5s;

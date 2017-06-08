@@ -52,7 +52,7 @@
 </script>
 
 <style lang="less">
-  @import "../../css/default.less";
+  @import "../../css/constant.less";
 
   .top {
     position: relative;
@@ -68,7 +68,7 @@
   }
 
   .top.active {
-    color: @secondcolor !important;
+    color: @thirdcolor !important;
   }
 
   .top-enter-active {

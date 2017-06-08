@@ -18,7 +18,7 @@ module.exports = options => {
                     avatar: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490763917931&di=ef14ff0cf7523b9ba64c6e338be4178f&imgtype=0&src=http%3A%2F%2Fimg01.taopic.com%2F161007%2F240373-16100FR12449.jpg',
                     position: '科员',
                     positions: '3,',
-                    gender: 1,
+                    gender: '1',
                 }
                 this.session.userinfo = userinfo
                 yield next

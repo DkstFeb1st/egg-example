@@ -1,7 +1,7 @@
 <template>
   <div class="user-wrapper">
-    <header class="user-wrapper-header">
-      <div v-bind:class="{ moring : moring, aftermoon : aftermoon,night : night ,userinfowrapper : true}">
+    <header v-bind:class="{ moring : moring, aftermoon : aftermoon,night : night ,userwrapperheader : true}">
+      <div class="userinfowrapper">
         <p class="user-name">{{user.name}}<label
           v-bind:class="{ boy : user.gender === '1',girl : user.gender !== '1',gender : true }"></label></p>
         <p class="user-position">瑞安农商银行 - {{user.position}}</p>
@@ -22,31 +22,35 @@
             <p>获赞</p>
           </div>
           <div class="user-data-item">
-            <p>0</p>
-            <p>收藏</p>
+            <p>{{lvList.length}}</p>
+            <p>获藏</p>
           </div>
         </div>
       </div>
     </header>
     <div class="user-function-wrapper">
-      <div class="user-function-item">
-        <div class="icon">
-          <i class="iconfont" style="color:#3dbd7d">&#xe64a;</i>
+      <router-link :to="{ path: 'course/studying' }">
+        <div class="user-function-item">
+          <div class="icon">
+            <i class="iconfont" style="color:#3dbd7d">&#xe673;</i>
+          </div>
+          <div class="title">
+            在学的课程
+            <i class="iconfont">&#xe71c;</i>
+          </div>
         </div>
-        <div class="title">
-          我的评论
-          <i class="iconfont">&#xe71c;</i>
+      </router-link>
+      <router-link :to="{ path: 'course/loveing' }">
+        <div class="user-function-item">
+          <div class="icon">
+            <i class="iconfont" style="color:#f78e3d">&#xe7cf;</i>
+          </div>
+          <div class="title">
+            我的收藏
+            <i class="iconfont">&#xe71c;</i>
+          </div>
         </div>
-      </div>
-      <div class="user-function-item">
-        <div class="icon">
-          <i class="iconfont" style="color:#f78e3d">&#xe6b7;</i>
-        </div>
-        <div class="title">
-          素材快速上传入口
-          <i class="iconfont">&#xe71c;</i>
-        </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -66,24 +70,33 @@
       return {
         moring: moment(new Date).locale('zh-cn').utcOffset(8).format('HH') > '06' && moment(new Date).locale('zh-cn').utcOffset(8).format('HH') < '12',
         aftermoon: moment(new Date).locale('zh-cn').utcOffset(8).format('HH') > '12' && moment(new Date).locale('zh-cn').utcOffset(8).format('HH') < '18',
-        night: moment(new Date).locale('zh-cn').utcOffset(8).format('HH') > '18' && moment(new Date).locale('zh-cn').utcOffset(8).format('HH') < '06'
+        night: moment(new Date).locale('zh-cn').utcOffset(8).format('HH') > '18' || moment(new Date).locale('zh-cn').utcOffset(8).format('HH') < '06'
       }
     },
     computed: {
-      ...mapGetters(['user', 'spList', 'cmdList', 'tpdList'])
+      ...mapGetters(['user', 'spList', 'cmdList', 'tpdList', 'lvList'])
     }
 
   }
 </script>
 
 <style lang="less">
-  @import "../../css/default.less";
+  @import "../../css/constant.less";
 
   .user-wrapper {
-    .user-wrapper-header {
+    .userwrapperheader.moring {
+      background-image: url('../../assets/img_member_cover_1.jpg');
+    }
+    .userwrapperheader.aftermoon {
+      background-image: url('../../assets/img_member_cover_5.jpg');
+    }
+    .userwrapperheader.night {
+      background-image: url('../../assets/img_member_cover_4.jpg');
+    }
+    .userwrapperheader {
       position: relative;
-      background: url('../../assets/img_member_cover_1.png') no-repeat;
       background-size: 100% 100%;
+      background-repeat: no-repeat;
       height: 220px;
       margin-bottom: 12px;
       .userinfowrapper {
@@ -153,6 +166,7 @@
         }
       }
     }
+
     .user-function-wrapper {
       padding-left: 24px;
       background-color: #fff;

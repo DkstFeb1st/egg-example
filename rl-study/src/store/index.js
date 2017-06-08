@@ -3,6 +3,7 @@ import Vuex from "vuex";
 import study from "./modules/study";
 import main from "./modules/main";
 import user from "./modules/user";
+import comment from "./modules/comment";
 
 Vue.use(Vuex)
 
@@ -12,7 +13,8 @@ export default new Vuex.Store({
   modules : {
     main,
     study,
-    user
+    user,
+    comment
   },
   strict : debug
 })

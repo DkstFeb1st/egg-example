@@ -9,3 +9,5 @@ export const INTEREST = 'INTEREST'
 export const CHANGETAB = "CHANGETAB"
 export const CHANGETABITEM = "CHANGETABITEM"
 export const GETUSERTAB = "GETUSERTAB"
+export const GETSTUDYING = "GETSTUDYING"
+export const GETLOVEING = "GETLOVEING"

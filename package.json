@@ -4,7 +4,7 @@
   "description": "node egg react antd vue vux ueditor",
   "private": true,
   "dependencies": {
-    "antd": "^2.9.2",
+    "antd": "^2.10.4",
     "axios": "^0.15.3",
     "cookies-js": "^1.2.3",
     "cross-env": "^3.2.4",

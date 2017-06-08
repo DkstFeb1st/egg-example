@@ -33,7 +33,7 @@
         const data = {
           sp_id: this.$route.params.id,
           rate: this.rate,
-          userid: this.$route.query.userid
+          custno: this.$route.query.custno
         }
         this.$vux.loading.show({
           text: '疯狂加载中...'

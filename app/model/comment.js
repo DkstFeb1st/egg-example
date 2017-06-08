@@ -31,11 +31,32 @@ module.exports = app => {
             type: DATE,
             get: function () {
                 // 'this' allows you to access attributes of the instance
-                return moment(this.getDataValue('updateAt')).locale('zh-cn').utcOffset(8).format('YYYY-MM-DD HH:mm:ss');
+                return moment(this.getDataValue('updatedAt')).locale('zh-cn').utcOffset(8).format('YYYY-MM-DD HH:mm:ss');
             },
         }
     }, {
         scopes: {
+            parentidWhere: function (parentid) {
+                return {
+                    where: {
+                        parentid: parentid
+                    }
+                }
+            },
+            idWhere: function (id) {
+                return {
+                    where: {
+                        id: id
+                    }
+                }
+            },
+            spidWhere: function (sp_id) {
+                return {
+                    where: {
+                        sp_id: sp_id
+                    }
+                }
+            },
             useridWhere: function (userid) {
                 return {
                     where: {

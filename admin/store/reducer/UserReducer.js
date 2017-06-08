@@ -223,7 +223,8 @@ export const UserReducer = function (state = {
             return Object.assign({}, state, {
                 stateList: action.data.stateList,
                 departmentList: action.data.departmentList,
-                jobList: action.data.jobList
+                jobList: action.data.jobList,
+                courseTypeList: action.data.courseTypeList
             });
         case UPDATEMENU:
             let _currentMenuKey = [];

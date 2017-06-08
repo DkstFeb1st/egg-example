@@ -5,7 +5,7 @@ import router from "./router";
 import {sync} from "vuex-router-sync";
 
 import * as filters from "./filters";
-import "./css/default.less";
+import "./css/constant.less";
 import "./css/iconfont.css";
 import "./css/animate.css";
 import "./css/weixinAudio.css";

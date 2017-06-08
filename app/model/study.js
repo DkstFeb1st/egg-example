@@ -21,6 +21,10 @@ module.exports = app => {
         elective: STRING(32),
         interest: STRING(8),
         state: STRING(8),
+        type: STRING(8),
+        desc: STRING(255),
+        suit: STRING(64),
+        category_id: INTEGER,
         createdAt: {
             type: DATE,
             get: function () {
@@ -37,6 +41,22 @@ module.exports = app => {
         }
     }, {
         scopes: {
+            createdWhere: function (dateparams) {
+                return {
+                    where: {
+                        createdAt: {
+                            $between: dateparams
+                        }
+                    }
+                }
+            },
+            typeWhere: function (type) {
+                return {
+                    where: {
+                        type: type
+                    }
+                }
+            },
             stateWhere: function (state) {
                 return {
                     where: {
@@ -71,6 +91,9 @@ module.exports = app => {
         setterMethods: {//自定义属性
             rate: function (value) {
                 this.setDataValue('rate', value);
+            },
+            progress: function (value) {
+                return this.setDataValue('progress', value);
             }
         },
         getterMethods: {
@@ -95,10 +118,19 @@ module.exports = app => {
                     foreignKey: 'sp_id',
                     sourceKey: 'id'
                 })
+                app.model.Study.hasMany(app.model.Love, {
+                    as: 'loves',
+                    foreignKey: 'sp_id',
+                    sourceKey: 'id'
+                })
                 app.model.Study.hasMany(app.model.Top, {
                     as: 'tops',
                     foreignKey: 'sp_id',
                     sourceKey: 'id'
+                })
+                app.model.Study.hasMany(app.model.Category, {
+                    as: 'categorys',
+                    foreignKey: 'sp_id'
                 })
             }
         },

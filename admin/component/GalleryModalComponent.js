@@ -169,7 +169,6 @@ class GalleryModalComponent extends React.Component {
                                     <img
                                         src={obj.jpgurl}
                                         alt=""
-                                        width="36"
                                         style={obj.hw > 1 ? heightStyle : widthStyle}
                                     />
                                 </div>

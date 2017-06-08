@@ -28,8 +28,10 @@ export function getSpDetailListApi(_param) {
 /*
  * _id 评论id
  * */
-export function getCommentListApi(_id) {
-  return instance.get(`api/sp/getCommentList?id=${_id}`)
+export function getCommentListApi(_params) {
+  return instance.get(`api/sp/getCommentList`, {
+    params: _params
+  })
 }
 
 /*
@@ -48,21 +50,29 @@ export function addRateApi(_param) {
 /*
  * 添加评论点赞
  * */
-export function addTopApi(c_id, userid) {
-  return instance.post(`api/sp/addTop`, {
-    c_id: c_id,
-    userid: userid
-  })
+export function addTopApi(params) {
+  return instance.post(`api/sp/addTop`, params)
 }
 
 /*
  * 添加文章点赞
  * */
-export function createTopApi(sp_id, userid) {
-  return instance.post(`api/sp/createTop`, {
-    sp_id: sp_id,
-    userid: userid,
-  })
+export function createTopApi(params) {
+  return instance.post(`api/sp/createTop`, params)
+}
+
+/*
+ * 添加或删除收藏
+ * */
+export function addOrDeleteLoveApi(_param) {
+  return instance.post(`api/sp/addOrDeleteLove`, _param)
+}
+
+/*
+ * 获取收藏列表
+ * */
+export function getLoveingListApi() {
+  return instance.get(`api/sp/getLoveStudyList`)
 }
 
 /*
@@ -79,4 +89,11 @@ export function getTopList(_param) {
  * */
 export function getUserTabApi() {
   return instance.get(`api/sp/getUserTab`)
+}
+
+/*
+ * 我的tab页正在学习的课程
+ * */
+export function getStudyingApi() {
+  return instance.get(`api/sp/getStudyingList`)
 }

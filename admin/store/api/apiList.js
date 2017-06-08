@@ -22,20 +22,19 @@ export function initial() {
     return instance.get(`api/sp/initial`)
 }
 
-//根据查询学习资料
+//查询课程
 export function getSpList(_param) {
     return instance.get(`api/sp/getSpList`, {
         params: _param
     })
 }
-
-//查询学习资料明细
+//预览课程明细
 export function getSpDetail(_param) {
     return instance.get(`api/sp/viewSpDetail`, {
         params: _param
     })
 }
-//创建学习资料
+//创建课程
 export function doCreate(_param) {
     return instance.post(`api/sp/doCreate`, _param)
 }
@@ -71,4 +70,19 @@ export function getAudioList(_param) {
     return instance.get(`api/sp/getAudioList`, {
         params: _param
     })
+}
+
+//创建目录
+export function addCategory(_param) {
+    return instance.post(`api/sp/addCategory`, _param)
+}
+
+//修改目录
+export function updateCategory(_param) {
+    return instance.post(`api/sp/updateCategory`, _param)
+}
+
+//删除目录
+export function deleteCategory(_param) {
+    return instance.post(`api/sp/deleteCategory`, _param)
 }

@@ -11,6 +11,8 @@ module.exports = app => {
         },
         sp_id: INTEGER,
         custno: STRING(7),
+        serial: STRING(16),
+        fsp_id: INTEGER,
         createdAt: {
             type: DATE,
             get: function () {
@@ -26,6 +28,53 @@ module.exports = app => {
             },
         }
     }, {
+        scopes: {
+            fspidWhere: function (fsp_id) {
+                return {
+                    where: {
+                        fsp_id: fsp_id
+                    }
+                }
+            },
+            spidWhere: function (sp_id) {
+                return {
+                    where: {
+                        sp_id: sp_id
+                    }
+                }
+            },
+            custnoWhere: function (custno) {
+                return {
+                    where: {
+                        custno: custno
+                    }
+                }
+            }
+        },
+        getterMethods: {
+            coursenum: function () {
+                return parseFloat(this.getDataValue('coursenum')).toFixed(2);
+            },
+            progress: function () {
+                return parseFloat(this.getDataValue('progress')).toFixed(2) * 100;
+            },
+            view_num: function () {
+                return this.getDataValue('view_num')
+            }
+        },
+        setterMethods: {
+            progress: function (value) {
+                return this.setDataValue('progress', value);
+            }
+        },
+        classMethods: {
+            associate() {
+                app.model.Viewlog.belongsTo(app.model.Study, {
+                    as: 'study',
+                    foreignKey: 'sp_id'
+                });
+            }
+        },
         tableName: 'rl_spv_list'
     })
 }

@@ -9,8 +9,13 @@ module.exports = app => {
          * 获取评论与子评论
          * */
         * getCommentList() {
-            const {id} = this.ctx.query
-            const commentList = yield this.ctx.service.comment.getCommentList(id)
+            const {id, order, sp_id} = this.ctx.query
+            if (sp_id) {
+                var commentList = yield this.ctx.service.comment.getSpCommentList({sp_id: sp_id, order: order})
+            }
+            if (id) {
+                var commentList = yield this.ctx.service.comment.getSpCommentList({id: id, order: order})
+            }
             let tops_rs = yield app.model.Top.findAll({
                 where: {
                     userid: this.ctx.session.userinfo.userid
@@ -41,7 +46,7 @@ module.exports = app => {
             _param = Object.assign({}, _param, {
                 name: name,
                 avator: avatar,
-                custno: userid,
+                userid: userid,
                 content: this.ctx.helper.escape(this.ctx.request.body.content)
             })
             yield this.ctx.model.Comment.create(_param, {
@@ -71,7 +76,7 @@ module.exports = app => {
             }
             //添加评论用户信息
             _param = Object.assign({}, _param, {
-                custno: userid,
+                userid: userid,
             })
             let _rate = yield this.ctx.model.Rate.findOne({
                 where: {
@@ -175,6 +180,52 @@ module.exports = app => {
             }
         }
 
+        /*
+         * 创建或取消收藏
+         * */
+        * addOrDeleteLove() {
+            let _param = this.ctx.request.body
+            let {name, userid, avatar, gender} = this.ctx.session.userinfo
+
+            //添加评论用户信息
+            _param = Object.assign({}, _param, {
+                userid: userid
+            })
+            let _love = yield this.ctx.model.Love.findOne({
+                where: {
+                    userid: userid,
+                    sp_id: _param.sp_id
+                }
+            })
+            let that = this
+            if (_love) {//取消收藏
+                const result = yield this.ctx.model.Love.destroy({
+                    where: {
+                        userid: userid,
+                        sp_id: _param.sp_id
+                    }
+                })
+                if (result > 0) {
+                    this.ctx.body = {status: 200, msg: '取消收藏成功'}
+                    this.ctx.status = 200
+                } else {
+                    this.ctx.body = {status: 202, msg: '操作异常'}
+                    this.ctx.status = 200
+                }
+            } else {//添加收藏
+                yield this.ctx.model.Love.create(_param, {
+                    isNewRecord: true
+                }).then(function (love) {
+                    if (love) {
+                        that.ctx.body = {status: 200, msg: '添加收藏成功'}
+                        that.ctx.status = 200
+                    } else {
+                        that.ctx.body = {status: 202, msg: '操作异常'}
+                        that.ctx.status = 200
+                    }
+                })
+            }
+        }
         /*
          * 获取评论点赞列表
          * param id 评论id

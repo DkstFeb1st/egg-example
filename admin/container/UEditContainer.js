@@ -1,8 +1,10 @@
 /**
  * Created by 1 on 2017/4/19.
+ * 单个课程编辑界面
  */
 import React from "react";
 import {connect} from "react-redux";
+import {goBack} from "react-router-redux";
 import {Button, Form, Input, Layout, message} from "antd";
 import UEditor from "simple-react-ui/dist/ueditor";
 import ueditor from "img/appmsg_new.png";
@@ -10,8 +12,9 @@ import GalleryModalComponent from "components/GalleryModalComponent";
 import VedioModalComponent from "components/VedioModalComponent";
 import AudioModalComponent from "components/AudioModalComponent";
 import DocumentModalComponent from "components/DocumentModalComponent";
-import PhoneViewModalComponent from "components/PhoneViewModalComponent";
+import {MenuHeader} from "components/common/CommonLayout";
 import {createSpRequest, updateSpRequest} from "reducers/StudyReducer";
+import {updateMenuStateAction} from "reducers/UserReducer";
 const FormItem = Form.Item;
 const {Content} = Layout;
 
@@ -27,7 +30,6 @@ class UEditContainer extends React.Component {
             videoModalVisible: false,
             audioModalVisible: false,
             fileModalVisible: false,
-            viewModalVisible: false,
             study: {}
         };
     }
@@ -67,30 +69,38 @@ class UEditContainer extends React.Component {
                         id: this.props.location.state.record.id,
                         fhtml: fhtml,
                         avator: avator,
-                        state: "1",
+                        state: "7",
                         log: {
                             sp_id: this.props.location.state.record.id,
                             userid: this.props.user.userid,
-                            content: "用户修改学习资料"
+                            content: "修改课程"
                         }
                     });
-                    this.props.dispatch(
-                        updateSpRequest(_param, {
-                            authorcustno: this.props.user.userid
-                        })
-                    );
+                    this.props.dispatch(updateSpRequest(_param))
+                        .then(response => {
+                            if (response) {
+                                this.props.dispatch(goBack())
+                            }
+                        });
                 } else {
                     //创建
                     let _param = Object.assign({}, values, {
                         fhtml: fhtml,
                         avator: avator,
+                        state: "7",
+                        type: '2',
                         log: {
                             sp_id: "",
                             userid: this.props.user.userid,
-                            content: "用户学习资料创建"
+                            content: "创建课程"
                         }
                     });
-                    this.props.dispatch(createSpRequest(_param));
+                    this.props.dispatch(createSpRequest(_param))
+                        .then((response) => {
+                            if (response) {
+                                this.props.dispatch(goBack())
+                            }
+                        });
                 }
             } else {
             }
@@ -202,41 +212,6 @@ class UEditContainer extends React.Component {
         });
     }
 
-    /*图文编辑预览*/
-    handleViewModalVisible() {
-        let that = this;
-        const {avator} = this.state;
-        const fhtml = this.ue.getContent();
-        if (!fhtml) {
-            message.warning("请编辑内容！");
-            return;
-        }
-        if (!avator) {
-            message.warning("请上传封面！");
-            return;
-        }
-        this.props.form.validateFieldsAndScroll((err, values) => {
-            if (!err) {
-                //创建
-                let _param = Object.assign({}, values, {
-                    fhtml: fhtml,
-                    avator: avator,
-                    authorcustno: this.props.user.userid,
-                    authorname: this.props.user.name,
-                    authoravator: this.props.user.avator,
-                    createdAt: "2017-01-01 01:01:01",
-                    rate: 5
-                });
-                that.setState({
-                    study: _param
-                });
-            }
-        });
-        this.setState({
-            viewModalVisible: !this.state.viewModalVisible
-        });
-    }
-
     render() {
         const {
             galleryModalVisible,
@@ -244,9 +219,7 @@ class UEditContainer extends React.Component {
             avator,
             videoModalVisible,
             audioModalVisible,
-            viewModalVisible,
-            fileModalVisible,
-            study
+            fileModalVisible
         } = this.state;
         const {getFieldDecorator} = this.props.form;
         const formItemLayout = {
@@ -258,13 +231,16 @@ class UEditContainer extends React.Component {
             <Content
                 style={{
                     position: "relative",
-                    margin: "24px 16px",
-                    padding: 24,
-                    background: "#fff",
                     minHeight: 280
                 }}
             >
-                <Form>
+                <MenuHeader>图文课程编辑</MenuHeader>
+                <Form style={{
+                    position: "relative",
+                    margin: "20px",
+                    padding: "12px",
+                    backgroundColor: "#fff"
+                }}>
                     <FormItem {...formItemLayout} label="标题">
                         {getFieldDecorator("title", {
                             rules: [
@@ -277,7 +253,7 @@ class UEditContainer extends React.Component {
                         })(<Input />)}
                     </FormItem>
                     <div className="avator-wrapper">
-                        <label className="tip">封面 :<span>图片建议尺寸 ：360*270</span></label>
+                        <label className="tip">封面 :<span>图片建议尺寸 ：520*200</span></label>
                         <div>
                             <Button
                                 onClick={this.handleGalleryModalVisible.bind(this, "single")}
@@ -317,71 +293,61 @@ class UEditContainer extends React.Component {
                         }
                         afterInit={this.saveUE.bind(this)}
                     />
+                    <div className="media-container">
+                        <h3>多媒体</h3>
+                        <div className="media-wrapper">
+                            <ul className="media-list">
+                                <li
+                                    className="media-item img"
+                                    onClick={this.handleGalleryModalVisible.bind(this, "multi")}
+                                >
+                                    <i
+                                        style={{background: `url(${ueditor}) 0 -20px no-repeat`}}
+                                    />
+                                    图片
+                                </li>
+                                <li
+                                    className="media-item vedio"
+                                    onClick={this.handleVedioModalVisible.bind(this)}
+                                >
+                                    <i
+                                        style={{background: `url(${ueditor}) 0 -46px no-repeat`}}
+                                    />
+                                    视频
+                                </li>
+                                <li
+                                    className="media-item music"
+                                    onClick={this.handleAudioModalVisible.bind(this)}
+                                >
+                                    <i
+                                        style={{background: `url(${ueditor}) 0 -124px no-repeat`}}
+                                    />
+                                    音频
+                                </li>
+                                <li
+                                    className="media-item file"
+                                    onClick={this.handleFileModalVisible.bind(this)}
+                                >
+                                    <i
+                                        style={{background: `url(${ueditor}) 0 -96px no-repeat`}}
+                                    />
+                                    文件
+                                </li>
+                            </ul>
+                        </div>
+                        <div style={{marginBottom: "12px"}}>
+                            <Button
+                                type="primary"
+                                htmlType="submit"
+                                size="large"
+                                onClick={this.handlerSubmit.bind(this)}
+                            >
+                                {this.props.location.state ? "修改" : "发布"}
+                            </Button>
+                        </div>
+                    </div>
                 </Form>
-                <div className="media-container">
-                    <h3>多媒体</h3>
-                    <div className="media-wrapper">
-                        <ul className="media-list">
-                            <li
-                                className="media-item img"
-                                onClick={this.handleGalleryModalVisible.bind(this, "multi")}
-                            >
-                                <i
-                                    style={{background: `url(${ueditor}) 0 -20px no-repeat`}}
-                                />
-                                图片
-                            </li>
-                            <li
-                                className="media-item vedio"
-                                onClick={this.handleVedioModalVisible.bind(this)}
-                            >
-                                <i
-                                    style={{background: `url(${ueditor}) 0 -46px no-repeat`}}
-                                />
-                                视频
-                            </li>
-                            <li
-                                className="media-item music"
-                                onClick={this.handleAudioModalVisible.bind(this)}
-                            >
-                                <i
-                                    style={{background: `url(${ueditor}) 0 -124px no-repeat`}}
-                                />
-                                音频
-                            </li>
-                            <li
-                                className="media-item file"
-                                onClick={this.handleFileModalVisible.bind(this)}
-                            >
-                                <i
-                                    style={{background: `url(${ueditor}) 0 -96px no-repeat`}}
-                                />
-                                文件
-                            </li>
-                        </ul>
-                    </div>
-                    <div style={{marginBottom: "12px"}}>
-                        <Button
-                            type="primary"
-                            htmlType="submit"
-                            size="large"
-                            onClick={this.handlerSubmit.bind(this)}
-                        >
-                            {this.props.location.state ? "修改" : "发布"}
-                        </Button>
-                    </div>
-                    <div>
-                        <Button
-                            type="ghost"
-                            htmlType="submit"
-                            size="large"
-                            onClick={this.handleViewModalVisible.bind(this)}
-                        >
-                            预览
-                        </Button>
-                    </div>
 
-                </div>
                 <GalleryModalComponent
                     newKey={Math.random()}
                     title="选择图片"
@@ -413,12 +379,6 @@ class UEditContainer extends React.Component {
                     visible={fileModalVisible}
                     handleFileModalVisible={this.handleFileModalVisible.bind(this)}
                     handleDocumentInsert={this.handleDocumentInsert.bind(this)}
-                />
-                <PhoneViewModalComponent
-                    newKey={Math.random()}
-                    study={study}
-                    visible={viewModalVisible}
-                    handleViewModalVisible={this.handleViewModalVisible.bind(this)}
                 />
             </Content>
         );

@@ -45,11 +45,18 @@ module.exports = app => {
                     state: '1'
                 }
             })
+            const courseTypeList = yield this.ctx.model.Dict.findAll({
+                where: {
+                    type: 'course',
+                    state: '1'
+                }
+            })
             this.ctx.body = {
                 status: 200,
                 stateList: stateList,
                 departmentList: departmentList,
-                jobList: jobList
+                jobList: jobList,
+                courseTypeList: courseTypeList
             }
             this.ctx.status = 200
         }
@@ -57,22 +64,61 @@ module.exports = app => {
         /*前端用户tab页数据获取*/
         * getUserTab() {
             let user = this.ctx.session.userinfo
+            console.log(user)
             //获取文章数目
-            let sp_param = {state: 3, authorcustno: user.userid}
-            const spListResult = yield this.ctx.service.study.getSpList(sp_param)
+            let sp_param = {state: '3', authorcustno: user.userid}
+            const spListResult = yield this.ctx.service.study.getSpListByWhere(sp_param)
             //获取获评数目
-            let cm_param = {userid: user.userid}
+            let cm_param = {custno: user.userid}
             const commentedListResult = yield  this.ctx.service.comment.getCommentListByWhere(cm_param)
             //获取获赞数目
-            let tp_param = {userid: user.userid}
+            let tp_param = {custno: user.userid}
             const topedListResult = yield  this.ctx.service.comment.getTopListByWhere(tp_param)
+            //获取被收藏数目
+            let lv_param = {custno: user.userid}
+            const lovedListResult = yield this.ctx.service.comment.getLoveListByWhere(lv_param)
             this.ctx.body = {
                 status: 200,
                 user: user,
                 spList: spListResult,
                 cmdList: commentedListResult,
-                tpdList: topedListResult
+                tpdList: topedListResult,
+                lvList: lovedListResult
             }
+            this.ctx.status = 200
+        }
+
+        /*
+         * 获取我正在学习的课程列表接口
+         * */
+        *getStudyingList() {
+            const result = yield this.ctx.service.study.getStudyByView({userid: this.ctx.session.userinfo.userid})
+            const studyingList = [];
+            for (let x of result) {
+                const num = yield app.model.Viewlog.count({
+                    where: {
+                        fsp_id: x.sp_id
+                    }
+                });
+                let progress = (num / x.coursenum).toFixed(2);
+                x.study.progress = progress;
+                if (progress < 100) studyingList.push(x.study);
+            }
+            this.ctx.body = {status: 200, studyingList: studyingList};
+            this.ctx.status = 200;
+        }
+
+        /*
+         *   获取收藏课程列表
+         * */
+        * getLoveStudyList() {
+            let {userid} = this.ctx.session.userinfo
+            const result = yield this.ctx.service.study.getStudyByLove({userid: this.ctx.session.userinfo.userid})
+            let studylvList = []
+            result && result.map((obj, index) => {
+                studylvList.push(obj.study)
+            })
+            this.ctx.body = {status: 200, studylvList: studylvList}
             this.ctx.status = 200
         }
     }

@@ -61,7 +61,7 @@
           sp_id: this.$route.query.root === 'true' ? this.$route.params.id : this.$route.query.id,
           content: this.content,
           parentid: this.$route.query.root === 'true' ? 0 : this.$route.params.id,
-          userid: this.$route.query.userid
+          custno: this.$route.query.custno
         }
         this.$vux.loading.show({
           text: '疯狂加载中...'

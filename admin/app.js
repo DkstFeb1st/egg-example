@@ -1,6 +1,4 @@
 'use strict';
-require('es6-promise')
-require('babel-polyfill')
 import React from "react";
 import ReactDom from "react-dom";
 import {Provider} from "react-redux";
@@ -16,6 +14,9 @@ require('css/app.less');
 require('css/admin.less')
 require('css/ueditor.css')
 require('css/weixinAudio.css')
+require('components/course/courseitem.less')
+require('components/course/spdetail.less')
+require('css/layout.less')
 
 /*创建store*/
 const initialState = window.__INITIAL_STATE__ || ""

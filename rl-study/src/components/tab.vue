@@ -56,7 +56,7 @@
 </script>
 
 <style lang="less">
-  @import "../css/default.less";
+  @import "../css/constant.less";
   .weui-tabbar {
     position: fixed !important;
     .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon, .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon > i, .weui-tabbar__item.weui-bar__item_on .weui-tabbar__label {

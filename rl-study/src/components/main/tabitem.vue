@@ -60,7 +60,7 @@
 </script>
 
 <style lang="less">
-  @import "../../css/default.less";
+  @import "../../css/constant.less";
   .vux-tab .vux-tab-item {
     background: none !important;
   }

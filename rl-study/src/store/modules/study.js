@@ -1,7 +1,7 @@
 /**
  * Created by 1 on 2016/1/1.
  */
-import {getElectiveListApi, getInterestListApi, getObligatoryListApi} from "apis/studyapi";
+import {getElectiveListApi, getInterestListApi, getObligatoryListApi, getSpDetailListApi} from "apis/studyapi";
 import * as types from "../mutation-types";
 
 //initial state
@@ -57,6 +57,16 @@ const actions = {
       })
       .catch(error => {
 
+      })
+  },
+
+  getSpDetailListAction ({commit}, param){
+    return getSpDetailListApi(param)
+      .then(response => {
+        return response
+      })
+      .catch(error => {
+        alert(error)
       })
   }
 }

@@ -59,27 +59,12 @@
     <!--</section>-->
     <!--</div>-->
     <!--</transition>-->
-    <div class="list-wrapper">
 
-      <div class="list-item-wrapper" v-for="( item, index ) in electiveList " v-on:click="goToDetail(item.id)">
-        <div class="list-item-content">
-          <p class="list-item-title">{{item.title}}</p>
-          <p class="list-item-type">
-            <label>
-                          {{item.authorname}}
-                        </label>
-            <label>
-              {{item.view_num}}人观看 | {{item.comment_num}}评论
-                        </label>
-          </p>
-        </div>
-        <div class="list-item-img">
-          <img
-            :src="item.avator"
-          />
-        </div>
-      </div>
-    </div>
+    <CourseListItem
+      :courseList="electiveList"
+    >
+
+    </CourseListItem>
     <empty tip="暂无学习内容" v-if="electiveList && electiveList.length === 0"></empty>
   </div>
 </template>
@@ -87,6 +72,7 @@
 <script>
   import lifeMonitor from 'mixins/lifeMonitor'
   import  empty  from 'components/empty/empty.vue'
+  import CourseListItem from 'components/course/courseListItem.vue'
   export default {
     name: "elective",
     mixins: [lifeMonitor],
@@ -97,7 +83,8 @@
       this.$store.dispatch('getElectiveListAction').then(() => this.$vux.loading.hide())
     },
     components: {
-      empty
+      empty,
+      CourseListItem
     },
     data () {
       return {}
@@ -106,36 +93,12 @@
       electiveList: function () {
         return this.$store.state.study.electiveList
       }
-    },
-    methods: {
-      goToDetail(_id){
-        this.$router.push(`/detail/${_id}`)
-      }
     }
   }
 </script>
 
 <style lang="less">
-  @import "../../css/default.less";
-  .fly1-enter-active, .fly2-enter-active {
-    transition: all .5s;
-    transform: translateY(0px);
-  }
-
-  .fly1-leave-active {
-    transition: all .5s;
-    transform: translateY(62px);
-  }
-
-  .fly2-leave-active {
-    transition: all .5s;
-    transform: translateY(124px);
-  }
-
-  .fly1-enter, .fly1-leave, .fly2-enter, .fly2-leave {
-    transition: all .5s;
-    transform: translateY(30px);
-  }
+  @import "../../css/constant.less";
 
   .fade-enter, .fade-leave-active {
     opacity: 0

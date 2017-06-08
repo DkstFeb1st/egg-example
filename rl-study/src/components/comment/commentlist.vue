@@ -80,7 +80,7 @@
       this.$vux.loading.show({
         text: '疯狂加载中...'
       })
-      getCommentListApi(this.$route.params.id)
+      getCommentListApi({id: this.$route.params.id})
         .then(response => {
           this.$vux.loading.hide()
           if (response.status === 200 && response.data.status === 200) {
@@ -114,7 +114,7 @@
           .then(response => {
             if (response.status === 200 && response.data.status === 200) {
               this.commentList.subcomment[index].top_num = this.commentList.subcomment[index].top_num + 1
-              this.tops.push(_id)
+              this.tops.push(_item.id)
             } else {
               this.$vux.alert.show({
                 title: '提示',
@@ -128,7 +128,7 @@
           })
       },
       goComment: function () {
-        this.$router.push({path: `/detail/commentform/${this.$route.params.id}?root=false&id=${this.$route.query.sp_id}&userid=${this.$route.query.userid}`})
+        this.$router.push({path: `/detail/commentform/${this.$route.params.id}?root=false&id=${this.$route.query.sp_id}&custno=${this.$route.query.custno}`})
       },
       goTopList: function () {
         this.$router.push({path: `/detail/topList/${this.$route.params.id}`})
@@ -137,7 +137,7 @@
   }
 </script>
 <style lang="less">
-  @import "../../css/default.less";
+  @import "../../css/constant.less";
 
   header.detail-comment-header {
     line-height: 2;
