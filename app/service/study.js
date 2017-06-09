@@ -390,6 +390,9 @@ module.exports = app => {
                         model: this.ctx.model.Study,
                         as: "study",
                         required: false,
+                        where: {
+                            state: '3'
+                        },
                         include: [
                             {
                                 model: this.ctx.model.Category,
@@ -427,6 +430,9 @@ module.exports = app => {
                         model: this.ctx.model.Study,
                         as: "study",
                         required: false,
+                        where: {
+                            state: '3'
+                        }
                     }
                 ],
                 where: {
