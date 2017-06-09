@@ -293,7 +293,12 @@ class CategoryContainer extends React.Component {
             let param = {
                 id: obj.id,
                 type: '3',
-                category_id: cur_category
+                category_id: cur_category,
+                log: {
+                    sp_id: obj.id,
+                    userid: this.props.user.userid,
+                    content: "关联目录"
+                }
             }
             this.props.dispatch(updateSpRequest(param))
                 .then(response => {
@@ -333,6 +338,11 @@ class CategoryContainer extends React.Component {
                 id: cur_category,
                 type: '2',
                 category_id: '',
+                log: {
+                    sp_id: cur_category,
+                    userid: this.props.user.userid,
+                    content: "关联目录"
+                }
             }
             this.props.dispatch(updateSpRequest(param))
                 .then(response => {
