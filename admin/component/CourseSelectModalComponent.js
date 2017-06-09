@@ -34,8 +34,7 @@ class CourseSelectModalComponent extends React.Component {
                 authorcustno: this.props.user.userid,
                 current: 1,
                 pageSize: 10000,
-                type: '2',
-                state: '7'
+                type: '2'
             };
             getSpList(_param).then(response => {
                 if (response.status === 200 && response.data.status === 200) {

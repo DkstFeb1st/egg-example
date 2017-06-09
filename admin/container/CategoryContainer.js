@@ -591,7 +591,7 @@ class CategoryContainer extends React.Component {
                 </CategoryModalComponent>
                 <CourseSelectModalComponent
                     newKey={Math.random()}
-                    title="课程选择"
+                    title="课程选择(图文课程)"
                     visible={courseModalVisible}
                     handleCourseModalVisible={this.handleCourseModalVisible.bind(this)}
                     handleCourseModalSubmit={this.handleCourseModalSubmit.bind(this)}
