@@ -71,7 +71,7 @@ class CategoryContainer extends React.Component {
                                 type: "1",//系列课程
                                 id: study.id,
                                 log: {
-                                    sp_id: "",
+                                    sp_id: study.id,
                                     userid: this.props.user.userid,
                                     content: "培训资料修改"
                                 }

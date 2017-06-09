@@ -94,7 +94,7 @@ class DocumentModalComponent extends React.Component {
         return (
             <Modal
                 key={this.props.newKey}
-                width="580px"
+                width="680px"
                 title={this.props.title}
                 visible={this.props.visible}
                 onOk={this.handleSubmit.bind(this)}

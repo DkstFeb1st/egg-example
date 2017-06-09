@@ -351,15 +351,8 @@ module.exports = app => {
             }
             const result = yield this.ctx.service.study.updateSp(_param);
             if (result) {
-                let log = this.ctx.request.body.log;
-                const logresult = yield this.ctx.service.log.doCreate(log);
-                if (logresult) {
-                    this.ctx.body = {status: 200, msg: "修改成功"};
-                    this.ctx.status = 200;
-                } else {
-                    this.ctx.body = {status: 205, msg: "修改异常"};
-                    this.ctx.status = 200;
-                }
+                this.ctx.body = {status: 200, msg: "修改成功"};
+                this.ctx.status = 200;
             } else {
                 this.ctx.body = {status: 205, msg: "修改异常"};
                 this.ctx.status = 200;
@@ -386,18 +379,8 @@ module.exports = app => {
             }
             const result = yield this.ctx.service.study.createSp(_param);
             if (result) {
-                let log = this.ctx.request.body.log;
-                log = Object.assign({}, log, {
-                    sp_id: result.id
-                });
-                const logresult = yield this.ctx.service.log.doCreate(log);
-                if (logresult) {
-                    this.ctx.body = {status: 200, study: result, msg: "添加成功"};
-                    this.ctx.status = 200;
-                } else {
-                    this.ctx.body = {status: 202, msg: "插入异常"};
-                    this.ctx.status = 200;
-                }
+                this.ctx.body = {status: 200, study: result, msg: "添加成功"};
+                this.ctx.status = 200;
             } else {
                 this.ctx.body = {status: 202, msg: "插入异常"};
                 this.ctx.status = 200;

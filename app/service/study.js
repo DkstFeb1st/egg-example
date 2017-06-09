@@ -459,33 +459,51 @@ module.exports = app => {
          * 修改学习资料逻辑
          * */
         *updateSp(_param) {
-            return yield this.ctx.model.Study
-                .update(_param, {
-                    where: {
-                        id: _param.id
-                    }
-                })
-                .then(function (affectedCount) {
-                    console.log(affectedCount[0]);
-                    if (affectedCount[0] > 0) {
-                        return true;
-                    } else {
-                        return false;
-                    }
+            const t = yield this.ctx.model.transaction();
+            try {
+                const result = yield this.ctx.model.Study
+                    .update(_param, {
+                        where: {
+                            id: _param.id
+                        }
+                    }, {transaction: t})
+                let log = Object.assign({}, _param.log, {
+                    sp_id: _param.log.sp_id
                 });
+                const logresult = yield this.ctx.model.Log.create(log, {transaction: t})
+                yield t.commit()
+                return true
+            } catch (err) {
+                console.log(err)
+                yield t.rollback
+                return false
+            }
         }
 
         /*
          * 创建学习资料逻辑
          * */
         *createSp(_param) {
-            return yield this.ctx.model.Study.create(_param).then(function (sp) {
-                if (sp) {
-                    return sp;
-                } else {
-                    return false;
-        }
-            });
+            const t = yield this.ctx.model.transaction();
+            try {
+                const sp = yield this.ctx.model.Study.create(_param).then(function (sp) {
+                    if (sp) {
+                        return sp;
+                    } else {
+                        return false;
+                    }
+                });
+                let log = Object.assign({}, _param.log, {
+                    sp_id: sp.id
+                });
+                const logresult = yield this.ctx.model.Log.create(log, {transaction: t})
+                yield t.commit()
+                return sp
+            } catch (err) {
+                yield t.rollback
+                return false
+            }
+
     }
     }
     return Study;
