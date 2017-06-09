@@ -11,7 +11,7 @@
         <div class="user-data-wrapper">
           <div class="user-data-item">
             <p>{{spList.length}}</p>
-            <p>文章</p>
+            <p>课程</p>
           </div>
           <div class="user-data-item">
             <p>{{cmdList.length}}</p>

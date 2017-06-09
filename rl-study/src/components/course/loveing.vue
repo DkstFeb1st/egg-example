@@ -1,9 +1,11 @@
 <template>
-  <CourseListItem
-    :courseList="loveList"
-  >
-  </CourseListItem>
-  <empty tip="暂无课程" v-if="loveList && loveList.length === 0"></empty>
+  <div>
+    <CourseListItem
+      :courseList="loveList"
+    >
+    </CourseListItem>
+    <empty tip="暂无课程" v-if="loveList && loveList.length === 0"></empty>
+  </div>
 </template>
 <script>
   import {mapGetters} from 'vuex'
@@ -21,7 +23,8 @@
       ...mapGetters(['loveList'])
     },
     components: {
-      CourseListItem
+      CourseListItem,
+      empty
     }
   }
 </script>
