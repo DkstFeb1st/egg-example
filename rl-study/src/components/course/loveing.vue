@@ -3,10 +3,12 @@
     :courseList="loveList"
   >
   </CourseListItem>
+  <empty tip="暂无课程" v-if="loveList && loveList.length === 0"></empty>
 </template>
 <script>
   import {mapGetters} from 'vuex'
   import CourseListItem from 'components/course/courseListItem.vue'
+  import  empty  from 'components/empty/empty.vue'
   export default {
     name: 'loving',
     beforeMount: function () {

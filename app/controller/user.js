@@ -100,6 +100,9 @@ module.exports = app => {
                         fsp_id: x.sp_id
                     }
                 });
+                if (!x.study) {
+                    continue
+                }
                 let progress = (num / x.coursenum).toFixed(2);
                 x.study.progress = progress;
                 if (progress < 100) studyingList.push(x.study);
