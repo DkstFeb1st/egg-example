@@ -45,7 +45,9 @@ class VedioModalComponent extends React.Component {
     }
 
     beforeUpload(file) {
+
         this.props.vedioList.push(file)
+
     }
 
     /*
@@ -106,7 +108,6 @@ class VedioModalComponent extends React.Component {
                 message.warning('请输入视频地址！')
             } else {
                 //替换宽度和高度
-
                 this.props.handleVedioLinkInsert(link)
             }
         }
@@ -185,8 +186,10 @@ class VedioModalComponent extends React.Component {
 
                                         <span className="lbl_content"><span
                                             style={{"color": "red"}}>{ obj.status === '0' ? '(转码中)' : '' }</span>{obj.name}</span>
-                                        <Progress showInfo={false} percent={obj.percent ? obj.percent : 0}
-                                                  strokeWidth={5} className={obj.percent ? "" : "hide"}/>
+                                        <Progress
+
+                                            percent={obj.percent ? obj.percent.toFixed(2) : 0}
+                                            strokeWidth={5} className={obj.percent ? "progress" : "hide"}/>
                                         <div className="selected_mask">
                                             <div className="selected_mask_inner"/>
                                             <div className="selected_mask_icon"/>

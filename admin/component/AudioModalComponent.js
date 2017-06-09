@@ -166,7 +166,8 @@ class AudioModalComponent extends React.Component {
                                                   style={{width: "0%"}}></span>
                                         </span>
                                     </span>
-                                    <Progress showInfo={false} percent={obj.percent ? obj.percent : 0} strokeWidth={5}
+                                    <Progress showInfo={true} percent={obj.percent ? obj.percent.toFixed(2) : 0}
+                                              strokeWidth={5}
                                               className={obj.percent ? "" : "hide"}/>
                                 </p>
                             )
