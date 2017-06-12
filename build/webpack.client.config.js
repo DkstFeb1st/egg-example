@@ -17,6 +17,7 @@ const config = merge(base, {
     new webpack.optimize.CommonsChunkPlugin({
         name: ['vendor']
     }),
+      new ExtractTextPlugin("[name].[hash].css"),
     // generate output HTML
     new HTMLPlugin({
         title: '农商学习微平台',

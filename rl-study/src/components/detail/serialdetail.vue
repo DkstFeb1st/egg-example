@@ -228,7 +228,6 @@
   .serialdetail-wrapper {
     header.spserialdetail-header {
       img {
-        max-height: 130px;
         width: 100%;
       }
     }

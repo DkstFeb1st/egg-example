@@ -9,8 +9,7 @@ const webpackConfig = {
       'vue',
       'vue-router',
       'vuex',
-        'vuex-router-sync',
-        'vux'
+        'vuex-router-sync'
     ]
   },
   output: {

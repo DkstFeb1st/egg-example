@@ -24166,7 +24166,7 @@
                 'music': {
                     execCommand: function (cmd, musicObj) {
                         var me = this,
-                            str = creatInsertStr(musicObj.url, musicObj.name, false);
+                            str = creatInsertStr(musicObj.url, musicObj.name, musicObj.duration, false);
                         me.execCommand("inserthtml", str);
                     },
                     queryCommandState: function () {
