@@ -429,7 +429,7 @@ module.exports = app => {
                     {
                         model: this.ctx.model.Study,
                         as: "study",
-                        required: false,
+                        required: true,
                         where: {
                             state: '3'
                         }

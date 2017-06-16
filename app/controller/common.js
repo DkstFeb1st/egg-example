@@ -198,8 +198,8 @@ module.exports = app => {
                                                 var x = part
                                                 ffmpeg(`${vedio_dir}${part.filename}`)
                                                     .videoCodec('libx264')
-                                                    .size('320x240')
-                                                    .videoBitrate('512k')
+                                                    .size('720x480')
+                                                    .videoBitrate('1024k')
                                                     .audioBitrate('128k')
                                                     .output(`${vedio_codec_dir}${part.filename}`)
                                                     .on("end", function () {

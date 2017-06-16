@@ -11,7 +11,8 @@ import "./css/animate.css";
 import "./css/weixinAudio.css";
 // create the app instance.
 // here we inject the router and store to all child components,
-import {AlertPlugin, ConfirmPlugin, LoadingPlugin, ToastPlugin} from "vux";
+//import { AlertPlugin, ConfirmPlugin, LoadingPlugin, ToastPlugin} from "vux";
+import {AlertPlugin, ConfirmPlugin, LoadingPlugin, ToastPlugin} from 'vux'
 require('es6-promise')
 require('babel-polyfill')
 
